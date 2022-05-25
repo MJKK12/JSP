@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트에서 사용되는 데이터 타입에 대해서 알아봅니다.</title>
+
+<style type="text/css">
+
+   div#container {
+   /*  border: solid 1px gray; */
+      width: 90%;
+      margin: 0 auto;
+      padding: 2%;
+   }
+   
+   table, tr, th, td {
+      border: solid 1px gray;
+      border-collapse: collapse;
+   }
+   
+   td {
+      width: 200px;
+      height: 50px;
+      text-align: center;
+   } 
+
+</style>
+
+</head>
+<body>
+
+   <div id="container">
+      <table>
+         <tr>
+            <th>데이터 값</th>
+            <th>형변환 후 데이터 값</th>
+            <th>데이터 타입</th>
+         </tr>
+         
+         <tr>
+            <td id="val1">1234</td>
+            <td></td>
+            <td id="typeval1"></td>
+         </tr>
+         
+         <tr>
+            <td id="val2"><span style="color: blue;">1234</span></td>
+            <td>parseInt(1234) => <span id="casting2"></span> </td>
+            <td id="typeval2"></td>
+         </tr>
+         
+         <tr>
+            <td id="val3"><span style="color: red;">1234.567</span></td>
+            <td>parseFloat(1234.567) => <span id="casting3"></span> </td>
+            <td id="typeval3"></td>
+         </tr>
+         
+         <tr>
+            <td id="val4">1234.567</td>
+            <td>parseInt(1234.567) => <span id="casting4"></span></td>
+            <td id="typeval4"></td>
+         </tr>
+         
+         <tr>
+            <td id="val5">1234</td>
+            <td>Number(1234) => <span id="casting5"></span></td>
+            <td id="typeval5"></td>
+         </tr>
+         
+         <tr>
+            <td id="val6">1234.567</td>
+            <td>Number(1234.567) => <span id="casting6" style="color: blue;"></span></td>
+            <td id="typeval6"></td>
+         </tr>
+         
+         <tr>
+            <td id="val7" colspan="2">안녕하세요</td>
+            <td id="typeval7"></td>
+         </tr>
+         
+         <tr>
+            <td id="val8">20</td>
+            <td id="val9">30</td>
+            <td>20+30=<span id=sum></span>&nbsp;&nbsp;<span id="typeval8"></span></td>
+         </tr>
+         
+         <tr>
+            <td id="val10">30</td>
+            <td>30은 30과 같다 <span id="result10"></span></td>
+            <td id="typeval10"></td>
+         </tr>
+         
+         <tr>
+            <td id="val11">30</td>
+            <td>20이 30보다 큽니다 <span id="result11"></span></td>
+            <td id="typeval11"></td>
+         </tr>
+         
+         <tr>
+            <td colspan="2">변수에 값을 넣지 않은 경우</td>
+            <td id="typeval12"></td>
+         </tr>
+         
+         <tr>
+            <td colspan="2">var person1 = {};</td>
+            <td id="typeval13"></td>
+         </tr>
+         
+         <tr>
+            <td>person1.userid</td>
+            <td id="val14"></td>
+            <td id="typeval14"></td>
+         </tr>
+         
+         <tr>
+            <td>person1.pwd</td>
+            <td id="val15"></td>
+            <td id="typeval15"></td>
+         </tr>
+         
+         <tr>
+            <td>person1.name</td>
+            <td id="val16"></td>
+            <td id="typeval16"></td>
+         </tr>
+         
+         <tr>
+            <td>person1.age</td>
+            <td id="val17"></td>
+            <td id="typeval17"></td>
+         </tr>
+         
+         <tr>
+            <td colspan="2">const person2 = {userid:"eomjh", pwd:'abcd1234', name:"엄정화", age:27};</td>
+            <td id="typeval18"></td>
+         </tr>
+         
+         <tr>
+            <td>person2.userid</td>
+            <td id="val19"></td>
+            <td id="typeval19"></td>
+         </tr>
+         
+         <tr>
+            <td>person2.pwd</td>
+            <td id="val20"></td>
+            <td id="typeval20"></td>
+         </tr>
+         
+         <tr>
+            <td>person2.name</td>
+            <td id="val21"></td>
+            <td id="typeval21"></td>
+         </tr>
+         
+         <tr>
+            <td>person2.age</td>
+            <td id="val22"></td>
+            <td id="typeval22"></td>
+         </tr>
+         
+         <tr>
+            <td id="val23">40</td>
+            <td id="val24">50</td>
+            <td>func_sum("40","50")을 호출한 결과 => <span id="result25"></span></td>
+         </tr>
+         
+         <tr>
+            <td id="val25">90</td>
+            <td id="val26">70</td>
+            <td>90-70=<span id="result27"></span>&nbsp;&nbsp;변수 func_minus 의 타입은 <span id="typeval27"></span></td>
+         </tr>
+         
+         <tr>
+            <td id="val27">20</td>
+            <td id="val28">30</td>
+            <td>20*30=<span id="result28"></span><br/>
+                20*30=<span id="result29"></span><br/>
+                20*30=<span id="result30"></span><br/>
+                20*5=<span id="result31"></span><br/>
+                20*10=<span id="result32"></span><br/>
+            &nbsp;&nbsp;변수 func_multiply 의 타입은 <span id="typeval28"></span></td>
+         </tr>
+         
+      </table>
+   </div>
+   
+   <script type="text/javascript">
+   		// 1줄 주석문
+   		
+   		/*
+   			여러줄
+   			주석문
+ 		*/  		
+   		
+		const val1 = document.getElementById("val1").innerText;
+   		console.log("val1 =>" + val1)	// val1 => 1234
+   		console.log("변수 val1 의 타입 => " + typeof(val1));	// 변수 val1 의 타입 => string
+   		// typeof(val1) 은 변수 val1 의 데이터타입을 알려주는 것이다.
+   		
+   		document.getElementById("typeval1").innerText = typeof(val1);		// string
+  		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  		
+   		const val2 = document.getElementById("val2").innerText;
+   		console.log("val2 =>" + val2);			 // val2 =>1234 (innerText : 데이터 값만 읽어옴.)
+   		// console.log 는 개발자도구의 console 에서 확인
+   		
+   		const val2_1 = document.getElementById("val2").innerHTML;
+   		console.log("val2_1 =>" + val2_1);		// val2_1 =><span style="color: blue;">1234</span> (innerHTML : id="val2" 에 포함된 태그까지 모두 가져옴.)
+
+   		document.getElementById("casting2").innerHTML = parseInt(val2);
+   		document.getElementById("typeval2").innerHTML = "<span style='color:blue'>"+typeof( parseInt(val2) )+"</span>";		// number(정수,Int)
+  		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+  		const val3 = document.getElementById("val3").innerText;		// 1234.567 // 태그값까지 불러오지 않고, text 값만 불러온다.
+  		document.getElementById("casting3").innerHTML = parseFloat(val3);
+  		document.getElementById("typeval3").innerHTML = "<span style='color:red'>"+typeof( parseFloat(val3) )+"</span>";	// number(실수,float)
+  		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+   		const val4 = document.getElementById("val4").innerText;		// 1234.567
+   		document.getElementById("casting4").innerHTML = parseInt(val4);		// 1234 - parseInt 를 씀으로써 소수부를 절삭함.
+   		document.getElementById("typeval4").innerHTML = typeof( parseInt(val4) );	// number(실수,float)
+  		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+   		const val5 = document.getElementById("val5").innerText;		// 1234
+   		document.getElementById("casting5").innerHTML = Number(val5);
+   		document.getElementById("typeval5").innerHTML = typeof( Number(val5) );
+  		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+   		const val6 = document.getElementById("val6").innerText;		// 1234.567
+   		document.getElementById("casting6").innerHTML = Number(val6);
+   		document.getElementById("typeval6").innerHTML = typeof( Number(val6) );
+   		
+   		// **실수, 정수가 들어와도 똑같이 데이터타입은 Number 이다. 실수인데 parseInt 하면 절삭이다.
+  		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		const val7 = document.getElementById("val7").innerText;	// 안녕하세요
+		document.getElementById("typeval7").innerHTML = typeof((val7));
+  		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		const val8 = document.getElementById("val8").innerText;	// "20"
+		const val9 = document.getElementById("val9").innerText;	// "30"
+  		
+	//	document.getElementById("sum").innerHTML = val8 + val9;	//"20"+"30"	==> 2030; (X)
+		document.getElementById("sum").innerHTML = Number(val8) + Number(val9);	// 20+30 ==> 50; (O)
+		document.getElementById("typeval8").innerHTML = typeof( Number(val8) + Number(val9) );	// 20+30 ==> 50; (O)
+		
+  		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		const val10 = document.getElementById("val10").innerText;	// "30"	
+		
+		let bool;
+		
+		if(val9 == val10) { // 자바스크립트에서는 문자열값을 비교할때도 == 를 사용한다. (자바는 문자열.equals)
+			bool = true;
+		}
+  		else {
+  			bool = false;
+  		}
+		
+		document.getElementById("result10").innerHTML = bool;
+		document.getElementById("typeval10").innerHTML = typeof(bool);
+
+  		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		const val11 = document.getElementById("val11").innerText;
+  		if( Number(val8) > Number(val11) ) {
+  			// 자바스크립트에서 숫자를 비교한다.
+  			// Number("20") > Number("30")
+  			// 20 > 30
+  			bool = true;
+  		}
+  		else {
+  			bool = false;
+  		}
+		document.getElementById("result11").innerHTML = bool;
+		document.getElementById("typeval11").innerHTML = typeof(bool);
+
+  		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		let val12;	 
+		document.getElementById("typeval12").innerHTML = typeof(val12);	// undefined : 해당 변수에 값을 넣지 않았을 때
+
+  		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		// ==== !!!! 자바스크립트에서 사용되는 객체 사용법 !!!! ==== //		
+		const person1 = {}; 		// {} 이 자바스크립트에서 말하는 객체이다.
+		person1.userid = "leess";	// 객체명.속성명 = 값; 으로 한다.		문자열
+		person1.pwd = 'qwer1234';	// 객체명.속성명 = 값; 으로 한다.		String
+		person1["name"] = "이순신";	// 객체명["속성명"] = 값; 으로 한다.  String
+		person1["age"] = 27;		// 객체명["속성명"] = 값; 으로 한다.  숫자
+		
+		document.getElementById("typeval13").innerHTML = typeof(person1);			// object
+  		
+		document.getElementById("val14").innerHTML = person1.userid;	 		
+		document.getElementById("typeval14").innerHTML = typeof(person1.userid);	// string
+  		
+		document.getElementById("val15").innerHTML = person1.pwd;	 		
+		document.getElementById("typeval15").innerHTML = typeof(person1.pwd);		// string
+  		
+		document.getElementById("val16").innerHTML = person1.name;	 		
+		document.getElementById("typeval16").innerHTML = typeof(person1.name);		// string
+  		
+		document.getElementById("val17").innerHTML = person1.age;	 		
+		document.getElementById("typeval17").innerHTML = typeof(person1.age);		// number
+
+  		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  		
+  		
+		const person2 = {userid:"eomjh", 
+						 pwd:'abcd1234', 
+						 name:"엄정화", 
+						 age:27};		// {속성명1:값1, 속성명2:값2, 속성명3:값3, 속성명4:값4} 이 자바스크립트에서 말하는 객체이다.
+  		
+		
+		document.getElementById("typeval18").innerHTML = typeof(person2);			// object
+  		
+		document.getElementById("val19").innerHTML = person2.userid;	 		
+		document.getElementById("typeval19").innerHTML = typeof(person2.userid);	// string
+  		
+		document.getElementById("val20").innerHTML = person2.pwd;	 		
+		document.getElementById("typeval20").innerHTML = typeof(person2.pwd);		// string
+  		
+		document.getElementById("val21").innerHTML = person2.name;	 		
+		document.getElementById("typeval21").innerHTML = typeof(person2.name);		// string
+  		
+		document.getElementById("val22").innerHTML = person2.age;	 		
+		document.getElementById("typeval22").innerHTML = typeof(person2.age);		// number  		
+		
+  		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		// ==== 함수 호출하기 ==== // 		
+		const val23 = document.getElementById("val23").innerText;		// "40" (String 타입)
+		const val24 = document.getElementById("val24").innerText;		// "50"
+		
+		document.getElementById("result25").innerHTML = func_sum(val23, val24);	// 40+50
+		
+		
+		// 자바스크립트에서 함수를 선언하는 방법 : 함수 선언식 (Function declaration)
+		function func_sum(num1, num2) {
+			
+			if( typeof(num1) == 'string' ) {		// num1 의 타입이 String 이라면, 
+				num1 = Number(num1);				// num1 을 숫자 40으로 바꾸고 num1 에 넣어주겠다.
+			}
+			
+			if( typeof(num2) == 'string' ) {
+				num2 = Number(num2);
+			}		
+			
+			return num1 + num2;
+		}// end of function func_sum(num1, num2)--------------------------------
+
+		
+		// ==== !!! 자바스크립트에서는 함수도 변수에 넣을 수 있다. ① !!! ==== // 	
+		// 자바스크립트에서 함수를 선언하는 방법 : 함수 표현식(Function Expression)
+		const func_minus = function(num1, num2) {
+			
+			if( typeof(num1) == 'string' ) {		// num1 의 타입이 String 이라면, 
+				num1 = Number(num1);				// num1 을 숫자 40으로 바꾸고 num1 에 넣어주겠다.
+			}
+			
+			if( typeof(num2) == 'string' ) {
+				num2 = Number(num2);
+			}		
+			
+			return num1 - num2;			
+		};
+		
+		const val25 = document.getElementById("val25").innerText;		// "90" (String 타입)
+		const val26 = document.getElementById("val26").innerText;		// "70"
+		
+		document.getElementById("result27").innerHTML = func_minus(val25, val26);	// 함수 타입의 변수.이기 때문에 (val25, val26)를 추가해서 넣는다.
+		document.getElementById("typeval27").innerHTML = typeof(func_minus);		// function (함수타입)
+		
+  		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+  		// ==== !!! 자바스크립트에서는 함수도 변수에 넣을 수 있다. !!! ② ==== // 	
+  		//  "화살표 함수" 란?
+	    // ES6(ECMAScript 6) 에서 처음으로 소개된 것으로써 화살표(=>)를 사용하여 함수를 선언하는 방법이다. 
+	    // 다른말로 람다 표현식(lambda expression) 부른다. 
+	    // 이것은 function 과 return 을 생략하기 위해서 개발한 것이다.		
+		const func_multiply = (num1, num2) => {
+
+			if(typeof(num1)=='string') {			// 입력받은 num1 이 string 타입 이라면, Number 로 바꿔라.
+				num_1 = Number(num1);
+			}
+			
+			if(typeof(num2)=='string') {
+				num_2 = Number(num2);
+			}
+			
+  			return `${num1 * num2}`;	// 앞뒤에 백틱 ``을 쓰고 ${} 달러 중괄호를 차례로 넣고 그 안쪽에 변수를 넣어준다.
+  		};
+  		
+  		const func_multiply_2 = (num1, num2) => { return `${num1*num2}` };		// 두개를 곱해서 return 으로 넘겨준다. (람다는 생략을 많이 함.)
+  		
+  		const func_multiply_3 = (num1, num2) => `${num1*num2}`;					// 함수의 내용물이 return 값만 있을 경우에는 {} 와 return 을 생략할 수 있다.
+
+  		const func_multiply_4 = num => `${num*5}`;								// 매개변수가 1개만 있을 경우 매개변수의 ()를 생략할 수 있다.
+
+  		const func_multiply_5 = num => {return 200};							// 매개변수가 없을 경우 매개변수의 ()를 사용해야 하며, return 이 있을 경우에는 {}를 사용해야 한다. (200 만 준다.)
+
+		const val27 = document.getElementById("val27").innerText;		// "20" 
+		const val28 = document.getElementById("val28").innerText;		// "30"
+		
+		document.getElementById("result28").innerHTML = func_multiply(val27, val28);	// 함수 타입의 변수.이기 때문에 (val25, val26)를 추가해서 넣는다.
+		document.getElementById("result29").innerHTML = func_multiply_2(val27, val28);	// 함수 타입의 변수.이기 때문에 (val27, val28)를 추가해서 넣는다.
+		document.getElementById("result30").innerHTML = func_multiply_3(val27, val28);	
+		document.getElementById("result31").innerHTML = func_multiply_4(val27);	
+		document.getElementById("result32").innerHTML = func_multiply_5();	
+		document.getElementById("typeval28").innerHTML = typeof(func_multiply);			// function (함수타입)
+		
+		
+		
+		
+   		
+   </script>
+
+</body>
+</html>

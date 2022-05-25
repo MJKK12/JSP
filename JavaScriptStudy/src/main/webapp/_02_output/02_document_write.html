@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>document.write() 를 사용하여 결과물 나타내기</title>
+
+</head>
+<body>
+
+<h1>안녕하세요? 나의 웹페이지 입니다.</h1>
+<p>첫번째 p태그 입니다.</p>
+
+<button type="button" onclick="myFunction()">클릭하세요</button>	<!-- myFunction() 을 불러오고자 한다. -->
+
+<script type="text/javascript">
+
+	function myFunction() {
+		document.write("<span style='color:red'>안녕하세요</span>");	
+		// document.write() 를 실행하면 모든 HTML 내용물이 삭제가 된 후 ()속에 들어있는 것으로 만든다.
+	}
+
+</script>
+</body>
+</html>

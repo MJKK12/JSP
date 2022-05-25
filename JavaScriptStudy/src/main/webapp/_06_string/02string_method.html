@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>string 의 method 에 대해서 알아봅니다 -1</title>
+</head>
+<body>
+
+<h2>
+    문자열.slice(startIndex, endIndex)<br/>
+    문자열.substring(startIndex, endIndex)<br/>
+    문자열.substr(startIndex, length)<br/>
+</h2>
+<p id="slice_forward"></p>
+<p id="slice_reverse"></p>
+<p id="substring"></p>
+<p id="substr_forward1"></p>
+<p id="substr_forward2"></p>
+<p id="substr_reverse1"></p>
+<p id="substr_reverse2"></p>
+<p id="str"></p>
+
+<script type="text/javascript">
+
+/*
+	자바스크립트에서 문자열을 발췌하여 리턴하는 메소드는 3가지가 있다.
+	3가지 모두 원본 문자열은 변경되지 않고 그대로 유지하게 된다.
+	
+	1. "문자열".slice(startIndex, endIndex)
+	--> 문자열에서 startIndex 부터 endIndex 앞 까지만 발췌하여 리턴해준다.
+	    역방향을 사용시 startIndex 와 endIndex 에 -를 사용하면 된다. 
+*/
+
+	let str = "Apple, Banana, Kiwi";
+	let part = str.slice(7, 13);		//"Banana"
+	document.getElementById("slice_forward").innerHTML = part; 	//"Banana"
+	
+	part = str.slice(-12, -6)		// - 는 역방향임. "Banana"
+	document.getElementById("slice_reverse").innerHTML = part;	//"Banana"
+	
+/*
+   2. "문자열".substring(startIndex, endIndex)
+   --> 문자열에서 startIndex 부터 endIndex 앞 까지만 발췌하여 리턴해준다.
+       위의 slice 와 같지만 차이점은 - 를 사용하여 *역방향을 사용할 수 없다*는 것이다.
+*/	
+	part = str.substring(7, 13);		//"Banana"
+	document.getElementById("substring").innerHTML = part; 	//"Banana"
+
+/*
+	3. "문자열".substr(startIndex, length)
+	--> 문자열에서 startIndex 부터 length 길이만큼 발췌하여 리턴해준다.
+	    출발점을 역방향으로 하려면 -startIndex 을 사용하면 된다.
+	    
+	--> "문자열".substr(startIndex) 
+	    문자열에서 startIndex 부터 문자열 끝까지 발췌하여 리턴해준다.
+	    출발점을 역방향으로 하려면 -startIndex 을 사용하면 된다.
+*/		
+
+	part = str.substr(7, 6);	
+	document.getElementById("substr_forward1").innerHTML = part; 	//"Banana"
+	
+	part = str.substr(7);	
+	document.getElementById("substr_forward2").innerHTML = part; 	//"Banana, Kiwi"
+		
+	part = str.substr(-12, 6)
+	document.getElementById("substr_reverse1").innerHTML = part; 	//"Banana"
+	
+	part = str.substr(-12)
+	document.getElementById("substr_reverse2").innerHTML = part; 	//"Banana, Kiwi"
+	
+	document.getElementById("str").innerHTML = str; 	//"Apple, Banana, Kiwi" (원본은 바뀌지 않는다.)
+	
+	
+</script>
+
+</body>
+</html>

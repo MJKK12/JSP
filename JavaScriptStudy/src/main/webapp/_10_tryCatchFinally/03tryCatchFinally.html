@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>try catch</title>
+
+<script type="text/javascript">
+
+	window.onload = function() {
+	
+		try{
+			func_plus(2,3);
+		} catch(e) {
+			console.log(e);
+			// ReferenceError: func_plus is not defined
+			
+			document.querySelector("div#error").innerHTML = "<span style ='color:red'>오류발생 : "+e+"</span>";
+		} finally {		
+			document.querySelector("div#mydiv").innerHTML = "<span style ='color:blue'>안녕하세요?</span>";
+		}
+		
+	}// end of window.onload = function(){}----------------------------------------	
+	
+</script>
+
+</head>
+<body>
+	<div id="error"></div>
+	<div id="mydiv"></div>
+</body>
+</html>

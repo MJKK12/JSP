@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>현재 날짜시간을 이용하여 시계만들기</title>
+
+<style type="text/css">
+
+	div#container {
+		/* border: solid 1px gray; */
+		width: 90%;
+		margin: 0 auto;
+		padding: 2%;
+	}
+	
+	table {
+		border-collapse: collapse;
+		width: 50%;		
+	}
+	
+	td {
+		border: solid 1px gray;
+		height: 50px;
+		text-align: center;
+	}
+	
+	td#currentDate {
+		color: red;
+		font-size:  14pt;
+	}
+
+	td#nowDate {
+		color: blue;
+		font-size:  14pt;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	window.onload = function() {
+		
+		function func_timebomb_1() {
+			alert("func_timebomb_1 alert 문구 테스트");
+		}
+
+		const func_timebomb_2 = function() {
+			alert("func_timebomb_2 alert 테스트 두번째 입니다~~")
+		}
+
+	/*
+		setTimeout( func_timebomb_1, 3000 ); 
+		// 3000 밀리초(3초) 후에 func_timebomb_1 함수를 실행하라는 말이다.
+		
+		setTimeout( func_timebomb_2, 6000 ); 
+		// 6000 밀리초(6초) 후에 func_timebomb_2 함수를 실행하라는 말이다.
+		// 문서가 로딩 되면 시한폭탄 처럼 alert 문구를 3,6 초 뒤에 뜨게 하고자 한다. → func_timebomb() 함수 생성
+		// 함수명 뒤에 ()를 붙이지 않는다.
+	*/	
+		
+		function func_timebomb_1_loop() {	// 반복
+			func_timebomb_1();	// func_timebomb_1 의 alert 문구를 띄운다.
+			setTimeout(func_timebomb_1_loop, 3000);	// 3초 후에 자기 자신인 func_timebomb_1_loop 함수를 호출한다. (무한 반복 loop)
+		}
+		
+	//	func_timebomb_1_loop();
+	//	문서가 로딩 된 후 func_timebomb_1_loop 함수가 호출된다. 
+		
+		/*
+        자바스크립트 new Date() 란?
+        ==>  new Date() 는 new Date() 가 실행되는 시점에 날짜 및 시간 데이터를 갖고 오는 것이다.
+             출력하게 되면 요일명 월 일 년도 시:분:초 GMT기준시간을 표시해준다.
+         
+             자바스크립트 get날짜함수란? 
+        ==>  getFullYear / getMonth / getDate 등 get날짜함수는 날짜 데이터에서 필요한 형식만 갖고 오는 함수이다.
+            
+           종류                            리턴값
+           -----------------------------------
+           	 getFullYear()      YYYY
+             getMonth()         MM     자바스크립트의 월은 0부터 시작하기 때문에 1을 더해야 정상적인 월이 된다.
+             getDate()          DD
+             getDay()           0 ~ 6 (일 ~ 토)
+             getHours()         HH
+             getMinutes()       MM
+             getSeconds()       SS
+             getMilliseconds()  mmm
+        
+         자바스크립트 set날짜함수란? 
+        ==> setFullYear / setMonth / setDate 등 set날짜함수는 날짜 데이터의 원하는 형식의 값으로 대입해주는 함수이다.
+            종류 : setFullYear(), setMonth(), setDate(), 
+            setHours(), setMinutes(), setSeconde(), setMilliseconds()
+      */	
+      
+      	function func_currentDate() {
+        		const now = new Date();
+        		// 자바스크립트에서 현재날짜시각을 알려주는 것이다.
+        		
+        		// console.log(now);
+        		// 요일명 월 일	년도	 시	분  초 GMT 기준시간
+        		// Thu Feb 17 2022 09:39:52 GMT+0900 (한국 표준시)
+        		
+        		// console.log(now.toLocaleString());
+        		// 2022. 2. 17. 오전 9:40:44
+        		
+        		const year = now.getFullYear();	// 현재년도만 가져오자.
+        		let month = now.getMonth() + 1;	// 현재 월 (자바스크립트의 월은 0부터 시작하기 때문에 1을 더해야 정상적인 월이 된다.)
+        		let date = now.getDate();		// 현재일
+        		
+        		let hours = now.getHours();		// 현재 시
+        		let minutes = now.getMinutes();	// 현재 분
+        		let seconds = now.getSeconds();	// 현재 초
+        		
+        		const day = now.getDay();		// 현재 요일명(0~6, 일~토)
+        		
+        		let dayName = "";		
+        		switch(day) {
+        			case 0:
+        				dayName = "일요일";
+        				break;
+        			
+        			case 1:
+        				dayName = "월요일";
+        				break;
+        			
+        			case 2:
+        				dayName = "화요일";
+        				break;
+        			
+        			case 3:
+        				dayName = "수요일";
+        				break;
+        			
+        			case 4:
+        				dayName = "목요일";
+        				break;
+        			
+        			case 5:
+        				dayName = "금요일";
+        				break;
+
+        			case 6:
+        				dayName = "토요일";
+        				break;
+        		}
+        		
+        		if(month < 10) 
+        			month = "0" + month; 		// 02월 (그냥 2월이 아니라 02월이 되게끔)
+        		
+        		if(date < 10) 
+        			date = "0" + date;			// 03일
+        		
+        		if(hours < 10) 
+        			hours = "0" + hours;		// 03시
+        		
+        		if(minutes < 10) 
+        			minutes = "0" + minutes;	// 03분
+        		
+        		if(seconds < 10) 
+        			seconds = "0" + seconds;	// 03초					
+        		
+        		const today = `${year}-${month}-${date} ${hours}:${minutes}:${seconds} ${dayName}`;
+        		
+        	 //	console.log(today);
+           	 // 2022-02-17 10:05:01 목요일 (if 함수를 통해서 00 형식으로 맞춘다.)
+           	 
+           	 	return today;
+        		            	
+        }// end of function func_currentDate()--------------------------------
+      	
+        // console.log(func_currentDate());
+        // 2022-02-17 10:23:02 목요일
+        
+		function func_currentDate_loop() {
+			document.querySelector("td#currentDate").innerHTML = func_currentDate(); 
+			// func_currentDate() 함수를 돌리면 값을 받아서 (매번 1초마다) HTML 에 넣어라.		
+			setTimeout(func_currentDate_loop, 1000);	// 1초 후에 자기자신인 func 를 호출
+			// 1000 밀리초(1초) 후에 func_currentDate_loop 함수를 실행하라는 말이다.
+		}
+		
+		func_currentDate_loop();		// func 함수를 만든 후 호출한다.
+		
+		function func_nowDate() {
+			document.querySelector("td#nowDate").innerHTML = func_currentDate();
+		}
+		
+		func_nowDate();	// func_nowDate() 함수 호출
+		setInterval(function(){ func_nowDate(); }, 1000);	// 매번 1초마다 주기적으로 {}를 실행 하세요.
+		// 주기적으로 1000 밀리초 (1초) 마다 func_nowDate(); 를 실행하라는 말이다.
+		
+		
+		
+	} //end of window.onload---------------------------------------------
+
+</script>	
+
+</head>
+<body>
+
+	<div id="container">
+		<table>
+			<tr>
+				<td width="40%">현재날짜시각1</td>
+				<td id="currentDate"></td>
+			</tr>		
+			<tr>
+				<td>현재날짜시각2</td>
+				<td id="nowDate"></td>
+			</tr>		
+		</table>
+	</div>
+
+</body>
+</html>

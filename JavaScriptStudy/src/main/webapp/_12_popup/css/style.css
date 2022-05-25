@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+div#container {
+	display: flex;
+	border: solid 1px red;
+	width: 80%;
+	margin: 20px auto;
+}
+
+div#container > div#display {
+	border: solid 1px blue;
+	width: 80%;
+	margin: auto;
+}
+
+table#tbl {
+	border: solid 1px gray;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th, td {
+	border: solid 1px gray;
+}
+
+th {
+	padding: 1%;
+}
+td {
+	padding: 2%;	
+}
+
+#tbl > thead:nth-child(1) > tr:nth-child(1) > th {
+	color: tomato;
+	font-size: 20pt;
+	border: solid 0px gray;
+	line-height: 250%;
+}
+
+#tbl > tbody > tr > td:nth-child(1) > img {	
+	width: 30%;
+	cursor: pointer;
+}
+
+#tbl > tbody > tr > td:last-child {
+	color: blue;
+	font-size: 12pt;
+	text-align: right;
+}
+
+#tbl > tfoot > tr > td:last-child {
+	color: red;
+	font-size: 12pt;
+	text-align: right;
+}
+

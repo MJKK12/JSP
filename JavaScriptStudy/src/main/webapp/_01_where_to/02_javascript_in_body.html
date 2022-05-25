@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>스크립트 태그는 body 태그내에 위치해도 됩니다.</title>
+</head>
+<body>
+
+<h2>스크립트 태그는 body 태그내에 위치해도 됩니다.</h2>
+
+<p id="demo">변경전 p태그</p>
+<button type="button" onclick="myFunction()">클릭하세요</button>	<!-- myFunction() 을 불러오고자 한다. -->
+
+<script type="text/javascript">
+
+	function myFunction() {
+		document.getElementById("demo").innerHTML = '<span style="color:blue;">p태그의 내용이 변경되었습니다.<span>';	/* 대소문자 구문 할 것 , p태그 가져오기. */
+		/*innerHTML 은 p태그 내용을 말하는 것. innerHTML 안에 = 뒤의 ""문구가 들어간다. */
+	}
+
+</script>
+</body>
+</html>

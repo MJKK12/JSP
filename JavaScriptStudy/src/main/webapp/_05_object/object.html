@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 object 에 대해서 알아봅니다.</title>
+</head>
+<body>
+
+<h2>자바스크립트 object 에 대해서 알아봅니다.</h2>
+
+<div id="view-1"></div>
+<div id="view-2"></div>
+<div id="view-3"></div>
+<div id="view-4"></div>
+
+<script type="text/javascript">
+
+	const member1 = {
+			id		: "leess",
+			passwd	: "qwer1234$",
+			name	: "이순신",
+			address	: "서울시 마포구",
+			mobile	: "010-1234-5678",
+			info1	: function() {
+				return this.id + " " + this.name + " " + this.address; 	// 여기서 this 는 member1 객체를 가리킴. (id,name,address 문자열들을 묶어서 return 하겠다.)
+			},
+			
+			info2() { // ECMAScript 6 에서는 속성값이 함수이면 function 키워드 없이 함수명만 적으면 된다. // info2 는 function 생략하고 () 만 씀. 어차피 함수이다.
+				return this.id + " " + this.name + " " + this.address; 
+			}
+	};
+	
+	// document.getElementById("view-1").innerHTML = member1.info1;
+	// function() { return this.id + " " + this.name + " " + this.address; } --> 오류!
+	
+	document.getElementById("view-2").innerHTML = member1.info1();	
+	// leess 이순신 서울시 마포구
+	// 함수이기 때문에 info1()에 괄호까지 써준다.
+	
+	// member1 = {};
+	// Uncaught TypeError: Assignment to constant variable.	
+	
+	/* member1 의 형태가 const 이므로 member1 의 객체를 다른 객체로 변경할 수 없는 것이지
+       member1 의 객체의 필드값은 변경이 가능하다. */      
+  	member1.id = "eomjh";
+	member1.name = "엄정화";
+	member1.address = "경기도 군포시";
+	document.getElementById("view-3").innerHTML = member1.info1();
+	// eomjh 엄정화 경기도 군포시
+
+	document.getElementById("view-4").innerHTML = member1.info2();	
+	// eomjh 엄정화 경기도 군포시
+	
+      
+	
+</script>
+
+</body>
+</html>

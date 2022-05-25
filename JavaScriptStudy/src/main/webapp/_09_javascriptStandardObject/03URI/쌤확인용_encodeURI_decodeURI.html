@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문자열을 유효한 URI(Uniform Resource Identifier UTF-8로 인코딩)로 인코딩/디코드 한다.</title>
+
+<style type="text/css">
+
+	div {
+	   /* border: solid 1px gray; */
+		width: 800px;
+		margin: 0 auto;
+		padding: 2%;
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+	
+	td {
+		border: solid 1px gray;
+		height: 50px;
+		text-align: center; 
+	}
+
+</style>
+
+</head>
+<body>
+
+    <div>
+		<table>
+			<tr>
+				<td width="30%">문자열입력(한글)</td>
+				<td><input type="text" id="inputText" size="70"/> </td>
+			</tr>
+			<tr>
+				<td>URI로 인코딩된 값</td>
+				<td id="encode_1"></td>
+			</tr>
+			<tr>
+				<td>URI를 디코딩된 값</td>
+				<td id="decode_1"></td>
+			</tr>
+			
+			<tr>
+				<td><button type="button" id="btnOK_1">변경</button></td>
+				<td><button type="button" id="btnReset_1">다시</button></td>
+			</tr>
+		</table>
+	</div>
+	
+	<div>	
+		<table>
+			<tr>
+				<td width="30%">URI로 인코딩된 값 입력</td>
+				<td><input type="text" id="encode_2" size="70"/> </td>
+			</tr>
+			<tr>
+				<td>URI를 디코딩된 값</td>
+				<td id="decode_2"></td>
+			</tr>
+			
+			<tr>
+				<td><button type="button" id="btnOK_2">변경</button></td>
+				<td><button type="button" id="btnReset_2">다시</button></td>
+			</tr>
+		</table>
+	</div>
+	
+	<script type="text/javascript">
+	
+	    function func_encodeURI_decodeURI() {
+	    	
+	    	const inputText = document.querySelector("#inputText").value;
+			const encodeVal = encodeURI(inputText);
+			               // encodeURI("문자열"); ==> "문자열"을 UTF-8 로 변환시켜준다.
+			               
+			document.querySelector("#encode_1").innerHTML = encodeVal; 
+			               
+			document.querySelector("#decode_1").innerHTML = decodeURI(encodeVal);
+			               // decodeURI("인코딩된값"); ==> "인코딩된값"을 원래의 글자로 되돌려 준다.
+	    }
+	
+	    
+		document.querySelector("#inputText").focus();
+		
+		document.querySelector("#btnOK_1").addEventListener('click', ()=>{
+		 /*	
+			const inputText = document.querySelector("#inputText").value;
+			const encodeVal = encodeURI(inputText);
+			               // encodeURI("문자열"); ==> "문자열"을 UTF-8 로 변환시켜준다.
+			               
+			document.querySelector("#encode_1").innerHTML = encodeVal; 
+			               
+			document.querySelector("#decode_1").innerHTML = decodeURI(encodeVal);
+			               // decodeURI("인코딩된값"); ==> "인코딩된값"을 원래의 글자로 되돌려 준다.
+		 */	               
+		    func_encodeURI_decodeURI();               
+		});
+		
+		
+		document.querySelector("#btnReset_1").addEventListener('click', ()=>{
+			
+			document.querySelector("#inputText").value = "";
+			document.querySelector("#encode_1").innerHTML = "";
+			document.querySelector("#decode_1").innerHTML = "";
+			document.querySelector("#inputText").focus();
+		});
+		
+	/*	
+		document.querySelector("#inputText").addEventListener('keyup', () => {
+			  console.log(event.keyCode);  // 잘 동작한다.
+			  // event.keyCode 을 알려면 검색어로 "자바스크립트 keyCode" 구글링하면 나온다.  
+		});
+	// 또는	
+		document.querySelector("#inputText").addEventListener('keyup', (e) => {
+			  console.log(e.keyCode);
+			  
+		});
+	*/
+	    
+		document.querySelector("#inputText").addEventListener('keyup', (e) => {
+			  if(e.keyCode == 13) {  // 13 이 엔터이다.
+				  func_encodeURI_decodeURI(); 
+			  }
+		}); 
+	
+	    
+	    ///////////////////////////////////////////////////////////////////////////////
+	    
+	    function func_decodeURI() {
+	    	const encodeVal = document.querySelector("#encode_2").value;
+	    	document.querySelector("#decode_2").innerHTML = decodeURI(encodeVal);
+	    }
+	    
+	    document.querySelector("#btnOK_2").addEventListener('click', ()=>{
+	    	func_decodeURI();
+	    });
+	    
+	    document.querySelector("#encode_2").addEventListener('keyup', (e)=>{
+	    	if(e.keyCode == 13) { // 엔터이라면
+	    		func_decodeURI();
+	    	}
+	    });
+	    
+	    document.querySelector("#btnReset_2").addEventListener('click', ()=>{
+	    	document.querySelector("#encode_2").value = "";
+	    	document.querySelector("#decode_2").innerHTML = "";
+	    	document.querySelector("#encode_2").focus();
+	    });
+		
+	
+	</script>
+
+</body>
+</html>

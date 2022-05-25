@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 배열</title>
+
+<style type="text/css">
+   body {
+      padding: 20px;
+   }
+   
+   div.display {
+      display: inline-block;
+      border: solid 1px gray;
+      width: 15%;
+      margin: 10px;
+   }
+</style>
+
+</head>
+<body>
+
+<h2>내가 좋아하는 과일</h2>
+<div class="display" id="fruitDisplay1"></div>
+<div class="display" id="fruitDisplay2"></div>
+
+<div>
+   <button type="button" onclick="javascript:history.go(0)">처음부터 다시1</button>     <!-- 페이지 새로고침(F5) -->
+   <button type="button" onclick="javascript:location.reload()">처음부터 다시2</button> <!-- 페이지 새로고침(F5) -->
+   <br/><br/>
+
+   추가할 과일명 : <input type="text" id="addVal" />
+   <br/><br/>
+   <button type="button" id="btnLastAdd">과일을 맨 마지막에 추가하기[push()]</button>
+   <br/><br/>
+   <button type="button" id="btnLastDel">마지막 과일 삭제하기[pop()]</button>
+   
+   <br/><br/>
+   <button type="button" id="btnFirstAdd">과일을 맨 처음에 추가하기[unshift()]</button>
+   <br/><br/>
+   <button type="button" id="btnFirstDel">맨 처음 과일 삭제하기[shift()]</button>
+   
+   <br/><br/>
+   <button type="button" id="btnAdd2">딸기와 메론 사이에 &quot;밤,감,대추&quot; 추가하기[splice()]</button>
+   <br/><br/>
+   <button type="button" id="btnDel2">딸기부터 3개 요소 삭제하기[splice()]</button>
+   
+   <br/><br/>
+   <button type="button" id="btnReverse">배열의 요소를 역순으로 만들기[reverse()]</button>
+   
+   <br/><br/>
+   <button type="button" id="btnAscSort">배열의 요소를 오름차순 정렬하기[sort()]</button>
+   <br/><br/>
+   <button type="button" id="btnDescSort">배열의 요소를 내림차순 정렬하기[sort()]</button>
+   <br/><br/>
+   
+   <hr style="border: solid 1px red;">
+   
+   <h2>숫자배열</h2>
+   <div id="numberDisplay"></div>
+   <br/>
+   <div>
+      <button type="button" onclick="javascript:location.reload()">처음부터 다시</button> <!-- 페이지 새로고침(F5) -->
+       <br/><br/>
+      <button type="button" id="btnAscSortNumFail">배열의 요소 숫자를 오름차순 정렬하기(틀린것)</button>
+      <br/><br/>
+      <button type="button" id="btnAscSortNumGood">배열의 요소 숫자를 오름차순 정렬하기(올바른것)</button>
+      <br/><br/>
+      <button type="button" id="btnDescSortNumGood">배열의 요소 숫자를 내림차순 정렬하기(올바른것)</button>
+   </div>
+   
+   <hr style="border: solid 1px red;">
+   
+   <h2>음식배열</h2>
+   <div id="foodDisplay"></div>
+   <div id="sliceDisplay"></div>
+   <br/>
+   <div>
+      <button type="button" id="btnSlice1">피자 부터 탕수육까지 잘라서 배열만들기[slice()]</button>
+      <button type="button" id="btnSlice2">볶음밥 부터 끝까지 잘라서 배열만들기[slice()]</button>
+   </div>
+   
+   <hr style="border: solid 1px red;"> 
+   
+   <h2>데이터배열</h2>
+   <div id="dataDisplay"></div>
+   <br/>
+   <div>
+      <button type="button" id="btnIndexOf">배열요소의 index값 알아오기[indexOf()]</button>
+   </div>
+   
+   <h2>배열요소중 두번째 문자가 &apos;o&apos;인 것만 추출하기</h2>
+   <div id="sourceDisplay"></div>
+   <div id="forEachDisplay"></div>
+   <br/>
+   <div>
+      <button type="button" id="btnforEach">배열요소중 두번째 문자가 &apos;o&apos;인 것만 추출하기[forEach()]</button>
+   </div>
+   
+</div>
+
+<script type="text/javascript">
+
+	// ==== 1. 자바스크립트에서 배열은 아래와 같이 나타냅니다.  
+//	const arrFruit1 = [];	// 배열도 객체이다.
+//	또는
+	const arrFruit1 = new Array();	// 배열도 객체이다.
+	
+	arrFruit1.push("사과");			// 배열명.push() : 배열의 마지막에 새로운 요소를 추가한 후, 변경된 배열의 길이를 반환해줌. 
+	arrFruit1.push("딸기");			// 즉, 여기서는 배열의 길이인 2 를 return 해준다.
+	arrFruit1.push("메론");
+	arrFruit1.push("참외");
+	
+	let length_arrFruit1 = arrFruit1.push("수박");	
+	// 배열명.push() : 배열의 마지막에 새로운 요소를 추가한 후, 변경된 배열의 길이를 반환해줌.
+	console.log("1. 배열 arrFruit1 의 길이 => " + arrFruit1.length); // 1. 배열 arrFruit1 의 길이 => 5
+	console.log("2. 변수 length_arrFruit1 의 길이 => " + length_arrFruit1); // 2. 변수 length_arrFruit1 의 길이 => 5
+	
+	
+	
+	let html = `<ol>`;
+	// ==== !!! 자바스크립트에서 사용되는 for 문 !!! ==== //
+/*	for(let i=0; i<arrFruit1.length; i++) {
+		html += `<li>${arrFruit1[i]}</li>`;		// 변수이므로 ${} 를 써준다.
+	}
+*/	
+//	또는
+/*	for(let i=0; i<arrFruit1.length; i+=1) {	// i = 1씩 증가. (i = i+1)
+		html += `<li>${arrFruit1[i]}</li>`;		// 변수이므로 ${} 를 써준다.
+	}
+*/
+//  또는
+/*	for( let item of arrFruit1 ) { // [참고] for ... of 는 배열값을 가져올때 사용하는 것이고,  for ... in 은 객체의 속성목록을 가져올때 사용하는 것이다.
+								   // 배열도 객체인데 배열의 속성은 인덱스 번호 이다. 그래서 of 대신에 in 을 사용하면 배열요소의 인덱스 번호가 나온다.
+		// 5번 만큼 반복하는데 arrFruit1 의 요소가 하나씩 들어온다. - 배열의 return 값은 배열의 길이
+		html += `<li>${item}</li>`;
+	}
+*/
+//  또는
+	// 배열명.forEach(function(item, index, array){});
+	/* item  - 현재 처리 중인 배열의 각 요소  
+	   index - (optional) 처리 중인 요소의 인덱스 
+	   array - (optional) forEach()가 적용되고 있는 배열 */
+/*	
+	   arrFruit1.forEach(function(item, index, array){
+		   html += `<li>${item}</li>`;
+	   });   
+*/
+
+//	또는 화살표 함수를 사용하여 
+	arrFruit1.forEach()
+	
+	html += `</ol>`;
+	
+	document.getElementById("fruitDisplay1").innerHTML = html;
+	
+	
+	
+	
+	
+	
+</script>
+
+</body>
+
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 배열</title>
+
+<style type="text/css">
+   body {
+      padding: 20px;
+   }
+   
+   div.display {
+      display: inline-block;
+      border: solid 1px gray;
+      width: 15%;
+      margin: 10px;
+   }
+</style>
+
+</head>
+<body>
+
+<h2>내가 좋아하는 과일</h2>
+<div class="display" id="fruitDisplay1"></div>
+<div class="display" id="fruitDisplay2"></div>
+
+<div>
+   <button type="button" onclick="javascript:history.go(0)">처음부터 다시1</button>     <!-- 페이지 새로고침(F5) -->
+   <button type="button" onclick="javascript:location.reload()">처음부터 다시2</button> <!-- 페이지 새로고침(F5) -->
+   <br/><br/>
+
+   추가할 과일명 : <input type="text" id="addVal" />
+   <br/><br/>
+   <button type="button" id="btnLastAdd">과일을 맨 마지막에 추가하기[push()]</button>
+   <br/><br/>
+   <button type="button" id="btnLastDel">마지막 과일 삭제하기[pop()]</button>
+   
+   <br/><br/>
+   <button type="button" id="btnFirstAdd">과일을 맨 처음에 추가하기[unshift()]</button>
+   <br/><br/>
+   <button type="button" id="btnFirstDel">맨 처음 과일 삭제하기[shift()]</button>
+   
+   <br/><br/>
+   <button type="button" id="btnAdd2">딸기와 메론 사이에 &quot;밤,감,대추&quot; 추가하기[splice()]</button>
+   <br/><br/>
+   <button type="button" id="btnDel2">딸기부터 3개 요소 삭제하기[splice()]</button>
+   
+   <br/><br/>
+   <button type="button" id="btnReverse">배열의 요소를 역순으로 만들기[reverse()]</button>
+   
+   <br/><br/>
+   <button type="button" id="btnAscSort">배열의 요소를 오름차순 정렬하기[sort()]</button>
+   <br/><br/>
+   <button type="button" id="btnDescSort">배열의 요소를 내림차순 정렬하기[sort()]</button>
+   <br/><br/>
+   
+   <hr style="border: solid 1px red;">
+   
+   <h2>숫자배열</h2>
+   <div id="numberDisplay"></div>
+   <br/>
+   <div>
+      <button type="button" onclick="javascript:location.reload()">처음부터 다시</button> <!-- 페이지 새로고침(F5) -->
+       <br/><br/>
+      <button type="button" id="btnAscSortNumFail">배열의 요소 숫자를 오름차순 정렬하기(틀린것)</button>
+      <br/><br/>
+      <button type="button" id="btnAscSortNumGood">배열의 요소 숫자를 오름차순 정렬하기(올바른것)</button>
+      <br/><br/>
+      <button type="button" id="btnDescSortNumGood">배열의 요소 숫자를 내림차순 정렬하기(올바른것)</button>
+   </div>
+   
+   <hr style="border: solid 1px red;">
+   
+   <h2>음식배열</h2>
+   <div id="foodDisplay"></div>
+   <div id="sliceDisplay"></div>
+   <br/>
+   <div>
+      <button type="button" id="btnSlice1">피자 부터 탕수육까지 잘라서 배열만들기[slice()]</button>
+      <button type="button" id="btnSlice2">볶음밥 부터 끝까지 잘라서 배열만들기[slice()]</button>
+   </div>
+   
+   <hr style="border: solid 1px red;"> 
+   
+   <h2>데이터배열</h2>
+   <div id="dataDisplay"></div>
+   <br/>
+   <div>
+      <button type="button" id="btnIndexOf">배열요소의 index값 알아오기[indexOf()]</button>
+   </div>
+   
+   <h2>배열요소중 두번째 문자가 &apos;o&apos;인 것만 추출하기</h2>
+   <div id="sourceDisplay"></div>
+   <div id="forEachDisplay"></div>
+   <br/>
+   <div>
+      <button type="button" id="btnforEach">배열요소중 두번째 문자가 &apos;o&apos;인 것만 추출하기[forEach()]</button>
+   </div>
+   
+</div>
+
+<script type="text/javascript">
+
+	// ==== 1. 자바스크립트에서 배열은 아래와 같이 나타냅니다.  
+//	const arrFruit1 = [];	// 배열도 객체이다.
+//	또는
+	const arrFruit1 = new Array();	// 배열도 객체이다.
+	
+	arrFruit1.push("사과");			// 배열명.push() : 배열의 마지막에 새로운 요소를 추가한 후, 변경된 배열의 길이를 반환해줌. 
+	arrFruit1.push("딸기");			// 즉, 여기서는 배열의 길이인 2 를 return 해준다.
+	arrFruit1.push("메론");
+	arrFruit1.push("참외");
+	
+	let length_arrFruit1 = arrFruit1.push("수박");	
+	// 배열명.push() : 배열의 마지막에 새로운 요소를 추가한 후, 변경된 배열의 길이를 반환해줌.
+	console.log("1. 배열 arrFruit1 의 길이 => " + arrFruit1.length); // 1. 배열 arrFruit1 의 길이 => 5
+	console.log("2. 변수 length_arrFruit1 의 길이 => " + length_arrFruit1); // 2. 변수 length_arrFruit1 의 길이 => 5
+	
+	
+	
+	let html = `<ol>`;
+	// ==== !!! 자바스크립트에서 사용되는 for 문 !!! ==== //
+/*	for(let i=0; i<arrFruit1.length; i++) {
+		html += `<li>${arrFruit1[i]}</li>`;		// 변수이므로 ${} 를 써준다.
+	}
+*/	
+//	또는
+/*	for(let i=0; i<arrFruit1.length; i+=1) {	// i = 1씩 증가. (i = i+1)
+		html += `<li>${arrFruit1[i]}</li>`;		// 변수이므로 ${} 를 써준다.
+	}
+*/
+//  또는
+/*	for( let item of arrFruit1 ) { // [참고] for ... of 는 배열값을 가져올때 사용하는 것이고,  for ... in 은 객체의 속성목록을 가져올때 사용하는 것이다.
+								   // 배열도 객체인데 배열의 속성은 인덱스 번호 이다. 그래서 of 대신에 in 을 사용하면 배열요소의 인덱스 번호가 나온다.
+		// 5번 만큼 반복하는데 arrFruit1 의 요소가 하나씩 들어온다. - 배열의 return 값은 배열의 길이
+		html += `<li>${item}</li>`;
+	}
+*/
+//  또는
+	// 배열명.forEach(function(item, index, array){});
+	/* item  - 현재 처리 중인 배열의 각 요소  
+	   index - (optional) 처리 중인 요소의 인덱스 
+	   array - (optional) forEach()가 적용되고 있는 배열 */
+/*	
+	   arrFruit1.forEach(function(item, index, array){
+		   html += `<li>${item}</li>`;
+	   });   
+*/
+
+//	또는 화살표 함수를 사용하여 
+
+	arrFruit1.array.forEach(item => {
+		html += `<li>${item}</li>`;
+	});
+	
+	html += `</ol>`;
+	
+	document.getElementById("fruitDisplay1").innerHTML = html;
+	
+</script>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>string 의 method 에 대해서 알아봅니다 -3</title>
+</head>
+<body>
+
+<h2>
+    문자열.toUpperCase()<br/>
+    문자열.toLowerCase()<br/>
+    문자열을 합치는 concat()<br/>
+    문자열.trim()<br/>
+    "문자열".charAt(index)<br/>
+</h2>
+<p id="toUpperCase"></p>
+<p id="str"></p>
+<p id="toLowerCase"></p>
+<p id="concat"></p>
+<p id="plus"></p>
+<p id="trim"></p>
+<p id="padStart"></p>
+<p id="padEnd"></p>
+<p id="charAt"></p>
+<p id="ch"></p>
+
+<script type="text/javascript">
+
+/*
+1. "문자열".toUpperCase()
+--> 문자열을 모두 대문자로 변경하여 리턴해준다.
+*/
+	let str = "Please visit Microsoft! ORACLE / Microsoft MS-SQL";
+	let new_str = str.toUpperCase();
+	document.getElementById("toUpperCase").innerHTML = new_str;
+	// PLEASE VISIT MICROSOFT! ORACLE / MICROSOFT MS-SQL
+
+	document.getElementById("str").innerHTML = str;
+	// Please visit Microsoft! ORACLE / Microsoft MS-SQL
+	// 원본 문자열은 바뀌지 않는다.
+	
+/*
+	2. "문자열".toLowerCase()
+	--> 문자열을 모두 소문자로 변경하여 리턴해준다.
+*/		
+	new_str = str.toLowerCase();
+	document.getElementById("toLowerCase").innerHTML = new_str;
+	// please visit microsoft! oracle / microsoft ms-sql
+	
+/*   
+   3. 문자열을 합치는 concat()
+   --> concat() 대신에 + 를 사용해도 된다.
+*/
+	let text1 = "Hello";
+	let text2 = "World";
+   	
+	let text3 = text1.concat(" ", text2);   
+	document.getElementById("concat").innerHTML = text3;
+	// Hello World
+	
+	document.getElementById('plus').innerHTML = text1 + " " + text2;
+	// Hello World
+	
+/*    
+   4. "문자열".trim()
+   --> 문자열의 좌,우 공백을 없애서 리턴해준다.
+*/
+	let text4 = "java";
+	let text5 = "         script        ";		// 공백을 많이 주더라도 한칸으로 인식.
+	let text6 = "/jQuery";	
+	
+	document.getElementById('trim').innerHTML = text4 + text5.trim() + text6;
+	// javascript/jQuery
+	
+/*
+	5. "문자열".padStart(확보길이,'채울글자');  // ECMAScript 2017 feature. → 앞에서부터 채운다.
+	6. "문자열".padEnd(확보길이,'채울글자');    // ECMAScript 2017 feature. → 뒤에서부터 채운다.
+*/
+	str = "안녕하세요";	
+	new_str = str.padStart(10,'*');
+
+	document.getElementById('padStart').innerHTML = new_str;
+	// *****안녕하세요
+	
+	str = "안녕하세요";	
+	new_str = str.padEnd(10,'*');
+
+	document.getElementById('padEnd').innerHTML = new_str;
+	// 안녕하세요*****
+	
+/*
+   7. "문자열".charAt(index) 
+   --> "문자열" 에서 특정 index 에서 위치한 문자를 리턴해준다.
+*/
+	let text7 = "HELLO WORLD";	
+	let ch = text7.charAt(0);			// h는 0번째 index	
+	document.getElementById('charAt').innerHTML = ch;
+	// H
+	
+	// 또는
+	ch = text7[0];
+	document.getElementById('ch').innerHTML = ch;
+	// H
+	
+</script>
+
+
+</body>
+</html>

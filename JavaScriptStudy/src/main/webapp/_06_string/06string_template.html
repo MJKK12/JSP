@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문자열 틀을 나타낼 때는 ""(쌍따옴표) 보다는 ``(백틱)을 사용하도록 하자.</title>
+</head>
+<body>
+
+<h1>문자열 틀을 나타낼 때는 ""(쌍따옴표) 보다는 ``(백틱)을 사용하도록 하자</h1>
+<h2>단, Internet Explore 에서는 ``(백틱)을 지원하지 않는다.</h2>
+<p id="p_1"></p>
+<p id="p_2"></p>
+<p id="p_3"></p>
+<p id="p_4"></p>
+<p id="p_5"></p>
+<p id="p_6"></p>
+<p id="p_7"></p>
+<p id="p_8"></p>
+
+<script type="text/javascript">
+	let text = `안녕하세요? "이순신" 과 '엄정화' 를 소개합니다.`;
+	document.getElementById("p_1").innerHTML = text;
+	
+	let man = "이순신";
+	let woman = '엄정화';
+//	document.getElementById("p_2").innerHTML = `안녕하세요? ${man} 과 ${woman} 를 소개합니다.`;
+//	document.getElementById("p_2").innerHTML = "안녕하세요? "+man+"과 "+woman+"를 소개합니다.";
+	
+//	document.getElementById("p_2").innerHTML = "안녕하세요? \""+man+"\"과 '"+woman+"'를 소개합니다.";
+	document.getElementById("p_2").innerHTML = `안녕하세요? "${man}" 과 '${woman}' 를 소개합니다.`;	// 주석문
+	// 문장 안에 또 "" 와 ''를 적어주고 싶을 때 ${} 에 ""를 덧붙여준다.
+	// 안녕하세요? "이순신" 과 '엄정화' 를 소개합니다.
+			
+	document.getElementById("p_3").innerHTML = `안녕하세요? "${man}" 과 '${woman}' 를 ${''/*이것은 주석문입니다.*/} 소개합니다.`;	
+	
+	let price = 100;
+	const VAT = 0.1; 	// const 는 한번 값을 딱 고정해주었기 때문에 끝! (let 은 언제든 바뀔 수 있다.)
+	let total = `총액 : ${price + price*VAT} `;
+//	total = "총액 : " + (price + price*VAT) ; 		// () 를 써주지 않으면 더하기가 아니라 "문자열 결합" 이기 때문에 써준 것이다. (*를 먼저 이행)
+	document.getElementById("p_4").innerHTML = total;
+	// 총액 : 110
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	var title_1 = "분식 메뉴1";
+	
+	var html_1 = "<h2>"+title_1+"</h2>";	// 예전 방식
+		html_1 += "<ul>";
+		html_1 += "<li>피자</li>" +
+				"<li>치킨</li>" +
+				"<li>파스타</li>" +
+				"<li>떡볶이</li>" +
+				"<li>김밥</li>";
+		html_1 += "</ul>";
+		
+	document.getElementById("p_5").innerHTML = html_1;	
+			
+	let title_2 = "분식 메뉴2";	
+	let html_2 = `<h2>${title_2}</h2>`;		// `` 을 쓴 ECMA6 방식 (더 자주 사용)
+		html_2 += `<ul>
+					<li>피자</li>
+					<li>치킨</li>
+					<li>파스타</li>
+					<li>떡볶이</li>
+					<li>김밥</li>
+				  </ul>`;
+					
+	document.getElementById("p_6").innerHTML = html_2;	
+		
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	// 예전 방식
+	var title_1 = "분식 메뉴3";
+	var foodArr = ["피자","치킨","파스타","떡볶이","김밥"];	// 자바스크립트에서 배열은 [ ] 로 나타내준다.
+	
+	var html_1 = "<h2>"+title_1+"</h2><ul>";
+	for(var i=0; i<foodArr.length; i++) {
+		html_1 += "<li>"+foodArr[i]+"</li>";
+	}// end of for---------------------------------------------------------------------------------
+	
+	html_1 += "</ul>";
+	document.getElementById("p_7").innerHTML = html_1;	
+	
+	
+	// ECMA6 방식
+	title_2 = "분식 메뉴4";
+	let food_Arr = ["피자","치킨","파스타","떡볶이","김밥"];	// 자바스크립트에서 배열은 [ ] 로 나타내준다.
+	
+	html_2 = `<h2>${title_2}</h2><ul>`;
+	for(let i=0; i<food_Arr.length; i++) {
+		html_2 += `<li>${food_Arr[i]}</li>`;			// food_Arr 배열은 변수이므로 ${} 처리를 해주었다.
+	}// end of for----------------------------
+
+	html_2 += `</ul>`;
+	document.getElementById("p_8").innerHTML = html_2;	
+	
+</script>
+
+</body>
+</html>

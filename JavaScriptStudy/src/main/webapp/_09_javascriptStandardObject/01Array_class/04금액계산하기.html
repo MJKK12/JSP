@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>금액계산하기</title>
+
+<style type="text/css">
+   
+   table, th, td {border: solid 1px gray;}
+   
+   table {border-collapse: collapse; 
+          width: 50%;}
+   
+   td {text-align: center;}
+   
+   input {
+      margin-left: 20px;
+   }
+</style>
+
+</head>
+<body>
+
+<div>
+<h2>계산서</h2>
+   <table id="tbl">
+      <thead>
+         <tr>
+            <th width="25%">제품명</th>
+            <th width="50%">단가 및 수량</th>
+            <th width="25%">금액</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>사과</td>   
+            <td>1,000<input type="number" min="0" max="10" value="0" id="apple" /></td>
+            <td id="apple">0</td>	
+         </tr>
+         <tr>
+            <td>딸기</td>   
+            <td>2,000<input type="number" min="0" max="10" value="0" id="strawberry" /></td>
+            <td id="strawberry">0</td> 
+         </tr>
+         <tr>
+            <td>참외</td>   
+            <td>3,000<input type="number" min="0" max="10" value="0" id="melon" /></td>
+            <td id="melon">0</td>
+         </tr>
+      </tbody>
+      <tfoot>
+         <tr>
+            <td colspan="2">총액</td>
+            <td>0</td>
+         </tr>
+      </tfoot>
+   </table>
+</div>
+
+<div id="display_error">
+	<span style="color : red;">수량은 0개 이상 10개 이하 이어야 합니다.</span>
+</div>
+
+<script type="text/javascript">
+
+	const display_error = document.querySelector("div#display_error");	
+	display_error.style.display = "none";	// 처음에는 보이지 않게 한다.
+	
+	function func_calculate(target) {		// 키보드에 대한 것.
+		let price = target.parentNode.innerText;		// 1,000 2,000 3,000
+
+		price = Number(price.split(",").join(""));		// 콤마를 제거한 것. 1000 2000 3000
+		
+		let su = target.value;	// 수량
+		
+		if(su < 0 || su > 10) { // su(수량)이 음수이거나 10 초과라면, 손을 댓다가 뗐을때 0 으로 만든다.
+		//	alert("수량은 0개 이상 10개 이하 이어야 합니다.")
+			display_error.style.display = "block";	// display 에 block 을 준다.
+			su = 0;
+			target.value = 0;
+		}
+		else {	// 올바르게 수량을 입력했을 경우 
+			display_error.style.display = "none";	// 올바르게 수량을 입력했으면, 에러문구를 뜨지 않게 한다.
+		}
+		
+		price *= su;	// price = price * su; 와 같다.
+		
+		const id = target.id;
+		const elemt = document.querySelector(`td#${id}`);	// td 태그인데 id가 ~~ 이다.
+	
+		elemt.innerHTML = price.toLocaleString('en');
+		const elemt_list = document.querySelectorAll("table#tbl > tbody > tr > td:last-child");	// 복수개 이므로 All 을 사용한다.
+	
+		const elemt_arr = Array.from(elemt_list, item => item.innerText.split(",").join(""));	 // map 메소드 , innerText: td 의 <> 사이 글자만 읽어온다
+
+		
+		let sum = 0;		
+		for(let item of elemt_arr) {
+			sum += Number(item);	// 문자열 결합이기 때문에 Number로 바꿔준다.										
+		}
+	
+		document.querySelector("table#tbl > tfoot > tr > td:last-child").innerHTML = sum.toLocaleString('en'); // 총액에 세 자리마다 콤마를 찍어주자.	
+	
+	}// end of function func_calculate()---------------------------
+
+	
+	
+	// 사과, 딸기, 참외 3개가 포함된 태그 table#tbl 를 잡는다.
+	// 제품명까지 event 를 적용하지 않기 위해 elementById 가 아니라 querySelector 를 잡고 CSS 를 잡는다.
+	const tbl = document.querySelector("table#tbl");	//() 안에 선택자(selector) 인 CSS 를 적는다.
+	
+	tbl.addEventListener('change', function(e){	// e는 event 를 뜻한다.
+								// e.target 은 실제로 change 가 발생한 태그(노드, 엘리먼트)를 가리키는 것이다. (여기선 input 태그)
+								// alert(e.target.id);		// apple strawberry melon
+								// alert(e.target.value);	// 0 1 2 ... 변경된 값(value) 대로 alert 창이 뜬다.
+	// e를 'click'에서 'change' 로 바꾼다. (change : 테이블 상에서 값이 바뀌었을 때 alert 이벤트, ex. 수량이 0→1로 바꼈을 때) 
+	// click 은 클릭만 했을 때 창이 뜬다.
+
+								 /* 
+								    노드.parentNode.parentNode.. - 부모노드 의 부모노드
+								    노드.parentNode      - 부모노드
+								    노드.childNodes      - 모든자식노드들
+								    노드.firstChild      - 첫째자식노드
+								    노드.lastChild       - 막내자식노드
+								    노드.nextSibling     - 나의바로밑동생노드(형제노드)
+								    노드.previousSibling - 나의바로위형노드(형제노드)
+								    
+								    !! 조심할 사항은 태그사이에 띄어쓰기를 하거나 태그를 줄 바꿈을 해버리면
+								       띄어쓰기나 줄바꿈을 텍스트 노드(text node)로 취급해버리므로 
+								       원하는 노드의 값을 가지고 오지 않고 undefined 가 나온다.  
+								       
+								    이렇게 undefined 가 나오지 않도록 하기 위해서 우리는 노드에 id 값을 주어서 처리하도록 한다.     
+								 */	
+									let price = e.target.parentNode.innerText;	// 1,000 2,000 3,000
+									// innerHTML 은 1,000 <input type="number" min="0" max="10" value="0" id="apple"> 까지 나오므로 innerText를 쓴다.
+
+									//	console.log("1,000"*2);	//NaN(Not a Number) 은 숫자가 아니라는 말이다.
+								
+								//  [콤마를 제거하는 첫번째 방법]
+								/*
+									let money = "123,456,789";
+									money = money.replace(/,/gi,"");	// / /gi 는 모두 ,를 모두 ""로 대체한다는 것
+									console.log(money);					// 123456789
+								*/
+								//  [콤마를 제거하는 두번째 방법]
+								/*
+									money = "123,456,789";
+									console.log(money.split(","));			// (3) ['123', '456', '789'] 배열로 만든후
+									console.log(money.split(",").join(""));	// "123456789" (join - 합친다.) JOIN 해서 합친다. → 콤마 , 가 사라진다.
+								*/	
+									price = Number(price.split(",").join(""));		// 콤마를 제거한 것. 1000 2000 3000
+								//	alert(price);
+									
+									let su = e.target.value;	// 수량
+									
+									price *= su;	// price = price * su; 와 같다.
+									
+								//	alert(price);	// 클릭할 때 마다 1000*1,2,3... 으로 결과값 증가
+											
+								//	alert(e.target.parentNode.nextSibling.innerHTML);	// undefined
+									
+									const id = e.target.id;
+									const elemt = document.querySelector(`td#${id}`);	// td 태그인데 id가 ~~ 이다.
+								//	alert(elemt.innerHTML);								// 금액 란의 0 이 나오는 것이다.
+								
+									elemt.innerHTML = price.toLocaleString('en');
+								//	3자리 마다 콤마찍어주는 것은 숫자.toLocaleString('en'); 이다.
+								//  금액 란에 3자리마다 콤마로 찍어서 결과값 산출하기.
+								
+									const elemt_list = document.querySelectorAll("table#tbl > tbody > tr > td:last-child");	// 복수개 이므로 All 을 사용한다.
+								//	console.log(elemt_list); // NodeList(3) [td#apple, td#strawberry, td#melon]
+									const elemt_arr = Array.from(elemt_list, item => item.innerText.split(",").join(""));	 // map 메소드 , innerText: td 의 <> 사이 글자만 읽어온다
+									// NodeList 를 배열로 바꿔주자. (,가 있기 때문에 문자열이므로 ,를 빼야한다.) → 배열로 바꿔준 후 split.join 을 통해 콤마 , 를 없애준다.
+								//	console.log(elemt_arr);	
+									/*
+									(3) ['1000', '0', '0']
+									(3) ['1000', '2000', '0']
+									(3) ['1000', '2000', '3000']
+									*/
+									
+									let sum = 0;		
+									for(let item of elemt_arr) {
+										sum += Number(item);	// 문자열 결합이기 때문에 Number로 바꿔준다.										
+									}
+									
+								//	console.log(sum);
+								
+									document.querySelector("table#tbl > tfoot > tr > td:last-child").innerHTML = sum.toLocaleString('en'); // 총액에 세 자리마다 콤마를 찍어주자.	
+	});								
+
+	
+	tbl.addEventListener('keyup', function(e){ func_calculate(e.target); });	// 키보드에서 손을 떼는 순간 (keyup) func_calculate 호출한다.
+//	tbl.addEventListener('change', function(e){ func_calculate(e.target); });
+	// 어디다가 손을 댔다가 뗐는지 이벤트가 발생한 target 을 정해줘야 한다.(e.target)
+	// e.target 을 함수에 넘겨준다. (위에 func_calculate 함수)
+	
+	
+	
+						
+</script>
+
+</body>
+</html>

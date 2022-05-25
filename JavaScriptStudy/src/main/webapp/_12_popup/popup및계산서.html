@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상품 이미지를 클릭하면 팝업창을 띄우고 금액 계산을 하도록 한다.</title>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+
+<div id="container">
+	<div id="display"></div>
+</div>
+
+<script type="text/javascript">
+
+	const arr_product = [
+						 {productId : "led",
+						  productName : "led모니터",
+						  image : "monitor.jpg",
+						  price : 200000,		/*숫자로 넣어야 *가 된다.(문자열 타입이 아니라 number 타입으로 할 것)*/
+						  option : [
+							  		{optionId:"HDMI", optionName:"HDMI케이블",  price:1000},
+							  		{optionId:"3Dglasses", optionName:"3D안경", price:2000}		/*부속품 2개*/
+							  	   ]		
+						 
+						 },
+						 {productId : "camcorder",
+						  productName : "캠코더",
+						  image : "cam.jpg",
+						  price : 500000,	/*숫자로 넣어야 *가 된다.(문자열 타입이 아니라 number 타입으로 할 것)*/
+						  option : [
+							  	    {optionId:"3Pedestal", optionName:"3각받침대", price:10000},
+							  	    {optionId:"remote", optionName:"리모컨", 		 price:20000},
+							  	    {optionId:"charger", optionName:"충전기", 	 price:30000}
+								   ]
+						}
+						];
+
+	let html = `<table id='tbl'>
+				 <thead>
+					<tr>
+						<th colspan='4'>제품선택</th>
+					</tr>
+					<tr>
+						<th width= '25%'>제품사진</th>
+						<th width= '25%'>제품정보</th>
+						<th width= '30%'>부속품</th>
+						<th width= '20%'>주문금액</th>					
+					</tr>
+					
+				<thead>
+				<tbody> `;
+				
+		arr_product.forEach(function(elt, i, array) {
+			html += `<tr>
+						<td style='text-align:center'><img src='images/${elt.image}' title='클릭하면 원본이미지가 보입니다.'/></td>
+						<td>
+							<ul style='list-style-type: none'>
+								<li>제품명 : ${elt.productName}</li>
+								<li>가격 : <span id='${elt.productId}'>${elt.price.toLocaleString('en') }</span></li>	 ${''/*가격에 콤마 넣기*/}
+								<li>주문수량 : <input type='number' min='0' max ='20' value='0' id='${elt.productId}' /></li>
+							</ul>
+						</td>
+						<td>`;
+							/*이중 forEach 문- 부속품인 option 을 사용하기 위함*/
+							elt.option.forEach(function(item, index) {
+								html += `<label for='${item.optionId}'>${item.optionName}</label><input type='checkbox' name='option_${elt.productId}' value='${item.price}' id='${item.optionId}' />&nbsp`;	/*radio 나 checkbox 는 항상 name 이 같아야 한다.*/
+							});
+						
+					html += `</td>
+							 <td id='${elt.productId}'>0</td>
+					  </tr>`;
+		});	
+			  
+		html += `</tbody>	${''/*여기에 ; 붙여서 자꾸 웹창에 오류가 뜸.*/}
+				 <tfoot>
+				 	<tr>
+				 		<td colspan='3' style='text-align:center; font-size:16pt;'>주문총액</td>
+				 		<td>0</td>
+					</tr>
+				 </tfoot>
+			    </table>`;
+	
+	//	console.log(html);	    
+	
+		document.querySelector("div#display").innerHTML = html;
+	
+		///////////////////////////////////////////////////////////////////////////
+	
+		// === 이미지를 클릭하면 팝업창을 띄우는 것 만들기 시작 === //
+		function openPopup_1(src) {
+		//  팝업창 띄우기
+		/*
+			window.open("popup/popupContents.html","myPopup","left=100px, top=100px, width=400px, height=350px");
+		*/ // 또는
+			const popupwin = window.open("","myPopup","left=100px, top=100px, width=400px, height=350px");
+			
+			popupwin.document.writeln("<html>");
+			popupwin.document.writeln("<head><title>제품이미지 확대보기</title></head>");
+			popupwin.document.writeln("<body align='center'>");	
+			popupwin.document.writeln("<img src='"+src+"' />");
+			popupwin.document.writeln("<br/></br/><br/>");
+			popupwin.document.writeln("<button type='button' onclick='window.close()'>팝업창닫기</button>");			
+			popupwin.document.writeln("</body>");
+			popupwin.document.writeln("</html>");
+			
+		};
+
+		// 또는
+		
+		const openPopup_2 = function(src){
+		//  팝업창 띄우기
+		/*
+			window.open("popup/popupContents.html","myPopup","left=100px, top=100px, width=400px, height=350px");
+		*/ 
+			const popupwin = window.open("","myPopup","left=100px, top=100px, width=400px, height=350px");
+			
+			popupwin.document.writeln("<html>");
+			popupwin.document.writeln("<head><title>제품이미지 확대보기</title></head>");
+			popupwin.document.writeln("<body align='center'>");	
+			popupwin.document.writeln("<img src='"+src+"' />");
+			popupwin.document.writeln("<br/></br><br/>");
+			popupwin.document.writeln("<button type='button' onclick='window.close()'>팝업창닫기</button>");			
+			popupwin.document.writeln("</body>");
+			popupwin.document.writeln("</html>");
+					
+		};
+		
+		const img_List = document.querySelectorAll("#tbl > tbody > tr > td:nth-child(1) > img");
+		
+	/*
+		for(let img of img_List) {
+			img.addEventListener('click', function () {
+				alert("제품사진을 클릭하셨습니다.");
+			});
+		}
+	*/
+
+		img_List.forEach(function(elt, i, array){
+			elt.addEventListener('click', function(){
+				// alert("제품사진을 클릭하셨습니다!!")
+				// console.log(elt.src);
+				// http://localhost:9090/JavaScriptStudy/_12_popup/images/monitor.jpg
+				// http://localhost:9090/JavaScriptStudy/_12_popup/images/cam.jpg
+				// openPopup_1();	/*이미지 클릭 시, openPopup_1() 함수 호출*/
+				// 또는
+				   openPopup_2(elt.src);	
+			});
+		});
+	
+		// === 이미지를 클릭하면 팝업창을 띄우는 것 만들기 끝 === //
+		
+		
+		///////////////////////////////////////////////////////////////////////////
+		
+		// === 주문수량이 바뀌면 주문금액에 값을 넣어주기 & 부속품 중 체크를 한 부속품에 대해서만 부속품 금액을 주문금액에 값을 넣어주기 === //
+		const input_number_list = document.querySelectorAll("table#tbl input[type='number']");
+		const checkbox_list = document.querySelectorAll("input[type='checkbox']");
+		
+		// 주문수량 이벤트 처리하기
+		input_number_list.forEach(function(elt) {
+			
+			elt.addEventListener('change', ()=>{ 	/* 값이 바뀌면 (change)*/			
+				// console.log(elt.value);		// 1 2 3 0 (주문수량)
+				// console.log(elt.id);			// led camcorder	(가격, 주문수량의 id 값을 주었다)
+				
+				// console.log(document.querySelector("table#tbl span#"+elt.id).innerText);		// 200,000 500,000 <-- 제품의 단가
+				
+				// 주문수량에 대한 금액 알아오기
+				const jusu = Number(elt.value);		// ',' 를 뺴야 곱셈 연산이 되므로 Number로 바꾼다.
+				const price = Number(document.querySelector("table#tbl span#"+elt.id).innerText.split(",").join(""));
+				
+				const jusu_price = jusu*price;	// 주문수량에 대한 price 는 얼마인가?				
+				// console.log(jusu_price);		// 200000 400000...(led모니터) / 500000 1000000...(캠코더) <-- 부속품을 뺀 주문금액		
+					
+				
+				let option_price = 0;	// 부속품 가격(option 가격)
+				let total_price = 0;	// 전체 가격
+				
+				// 주문수량이 0개 라면 부속품 체크박스는 모두 체크해제로 만든다.
+				if(jusu == 0) {
+					checkbox_list.forEach(function(item) {
+						// console.log(item.name);	// option_led	option_camcorder
+						if( item.name == 'option_'+elt.id ) {
+							item.checked = false;
+						}	
+					});
+				}				
+				// 주문수량이 1개 이상이라면 (제품수량*단가 + 체크박스에 체크된 부속품 가격)을 구해온다.
+				// 주문수량에 변경을 준 제품에 대한 부속품 체크박스 중 체크된 부속품의 금액 알아오기.
+				else {
+					checkbox_list.forEach(function(item) {
+						// console.log(item.name);	// option_led	option_camcorder
+						if( item.name == 'option_'+elt.id && item.checked ) {	// 모니터 최소 1개이상 주문수량 체크하고, 체크박스에 체크가 되어야만 부속픔 금액 count
+						//	console.log(item.value);	// 체크박스의 value 값인 부속품의 가격
+							option_price += Number(item.value);
+						}	
+					});
+	
+					total_price = jusu_price + option_price;
+				}
+				
+				document.querySelector("table#tbl td#"+elt.id).innerHTML = total_price.toLocaleString('en');
+				// 모든 제품에 대한 주문총액 함수 호출하기
+				sumPrice();
+			});
+
+		});
+		
+		///////////////////////////////////////////////////////////////////////////
+ 		
+		
+		// 부속품 체크박스 이벤트 처리하기
+		checkbox_list.forEach(function(elt){
+			
+			elt.addEventListener('click', ()=>{
+				// console.log(elt.name);	// <-- 체크박스의 name 값
+				/*
+					option_led
+					option_camcorder
+				*/
+				
+			// 	클릭한 체크박스의 name 에서 productId 만 가져오기. 
+				let id = elt.name.substring(7);	// 'led'	'camcorder'
+	
+			// 	주문수량에 대한 금액 알아오기
+				const jusu = Number(document.querySelector("table#tbl input[type='number']#"+id).value);		// ',' 를 뺴야 곱셈 연산이 되므로 Number로 바꾼다.
+				const price = Number(document.querySelector("table#tbl span#"+id).innerText.split(",").join(""));
+				
+				const jusu_price = jusu*price;	// 주문수량에 대한 price 는 얼마인가?				
+			// 	console.log(jusu_price);		// 200000 400000...(led모니터) / 500000 1000000...(캠코더) <-- 부속품을 뺀 주문금액		
+				
+				let option_price = 0;	// 부속품 가격(option 가격)
+				let total_price = 0;	// 전체 가격
+				
+				// 주문수량이 0개 라면 부속품 체크박스는 모두 체크해제로 만든다.
+				if(jusu == 0) {
+					alert("주문수량이 0개이므로 부속품을 선택할 수 없습니다.");
+					elt.checked = false;	// 체크박스에 체크를 하지 못하도록 만든다.
+				}	
+				
+				// 주문수량이 1개 이상이라면 (제품수량*단가 + 체크박스에 체크된 부속품 가격)을 구해온다.
+				// 주문수량에 변경을 준 제품에 대한 부속품 체크박스 중 체크된 부속품의 금액 알아오기.
+				else {
+						checkbox_list.forEach(function(item) {
+							// console.log(item.name);	// option_led	option_camcorder
+							if( item.name == 'option_'+id && item.checked ) {	// 모니터 최소 1개이상 주문수량 체크하고, 체크박스에 체크가 되어야만 부속픔 금액 count
+							//	console.log(item.value);	// 체크박스의 value 값인 부속품의 가격
+								option_price += Number(item.value);
+							}	
+					});
+	
+					total_price = jusu_price + option_price;					
+				}				
+				document.querySelector("table#tbl td#"+id).innerHTML = total_price.toLocaleString('en');
+				
+				// 모든 제품에 대한 주문총액 함수 호출하기
+				sumPrice();
+			});
+			
+		});
+		
+		
+		// == 주문 총액을 구해주는 함수 만들기 == //
+		function sumPrice() {
+			
+			let sumPrice = 0;
+			document.querySelectorAll("table#tbl > tbody > tr > td:last-child").forEach(function(elt, i, array){
+			 	sumPrice += Number(elt.innerText.split(",").join(""));
+			});
+			
+			document.querySelector("table#tbl > tfoot > tr > td:last-child").innerHTML = sumPrice.toLocaleString('en'); 
+		}
+		
+		// 주문수량 keyup 이벤트 처리하기
+		input_number_list.forEach(function(elt, i, array){
+			
+			elt.addEventListener('keyup',()=>{
+				alert("주문수량은 마우스로만 입력하세요.");
+				elt.value = 0;		// 마우스 이외의 것으로 주문수량에 입력했을 때 value 를 0으로 초기화 한다.
+			});			
+		});		
+		
+		
+</script>
+
+</body>
+</html>
