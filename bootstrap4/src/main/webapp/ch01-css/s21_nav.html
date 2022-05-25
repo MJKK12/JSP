@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>nav</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+  </head>
+  <body>
+	<div class="container">
+		<h4>기본</h4>
+		
+		<!-- 간단한 수평 메뉴를 만들려면 <ul> 요소에 .nav 클래스를 추가한 다음 각 <li>에 대해 .nav-item을 추가하고 해당 링크에 .nav-link 클래스를 추가합니다. -->
+		<ul class="nav">
+		  <li class="nav-item">
+		    <a class="nav-link active" href="#">Active</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link disabled" href="#">Disabled</a>
+		  </li>
+		</ul>
+		
+		<br><br>
+		
+		<h4>가로방향 중앙 정렬</h4>
+		<!-- .justify-content-center 클래스를 추가하여 탐색을 중앙에 배치하도록 정렬합니다.
+		     s03_grid.html 의 수평 정렬(가운데)에 나옴
+		-->
+		<ul class="nav justify-content-center">
+		  <li class="nav-item">
+		    <a class="nav-link active" href="#">Active</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link disabled" href="#">Disabled</a>
+		  </li>
+		</ul>
+		
+		<br><br>
+		
+		<h4>가로방향 오른쪽 정렬</h4>
+		<!-- .justify-content-end 클래스를 추가하여 탐색을 오른쪽 정렬합니다.
+		     s03_grid.html 의 수평 정렬(오른쪽)에 나옴
+		 -->
+		<ul class="nav justify-content-end">
+		  <li class="nav-item">
+		    <a class="nav-link active" href="#">Active</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link disabled" href="#">Disabled</a>
+		  </li>
+		</ul>
+		
+		<br><br>
+		
+		<h4>세로방향 정렬</h4>
+		<!-- .flex-column 클래스를 추가하여 수직 탐색을 만듭니다. -->
+		<ul class="nav flex-column">
+		  <li class="nav-item">
+		    <a class="nav-link active" href="#">Active</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link disabled" href="#">Disabled</a>
+		  </li>
+		</ul>
+		
+		<br><br>
+		
+		<h4>탭</h4>
+		<!-- .nav-tabs 클래스를 사용하여 탐색 메뉴를 탐색 탭으로 전환합니다. 활성/현재 링크에 .active 클래스를 추가합니다. -->
+		<ul class="nav nav-tabs">
+		  <li class="nav-item">
+		    <a class="nav-link active" href="#">Active</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link disabled" href="#">Disabled</a>
+		  </li>
+		</ul>
+		
+		<br><br>
+		
+		<h4>Pills</h4>
+		<!-- .nav-pills 클래스를 사용하여 탐색 메뉴를 채워진 색으로 변경합니다. -->
+		<ul class="nav nav-pills">
+		  <li class="nav-item">
+		    <a class="nav-link active" href="#">Active</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+		  </li>
+		</ul>
+		
+		<br><br>
+		
+		<h4>전체 넓이에 동일한 크기로 배분하기</h4>
+		<ul class="nav nav-pills nav-fill">
+		  <li class="nav-item">
+		    <a class="nav-link active" href="#">Active</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Much longer nav link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+		  </li>
+		</ul>
+		
+		<br><br>
+		
+		<h4>전체 넓이에 동일한 크기로 배분하기</h4>
+		<ul class="nav nav-tabs nav-fill">
+		  <li class="nav-item">
+		    <a class="nav-link active" href="#">Active</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Much longer nav link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+		  </li>
+		</ul>
+		
+		<br><br>
+		
+		<h4>전체 넓이에 동일한 크기로 배분하기</h4>
+		<ul class="nav nav-pills nav-justified">
+		  <li class="nav-item">
+		    <a class="nav-link active" href="#">Active</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Much longer nav link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+		  </li>
+		</ul>
+		
+		<br><br>
+		
+		<h4>전체 넓이에 동일한 크기로 배분하기</h4>
+		<ul class="nav nav-tabs nav-justified">
+		  <li class="nav-item">
+		    <a class="nav-link active" href="#">Active</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Much longer nav link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+		  </li>
+		</ul>
+		
+		<br><br>
+						
+		<h4>Pills with Dropdown</h4>
+		<ul class="nav nav-pills">
+		  <li class="nav-item">
+		    <a class="nav-link active" href="#">Active</a>
+		  </li>
+		  
+		  <li class="nav-item dropdown">
+		    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Dropdown</a>
+		    <div class="dropdown-menu">
+		      <a class="dropdown-item" href="#">Link 1</a>
+		      <a class="dropdown-item" href="#">Link 2</a>
+		      <a class="dropdown-item" href="#">Link 3</a>
+		    </div>
+		  </li>
+		  
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+		  </li>
+		</ul>
+		
+		<br><br>
+						
+		<h4>Tabs with Dropdown</h4>
+		<ul class="nav nav-tabs">
+		  <li class="nav-item">
+		    <a class="nav-link active" href="#">Active</a>
+		  </li>
+		  
+		  <li class="nav-item dropdown">
+		    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Dropdown</a>
+		    <div class="dropdown-menu">
+		      <a class="dropdown-item" href="#">Link 1</a>
+		      <a class="dropdown-item" href="#">Link 2</a>
+		      <a class="dropdown-item" href="#">Link 3</a>
+		    </div>
+		  </li>
+		  
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Link</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+		  </li>
+		</ul>
+		
+		<br><br>
+				
+		<h4>Toggle Dynamic 탭 1</h4>
+		<!-- 탭을 토글 가능하게 만들려면 각 링크에 data-toggle="tab" 속성을 추가하십시오. 
+		         그런 다음 모든 탭에 대해 고유한 ID가 있는 .tab-pane 클래스를 추가하고 .tab-content 클래스가 있는 <div> 요소 안에 래핑합니다.
+        -->
+		<ul class="nav nav-tabs">
+		  <li class="nav-item">
+		    <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" data-toggle="tab" href="#menu3">Menu 3</a>
+		  </li>
+		</ul>
+		
+		<!-- Tab panes -->
+		<div class="tab-content py-3">
+		  <div class="tab-pane container active" id="home">
+		  	<h4>HOME</h4>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		  </div>
+		  <div class="tab-pane container" id="menu1">
+		    <h4>Menu 1</h4>
+			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+		  </div>
+		  <div class="tab-pane container" id="menu2">
+		    <h4>Menu 2</h4>
+			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+		  </div>
+		  <div class="tab-pane container" id="menu3">
+		    <h4>Menu 3</h4>
+			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+		  </div>
+		</div>	
+		
+		<br><br>
+				
+		<h4>Toggle Dynamic 탭 2(fade)</h4>
+		<!-- 탭을 토글 가능하게 만들려면 각 링크에 data-toggle="tab" 속성을 추가하십시오. 
+		         그런 다음 모든 탭에 대해 고유한 ID가 있는 .tab-pane 클래스를 추가하고 .tab-content 클래스가 있는 <div> 요소 안에 래핑합니다.
+                         
+                         탭을 클릭할 때 탭이 페이드 인 및 페이드 아웃되도록 하려면 .fade 클래스를 .tab-pane에 추가하세요. 
+        -->
+		<ul class="nav nav-tabs">
+		  <li class="nav-item">
+		    <a class="nav-link active" data-toggle="tab" href="#home2">Home2</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" data-toggle="tab" href="#menu4">Menu 4</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" data-toggle="tab" href="#menu5">Menu 5</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" data-toggle="tab" href="#menu6">Menu 6</a>
+		  </li>
+		</ul>
+		
+		<!-- Tab panes -->
+		<div class="tab-content py-3">
+		  <div class="tab-pane container active" id="home2">
+		  	<h4>HOME2</h4>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		  </div>
+		  <div class="tab-pane container fade" id="menu4">
+		    <h4>Menu 4</h4>
+			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+		  </div>
+		  <div class="tab-pane container fade" id="menu5">
+		    <h4>Menu 5</h4>
+			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+		  </div>
+		  <div class="tab-pane container fade" id="menu6">
+		    <h4>Menu 6</h4>
+			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+		  </div>
+		</div>		
+		
+		<br><br>
+				
+		<h4>Toggle Dynamic Pills 1</h4>
+		<!-- Pills를 토글 가능하게 만들려면 각 링크에 data-toggle 속성을 data-toggle="pill"로 변경하십시오.
+		         그런 다음 모든 탭에 대해 고유한 ID가 있는 .tab-pane 클래스를 추가하고 .tab-content 클래스가 있는 <div> 요소 안에 래핑합니다.
+        -->
+		<ul class="nav nav-pills">
+		  <li class="nav-item">
+		    <a class="nav-link active" data-toggle="pill" href="#home3">Home3</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" data-toggle="pill" href="#menu7">Menu 7</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" data-toggle="pill" href="#menu8">Menu 8</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" data-toggle="pill" href="#menu9">Menu 9</a>
+		  </li>
+		</ul>
+		
+		<!-- Tab panes -->
+		<div class="tab-content py-3">
+		  <div class="tab-pane container active" id="home3">
+		  	<h4>HOME3</h4>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		  </div>
+		  <div class="tab-pane container" id="menu7">
+		    <h4>Menu 7</h4>
+			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+		  </div>
+		  <div class="tab-pane container" id="menu8">
+		    <h4>Menu 8</h4>
+			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+		  </div>
+		  <div class="tab-pane container" id="menu9">
+		    <h4>Menu 9</h4>
+			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+		  </div>
+		</div>	
+		
+		<br><br>
+				
+		<h4>Toggle Dynamic Pills 2(fade)</h4>
+		<!-- Pills를 토글 가능하게 만들려면 각 링크에 data-toggle 속성을 data-toggle="pill"로 변경하십시오. 
+		         그런 다음 모든 탭에 대해 고유한 ID가 있는 .tab-pane 클래스를 추가하고 .tab-content 클래스가 있는 <div> 요소 안에 래핑합니다.
+                         
+                         탭을 클릭할 때 탭이 페이드 인 및 페이드 아웃되도록 하려면 .fade 클래스를 .tab-pane에 추가하세요. 
+        -->
+		<ul class="nav nav-pills">
+		  <li class="nav-item">
+		    <a class="nav-link active" data-toggle="pill" href="#home4">Home4</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" data-toggle="pill" href="#menu10">Menu 10</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" data-toggle="pill" href="#menu11">Menu 11</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" data-toggle="pill" href="#menu12">Menu 12</a>
+		  </li>
+		</ul>
+		
+		<!-- Tab panes -->
+		<div class="tab-content py-3">
+		  <div class="tab-pane container active" id="home4">
+		  	<h4>HOME4</h4>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		  </div>
+		  <div class="tab-pane container fade" id="menu10">
+		    <h4>Menu 10</h4>
+			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+		  </div>
+		  <div class="tab-pane container fade" id="menu11">
+		    <h4>Menu 11</h4>
+			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+		  </div>
+		  <div class="tab-pane container fade" id="menu12">
+		    <h4>Menu 12</h4>
+			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+		  </div>
+		</div>
+				
+		<br><br><br><br><br><br><br><br>
+		
+	</div>
+	
+    <!-- Optional JavaScript -->
+    <script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.bundle.min.js" type="text/javascript"></script>
+  </body>
+</html>

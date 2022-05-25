@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Grid</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+	<style type="text/css">
+		[class*="col"] {  /* [class*="col"] 은 CSS3에서 나온 선택자로서 class이름에 col 이라는 글자가 포함된 것들을 말한다. */
+			padding-top: 15px;
+			padding-bottom: 15px;
+			background-color: #eee;
+			/* background-color: rgba(86, 61, 124, .15); */
+			border: 1px solid #999;
+			/* border: 1px solid rgba(86, 61, 124, .2); */
+		}
+	</style>
+  </head>
+  <body>
+ <!-- 
+	Responsive Columns(반응형 Columns)
+	그리드 옵션들
+	다양한 기기들을 넘나드는 부트스트랩 그리드 시스템
+	---------------------------------------------------------------------------------------
+	width 가 576px 미만은 mobile phones or screens 임.
+	
+	                 		Extra small    	Small        Medium       Large        Extra large
+	                 		576px미만        576px이상     768px이상     992px이상     1200px이상 
+                                        	768px미만     992px미만     1200px미만
+	                                        
+	.container width		100%     		540px	     720px	      960px	       1140px
+	
+	클래스 접두어	  		   .col-	       .col-sm-	    .col-md-	 .col-lg-	  .col-xl-
+	
+	1개행에 들어올 수 있는 컬럼의 최대개수	 12
+	Nestable(중첩가능)             	Yes
+	Column ordering	             	Yes
+ -->
+
+	<div class="container">
+		<h4>12개 컬럼</h4>
+		<div class="row">
+			<div class="col-md-1">.col-md-1</div>
+			<div class="col-md-1">.col-md-1</div>
+			<div class="col-md-1">.col-md-1</div>
+			<div class="col-md-1">.col-md-1</div>
+			<div class="col-md-1">.col-md-1</div>
+			<div class="col-md-1">.col-md-1</div>
+			<div class="col-md-1">.col-md-1</div>
+			<div class="col-md-1">.col-md-1</div>
+			<div class="col-md-1">.col-md-1</div>
+			<div class="col-md-1">.col-md-1</div>
+			<div class="col-md-1">.col-md-1</div>
+			<div class="col-md-1">.col-md-1</div>
+		<!-- width 크기가 768px 이상일 경우 모든 컬럼의 크기는 width 크기의 1/12 이 되고
+		     width 크기가 768px 미만일 경우 모든 컬럼의 크기는 width 크기의 100% 만큼 된다.   -->
+		</div>
+
+	    <br>
+	    
+		<h4>2개 컬럼</h4>
+		<div class="row">
+			<div class="col-md-8">.col-md-8</div>
+			<div class="col-md-4">.col-md-4</div>
+		<!-- width 크기가 768px 이상일 경우 컬럼의 크기는 첫번째는 8/12(== 2/3), 두번째는 4/12(== 1/3) 가 되고
+		     width 크기가 768px 미만일 경우 컬럼의 크기는 너비의 100% 만큼 된다.   -->
+		</div>
+
+		<br>
+
+		<h4>같은 넓이 1행 2열</h4>
+		<div class="row">
+		    <div class="col">
+		      1 of 2
+		    </div>
+		    <div class="col">
+		      2 of 2
+		    </div>
+		<!-- 디바이스 width 크기와 무관하게 컬럼의 크기는 첫번째는 1/2, 두번째는 1/2 이 된다.  -->
+		</div>
+
+		<br>
+
+		<h4>같은 넓이 1행 3열</h4>
+		<div class="row">
+		    <div class="col">
+		      1 of 3
+		    </div>
+		    <div class="col">
+		      2 of 3
+		    </div>
+		    <div class="col">
+		      3 of 3
+		    </div>
+		 <!-- 디바이스 width 크기와 무관하게 컬럼의 크기는 첫번째는 1/3, 두번째는 1/3, 세번째는 1/3 이 된다.  -->
+		 </div>
+		
+		<br>
+		
+		<h4>같은 넓이의 컬럼인 2행 2열</h4>
+		<div class="row">
+		    <div class="col">Column</div>
+		    <div class="col">Column</div>
+		    <div class="w-100"></div>
+		    <div class="col">Column</div>
+		    <div class="col">Column</div>
+		<!-- 디바이스 width 크기와 무관하게 컬럼의 크기는 같은 넓이의 컬럼으로 2행 2열이 된다.  -->    
+		</div>
+		
+		<br>
+		
+		<h4>같은 넓이의 컬럼인 2행 3열</h4>
+		<div class="row">
+		    <div class="col">Column</div>
+		    <div class="col">Column</div>
+		    <div class="col">Column</div>
+		    <div class="w-100"></div>
+		    <div class="col">Column</div>
+		    <div class="col">Column</div>
+		    <div class="col">Column</div>
+		<!-- 디바이스 width 크기와 무관하게 컬럼의 크기는 같은 넓이의 컬럼으로 2행 3열이 된다.  -->    
+		</div>
+		
+		<br>
+		
+		<h4>같은 넓이의 컬럼인 3행 2열</h4>
+		<div class="row">
+		    <div class="col">Column</div>
+		    <div class="col">Column</div>
+		    <div class="w-100"></div>
+		    <div class="col">Column</div>
+		    <div class="col">Column</div>
+		    <div class="w-100"></div>
+		    <div class="col">Column</div>
+		    <div class="col">Column</div>
+		<!-- 디바이스 width 크기와 무관하게 컬럼의 크기는 같은 넓이의 컬럼으로 3행 2열이 된다.  -->    
+		</div>
+
+		<br>
+
+		<h4>디바이스 width 크기와 무관하게 1개 행 크기는 .container width 크기를 사용한다.<br> 
+		    이때 컬럼크기의 비율을 고정시키려면 중앙 컬럼은 숫자를 지정하고 좌,우 컬럼은 지정하지 않으면 된다</h4>
+		<div class="row">
+		    <div class="col">
+		      1 of 3
+		    </div>
+		    <div class="col-6">
+		      2 of 3 (wider)
+		    </div>
+		    <div class="col">
+		      3 of 3
+		    </div>
+		</div>
+
+		<br>
+
+		<h4>다양한 넓이 구현1</h4>
+		<div class="row justify-content-md-center">
+		    <div class="col col-lg-2">
+		      1 of 3
+		    </div>
+		    <div class="col-md-auto">
+		      Variable width content
+		    </div>
+		    <div class="col col-lg-2">
+		      3 of 3
+		    </div>
+	   <!-- 디바이스 width 크기 992px 이상(Large)일 때는  '1 of 3'과 '3 of 3'은 디바이스 width 크기의 2/12 너비로 고정되고, 
+            중간 부분만 남은 크기로 되어 가변적이 된다.
+	        이때 전체행의 최대크기는 720px(Medium) 이 되며 가운데 정렬된다.
+	       
+	        디바이스 width 크기가 576px 보다 크고 992px 미만(Small 또는 Medium)일 경우에는 '1 of 3'과 '3 of 3'은 디바이스 width 크기의 2/12 너비로 고정되고, 
+	        중간 부분만 남은 크기로 되어 가변적이 된다.
+	        이때 전체행의 크기는 화면너비 100%로 사용된다.
+	              
+	        디바이스 width 크기가 576px 미만(Extra small)일 경우  '1 of 3'과 '3 of 3' 과 중간 부분은  화면너비 100%로 사용된다.              
+	              
+	        그러나 이것은 이론적일 뿐이며, 실제는 수치에 정확히 맞지는 않고 실제는 조금의 차이를 보이고 있다.        
+	    -->
+		</div>
+
+		<br>
+
+		<h4>다양한 넓이 구현2</h4>
+		<div class="row">
+		    <div class="col">
+		      1 of 3
+		    </div>
+		    <div class="col-md-auto">
+		      Variable width content
+		    </div>
+		    <div class="col col-lg-2">
+		      3 of 3
+		    </div>
+		<!-- 
+		     <div class="col">1 of 3</div> 은 
+		             화면너비 576px 미만(Extra small)에서는 100%로 보이고, 
+		             그 외에는 <div class="col-md-auto"> 영역에 따라 가변적이 된다.
+		          
+             <div class="col-md-auto">Variable width content</div> 은 
+                             화면너비 768px 이상(Medium 이상  즉 Medium , Large , Extra large)에서 이 영역에 들어가는 내용에 따라 가변적으로 너비가 변하게 된다.
+                             
+             <div class="col col-lg-2">3 of 3</div> 은 
+                             화면너비 576px 미만(Extra small)의 경우 100%로 보이고,
+                             화면너비 992px 이상(Large)에서는 2/12 너비로 보이게 된다. 
+        -->
+		</div>
+		
+		<br>
+				
+		<h4>수평 정렬(왼쪽)</h4>
+		<div class="row justify-content-start">
+		    <div class="col-4">
+		      One of two columns
+		    </div>
+		    <div class="col-4">
+		      One of two columns
+		    </div>
+	   <!-- 디바이스 width 크기와 무관하게 2개의 컬럼 크기는 각각 4/12, 4/12 이 되며 
+	               시작은 왼쪽부터 하므로 왼쪽정렬된다.  -->
+		</div>
+		
+		<br>
+		
+		<h4>수평 정렬(가운데)</h4>  
+		<div class="row justify-content-center">
+		    <div class="col-4">
+		      One of two columns
+		    </div>
+		    <div class="col-4">
+		      One of two columns
+		    </div>
+	   <!-- 디바이스 width 크기와 무관하게 2개의 컬럼 크기는 각각 4/12, 4/12 이 되며 가운데부터 시작하므로 가운데정렬된다.  --> 
+		</div>
+		
+		<br>
+		
+		<h4>수평 정렬(오른쪽)</h4>  
+		<div class="row justify-content-end">
+		    <div class="col-4">
+		      One of two columns
+		    </div>
+		    <div class="col-4">
+		      One of two columns
+		    </div>
+	   <!-- 디바이스 width 크기와 무관하게 2개의 컬럼 크기는 각각 4/12, 4/12 이 되며 끝쪽부터 시작하므로 오른쪽정렬된다.  -->	    
+		</div>
+		
+		<br>
+		
+		<h4>수평 정렬(내용물을 12크기를 못채워 공백이 있을시 좌,우측 안쪽 여백에 동일한 여백크기를 주기)</h4> 
+		<div class="row justify-content-around">
+		    <div class="col-4">
+		      One of two columns
+		    </div>
+		    <div class="col-4">
+		      One of two columns
+		    </div>
+		</div>
+		
+		<br>
+		
+		<h4>수평 정렬(내용물을 12크기를 못채워 공백이 있을시 좌,우측 안쪽 여백에 여백 없애기)</h4> 
+		<div class="row justify-content-between">
+		    <div class="col-4">
+		      One of two columns
+		    </div>
+		    <div class="col-4">
+		      One of two columns
+		    </div>
+		</div> 
+		
+		<br>
+		  
+		<h4>건너뛰기를 해주는 offset 클래스</h4>
+		<div class="row">
+		    <div class="col-md-4">.col-md-4</div>
+		    <div class="col-md-4 offset-md-4">.col-md-4 .offset-md-4</div>
+	   <!-- width 의 크기가  768px이상(즉 Medium , Large , Extra large) 에서는  
+	        4/12(== 1/3) 로 나타내고 
+	                다음에는 offset-md-4 이므로 4/12(== 1/3) 만큼 먼저 건너뛰고  
+	        4/12(== 1/3) 를 나타낸다. --> 
+		</div>
+		
+		<br>
+		
+		<div class="row">
+		    <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+		    <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+	   <!-- width 의 크기가  768px이상(즉 Medium , Large , Extra large) 에서는  
+	        offset-md-3 이므로 3/12(== 1/4) 만큼 먼저 건너뛰고  3/12(== 1/4) 로 나타내고 
+	        다음에는
+	        offset-md-3 이므로 3/12(== 1/4) 만큼 먼저 건너뛰고  3/12(== 1/4) 로 나타낸다.         
+       --> 
+		</div>
+		
+		<br>
+		
+		<div class="row">
+		    <div class="col-md-6 offset-md-3">.col-md-6 .offset-md-3</div>
+	   <!-- width 의 크기가  768px이상(즉 Medium , Large , Extra large) 에서는  
+	        offset-md-3 이므로 3/12(== 1/4) 만큼 먼저 건너뛰고  col-md-6(== 6/12) 을 한다.-->
+		</div>
+
+		<br>
+
+
+		<!-- ======== 부가적으로 사용 ======== -->
+
+		<h4>3개 컬럼</h4>
+		<div class="row">
+			<div class="col-md-4">.col-md-4</div>
+			<div class="col-md-4">.col-md-4</div>
+			<div class="col-md-4">.col-md-4</div>
+	   <!-- width 크기가 768px 이상(즉  Medium , Large , Extra large)일 경우 
+	        모든 컬럼의 크기는 4/12(==1/3) 이 되고
+		    width 크기가 768px 미만일 경우 모든 컬럼의 크기는 너비의 100% 만큼 된다.   -->
+		</div>
+
+		<br>
+
+		<h4>3개 컬럼</h4>
+		<div class="row">
+			<div class="col-md-3">.col-md-3</div>
+			<div class="col-md-6">.col-md-6</div>
+			<div class="col-md-3">.col-md-3</div>
+	   <!-- width 크기가 768px 이상(즉  Medium , Large , Extra large)일 경우  
+		    첫번째 컬럼의 크기는 3/12, 두번째 컬럼의 크기는 6/12, 세번째 컬럼의 크기는 3/12  이 되고
+		    width 크기가 768px 미만일 경우 모든 컬럼의 크기는 너비의 100% 만큼 된다.   -->	
+		</div>
+		
+		<br>
+
+		<h4>2개 컬럼</h4>
+		<div class="row">
+			<div class="col-md-6">.col-md-6</div>
+			<div class="col-md-6">.col-md-6</div>
+	   <!-- width 크기가 768px 이상(즉  Medium , Large , Extra large)일 경우 
+	        모든 컬럼의 크기는 6/12 이 되고
+		    width 크기가 768px 미만일 경우 모든 컬럼의 크기는 너비의 100% 만큼 된다.   -->		
+		</div>
+
+		<br>
+
+		<h4>디바이스 width 크기가 576px 미만인 모바일과 디바이스 width 크기가 768px 이상인 것 - 1</h4>
+		<div class="row">
+			<div class="col-12 col-md-8">.col-xs-12 .col-md-8</div>
+			<div class="col-6 col-md-4">.col-xs-6 .col-md-4</div>
+		</div>
+	   <!-- 디바이스 width 크기 576px 미만인 모바일에서는 
+            첫번째 컬럼은 화면 너비의 100%, 
+            두번째 컬럼은 화면 너비의 50% 로 설정함.
+	        
+	        디바이스 width 크기가 768px 이상(즉  Medium , Large , Extra large)인 것에서는 
+	        첫번째 컬럼의 크기는 디바이스 width의 8/12, 
+	        두번째 컬럼의 크기는 디바이스 width의 4/12 크기로 설정함.
+	   -->
+
+		<br>
+
+		<h4>디바이스 width 크기가 576px 미만인 모바일과 디바이스 width 크기가 768px 이상인 것 - 2</h4>
+		<div class="row">
+			<div class="col-6 col-md-4">.col-xs-6 .col-md-4</div>
+			<div class="col-6 col-md-4">.col-xs-6 .col-md-4</div>
+			<div class="col-6 col-md-4">.col-xs-6 .col-md-4</div>
+		</div>
+	   <!-- 디바이스 width 크기 576px 미만인 모바일에서 
+            모든 컬럼은 화면 너비의 6/12 인  50% 로 설정함.
+                
+	        디바이스 width 크기가 768px 이상(즉  Medium , Large , Extra large)인 것에서는 
+	        모든 컬럼의 크기는 디바이스 width의 4/12 인 33.3% 로 설정함.
+	   -->
+
+		<br>
+
+		<h4>컬럼 중첩하기</h4>
+		<div class="row">
+			<div class="col-md-8">
+				.col-md-8
+				<div class="row">
+					<div class="col-md-6">.col-md-6</div>
+					<div class="col-md-6">.col-md-6</div>
+					<!-- 디바이스 width 크기가 768px 이상(즉  Medium , Large , Extra large)인 것에서는 
+				         첫번째 컬럼의 크기는 div width의 6/12 , 
+				         두번째 컬럼의 크기는 div width의 6/12 로 설정함.
+		            -->
+				</div>
+			</div>
+			<div class="col-md-4">.col-md-4</div>
+		<!-- 디바이스 width 크기가 768px 이상(즉  Medium , Large , Extra large)인 것에서는 
+	         첫번째 컬럼의 크기는 디바이스 width의 8/12(== 2/3) , 
+	         두번째 컬럼의 크기는 디바이스 width의 4/12(== 1/3) 로 설정함.
+		-->	
+		</div>
+		
+		<br>
+		
+	</div>
+    <!-- Optional JavaScript -->
+    <script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.bundle.min.js" type="text/javascript"></script>
+  </body>
+</html>

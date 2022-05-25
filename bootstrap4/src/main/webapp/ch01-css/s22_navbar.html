@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>navbar</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+    
+    <!-- Font Awesome 5 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  </head>
+  <body>
+	<div class="container">
+		<h3 class="my-3">Navigation Bars</h3>
+		<h5>Navigation Bars(탐색 모음)은 페이지 상단에 배치되는 탐색 헤더입니다.</h5>
+		
+		<h4 class="mt-5">Basic Navbar</h4>
+		<p>Bootstrap을 사용하면 화면 크기에 따라 탐색 모음이 확장되거나 축소될 수 있습니다.</p>
+		
+		<p>표준 탐색 모음은 .navbar 클래스를 사용하여 생성되고 반응형 축소 클래스(.navbar-expand-xl|lg|md|sm)가 뒤따릅니다.</p>
+		
+		<p>navbar 내부에 링크를 추가하려면 class="navbar-nav"와 함께 &lt;ul&gt; 요소를 사용하십시오. 그런 다음 .nav-item 클래스가 있는 &lt;li&gt; 요소를 추가하고 .nav-link 클래스가 있는 &lt;a&gt; 요소를 추가합니다.</p>
+		<br>
+		
+		<h5>작은 화면에서 세로로 바뀌는 회색 가로 Navigation Bar</h5>
+		
+		<nav class="navbar navbar-expand-sm bg-light">
+		  
+		  <!-- Links 추가하기 -->
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 1</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 2</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 3</a>
+		    </li>
+		  </ul>
+		</nav>
+		
+		<br>
+		
+		
+		<h4 class="mt-3">수직 Navigation Bar</h4>
+		<p>nav 엘리먼트에서 .navbar-expand-xl|lg|md|sm 클래스를 제거하여 수직 Navigation Bar를 만듭니다.</p>
+		
+		<!-- A vertical navbar -->		
+		<nav class="navbar bg-light">
+		  
+		  <!-- Links 추가하기 -->
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 1</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 2</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 3</a>
+		    </li>
+		  </ul>
+		</nav>
+		
+		<br>
+		
+		
+		<h4 class="mt-3">Centered Navigation Bar</h4>
+		<p>nav 엘리먼트에 .justify-content-center 클래스를 추가합니다.</p>
+		
+		<nav class="navbar navbar-expand-sm bg-light justify-content-center">
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 1</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 2</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 3</a>
+		    </li>
+		  </ul>
+		</nav>
+		
+		<br>
+		
+		
+		<h4>Navigation Bar에 색상 지정하기</h4> 
+		<p>
+		.navbar-light 클래스를 사용하여 검정색 텍스트 색상을 추가하거나 .navbar-dark 클래스를 사용하여 navbar의 모든 링크에 흰색 텍스트 색상을 추가하십시오.
+		</p>
+		
+		<nav class="navbar navbar-expand-sm bg-light navbar-light">
+		
+		  <!-- Links 추가하기 -->
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 1</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 2</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 3</a>
+		    </li>
+		  </ul>
+		</nav>
+		
+		<br>
+		
+		
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		  
+		  <!-- Links 추가하기 -->
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 1</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 2</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 3</a>
+		    </li>
+		  </ul>
+		</nav>
+		
+		<br>
+			
+				
+		<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+		  
+		  <!-- Links 추가하기 -->
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 1</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 2</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 3</a>
+		    </li>
+		  </ul>
+		</nav>
+		
+		<br>
+		
+		
+		<nav class="navbar navbar-expand-sm bg-success navbar-dark">
+		  
+		  <!-- Links 추가하기 -->
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 1</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 2</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 3</a>
+		    </li>
+		  </ul>
+		</nav>
+		
+		<br>
+		
+		
+		<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+		  
+		  <!-- Links 추가하기 -->
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 1</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 2</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 3</a>
+		    </li>
+		  </ul>
+		</nav>
+		
+		<br>
+		
+		
+		<nav class="navbar navbar-expand-sm bg-warning navbar-dark">
+		  
+		  <!-- Links 추가하기 -->
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 1</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 2</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 3</a>
+		    </li>
+		  </ul>
+		</nav>
+		
+		<br>
+		
+		
+		<nav class="navbar navbar-expand-sm bg-danger navbar-dark">
+		  
+		  <!-- Links 추가하기 -->
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 1</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 2</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 3</a>
+		    </li>
+		  </ul>
+		</nav>
+		
+		<br>
+		
+		
+		<nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+		  
+		  <!-- Links 추가하기 -->
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 1</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 2</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 3</a>
+		    </li>
+		  </ul>
+		</nav>
+		
+		<br>
+		
+		
+		<nav class="navbar navbar-expand-sm navbar-light" style="background-color: #e3f2fd;">
+		  
+		  <!-- Links 추가하기 -->
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 1</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 2</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 3</a>
+		    </li>
+		  </ul>
+		</nav>
+		
+		<br><br>
+		
+		
+		<h4>Brand / Logo</h4> 
+		<p>
+		.navbar-brand 클래스는 페이지의 브랜드/로고/프로젝트 이름을 강조 표시하는 데 사용됩니다.
+		</p>
+		
+		
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		  
+		  <!-- Brand/logo -->
+		  <a class="navbar-brand" href="#"><img src="../images/logo2.png" /></a>
+		  
+		  <!-- Links -->
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 1</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 2</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 3</a>
+		    </li>
+		  </ul>
+		</nav>
+		
+		<br>
+		
+		
+		<nav class="navbar navbar-expand-sm bg-light navbar-light">
+		 
+		  <!-- Brand/logo -->
+		  <a class="navbar-brand" href="#"><img src="../images/logo2.png" /></a>
+		  
+		  <!-- Links -->
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 1</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 2</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 3</a>
+		    </li>
+		  </ul>
+		</nav>
+		
+		<br>
+		
+		
+		<nav class="navbar navbar-expand-sm bg-light navbar-light">
+		  
+		  <!-- Brand/logo -->
+		  <a class="navbar-brand" href="#"><img src="../images/Tulips.jpg" style="width:120px;" /></a>
+		  
+		  <!-- Links -->
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 1</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 2</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 3</a>
+		    </li>
+		  </ul>
+		</nav>
+		
+		<br>
+		
+		
+		<nav class="navbar navbar-expand-sm bg-light navbar-light">
+		  
+		  <!-- Brand/logo --> <!-- Font Awesome 5 Icons -->
+		  <a class="navbar-brand" href="#"><i class="fab fa-apple"></i></a>
+		  <a class="navbar-brand" href="#"><i class="fab fa-apple fa-xs"></i></a>
+		  <a class="navbar-brand" href="#"><i class="fab fa-apple fa-sm"></i></a>
+		  <a class="navbar-brand" href="#"><i class="fab fa-apple fa-lg"></i></a>
+		  <a class="navbar-brand" href="#"><i class="fab fa-apple fa-2x"></i></a>
+		  <a class="navbar-brand" href="#"><i class="fab fa-apple fa-3x"></i></a>
+		  <a class="navbar-brand" href="#"><i class="fab fa-apple fa-5x"></i></a>
+		  <a class="navbar-brand" href="#"><i class="fab fa-apple fa-7x"></i></a>
+		  <a class="navbar-brand" href="#"><i class="fab fa-apple fa-10x"></i></a>
+		  
+		  <!-- Links -->
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 1</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 2</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 3</a>
+		    </li>
+		  </ul>
+		</nav>
+		
+		<br>
+		
+		
+		<h4>Collapsing The Navigation Bar(아코디언 같은 Navigation Bar)</h4> 
+		<p>
+		접을 수 있는 탐색 모음을 만들려면 버튼을 class="navbar-toggler", data-toggle="collapse" 및 data-target="#thetarget"인 버튼을 사용하세요.
+		</p>
+		<p>
+		그런 다음 class="collapse navbar-collapse"를 사용하여 div 요소 내부에 navbar 콘텐츠(링크 등)를 래핑한 다음 버튼의 데이터 대상과 일치하는 id: "thetarget"을 지정합니다.
+		</p>
+		
+		<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		  <a class="navbar-brand" href="#"><i class="fab fa-apple fa-2x"></i></a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+		    <ul class="navbar-nav">
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Link</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Link</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Link</a>
+		      </li>    
+		    </ul>
+		  </div>  
+		</nav>
+		
+		<br>
+
+
+		<h4>Navbar With Dropdown</h4> 
+		
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		  
+		  <!-- Brand -->
+		  <a class="navbar-brand" href="#"><i class="fab fa-apple fa-2x"></i></a>
+		
+		  <!-- Links -->
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 1</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 2</a>
+		    </li>
+		
+		    <!-- Dropdown -->
+		    <li class="nav-item dropdown">
+		      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+		        Dropdown link
+		      </a>
+		      <div class="dropdown-menu" aria-labelledby="navbardrop">
+		        <a class="dropdown-item" href="#">Link 1</a>
+		        <a class="dropdown-item" href="#">Link 2</a>
+		        <a class="dropdown-item" href="#">Link 3</a>
+		      </div>
+		    </li>
+		  </ul>
+		</nav>
+		
+		<br>
+		
+		
+		<h4>Navbar Forms and Buttons</h4> 
+		<p>입력과 버튼을 나란히 그룹화하려면 class="form-inline"인 &lt;form&gt; 요소를 추가합니다.</p>
+		
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		  <form class="form-inline" action="/action_page.do">
+		    <input class="form-control mr-2" type="text" placeholder="Search">
+		    <button class="btn btn-success" type="submit">Search</button>
+		  </form>
+		</nav>
+		
+		<br>
+		
+		
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <a class="navbar-brand" href="#">Navbar</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto"> <!-- .mr-auto 는 css 의  margin-right: auto; 임. 즉, 가로축 미사용 공간 너비의 일부를 바깥 여백에 할당한다는 의미임. -->
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Home</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Link</a>
+		      </li>
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown">
+		          Dropdown
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		          <a class="dropdown-item" href="#">Action</a>
+		          <a class="dropdown-item" href="#">Another action</a>
+		          <div class="dropdown-divider"></div>
+		          <a class="dropdown-item" href="#">Something else here</a>
+		        </div>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+		      </li>
+		    </ul>
+		    <form class="form-inline my-2 my-lg-0">
+		      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+		      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		    </form>
+		  </div>
+		</nav>
+		
+		<br><br><br><br>
+		
+	</div>
+	
+    <!-- Optional JavaScript -->
+    <script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.bundle.min.js" type="text/javascript"></script>
+  </body>
+</html>

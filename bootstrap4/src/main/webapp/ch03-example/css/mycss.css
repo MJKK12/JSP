@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+body {
+	padding: 15px 0 30px 0;
+}
+
+.custom-topcontents {
+	margin-top: 15px;
+}
+
+.menufont-size {
+	font-size: 13pt;
+}
+
+div.custom-submit {
+	display: flex;
+}
+
+div.custom-submit > input[type="submit"] {
+	margin: auto;	
+}

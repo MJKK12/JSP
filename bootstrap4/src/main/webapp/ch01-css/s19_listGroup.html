@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>list group</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+  </head>
+  <body>
+	<div class="container">
+		<h4>Basic example</h4>
+		
+		<ul class="list-group"> <!-- ul 엘리먼트에 .list-group 클래스를 주고 -->
+		  <li class="list-group-item">An item</li> <!-- li 엘리먼트에 .list-group-item 클래스를 주면 된다. -->
+		  <li class="list-group-item">A second item</li>
+		  <li class="list-group-item">A third item</li>
+		  <li class="list-group-item">A fourth item</li>
+		  <li class="list-group-item">And a fifth one</li>
+		</ul>
+		
+		<br>
+		
+		<h4>Flush / Remove Borders</h4>
+		<!-- .list-group-flush 클래스를 사용하여 일부 테두리와 둥근 모서리를 제거합니다. -->
+		<ul class="list-group list-group-flush">
+		  <li class="list-group-item">First item</li>
+		  <li class="list-group-item">Second item</li>
+		  <li class="list-group-item">Third item</li>
+		  <li class="list-group-item">Fourth item</li>
+		</ul>
+		
+		<br>
+		
+		<h4>Horizontal List Groups</h4>
+		<!-- 목록 항목을 세로 대신 가로로 표시하려면(서로의 상단 대신 나란히 표시) .list-group-horizontal 클래스를 .list-group에 추가하십시오. -->
+		<ul class="list-group list-group-horizontal">
+		  <li class="list-group-item">First item</li>
+		  <li class="list-group-item">Second item</li>
+		  <li class="list-group-item">Third item</li>
+		  <li class="list-group-item">Fourth item</li>
+		</ul>
+		
+		<br>
+		
+		<h4>Active items</h4>
+		<ul class="list-group">
+		  <li class="list-group-item active" aria-current="true">An active item</li> <!-- .active 클래스를 사용하여 현재 항목 강조 표시 한다.  -->
+		  <li class="list-group-item">A second item</li>
+		  <li class="list-group-item">A third item</li>
+		  <li class="list-group-item">A fourth item</li>
+		  <li class="list-group-item">And a fifth one</li>
+		</ul>	
+		
+		<br>
+		
+		<h4>Links and buttons</h4>
+		<!-- 연결된 항목으로 목록 그룹을 만들려면 <ul> 대신 <div>를 사용하고 <li> 대신 <a>를 사용합니다. 
+		     마우스 오버 시 회색 배경색을 원하면 선택적으로 .list-group-item-action 클래스를 추가합니다. -->
+		<div class="list-group">
+		  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+		    The current link item
+		  </a>
+		  <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+		  <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+		  <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+		  
+		  <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">A disabled link item</a>
+		  <!-- .disabled 클래스는 비활성화된 항목에 더 밝은 텍스트 색상을 추가합니다. 링크에 사용하면 호버 효과가 제거됩니다. -->
+		</div>
+		
+		<br>
+		
+		<h4>Contextual classes</h4>
+		<ul class="list-group">
+		  <li class="list-group-item">A simple default list group item</li>
+		
+		  <li class="list-group-item list-group-item-primary">A simple primary list group item</li>
+		  <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
+		  <li class="list-group-item list-group-item-success">A simple success list group item</li>
+		  <li class="list-group-item list-group-item-danger">A simple danger list group item</li>
+		  <li class="list-group-item list-group-item-warning">A simple warning list group item</li>
+		  <li class="list-group-item list-group-item-info">A simple info list group item</li>
+		  <li class="list-group-item list-group-item-light">A simple light list group item</li>
+		  <li class="list-group-item list-group-item-dark">A simple dark list group item</li>
+		</ul>
+		
+		<br>
+		
+		<h4>Link items with Contextual Classes</h4>
+		<div class="list-group">
+		  <a href="#" class="list-group-item list-group-item-action">A simple default list group item</a>
+		
+		  <a href="#" class="list-group-item list-group-item-action list-group-item-primary">A simple primary list group item</a>
+		  <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">A simple secondary list group item</a>
+		  <a href="#" class="list-group-item list-group-item-action list-group-item-success">A simple success list group item</a>
+		  <a href="#" class="list-group-item list-group-item-action list-group-item-danger">A simple danger list group item</a>
+		  <a href="#" class="list-group-item list-group-item-action list-group-item-warning">A simple warning list group item</a>
+		  <a href="#" class="list-group-item list-group-item-action list-group-item-info">A simple info list group item</a>
+		  <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
+		  <a href="#" class="list-group-item list-group-item-action list-group-item-dark">A simple dark list group item</a>
+		</div>
+		
+		<br>
+		
+		<h4>List Group with Badges</h4>
+		<ul class="list-group">
+		  <li class="list-group-item d-flex justify-content-between align-items-center">
+		    A list item
+		    <span class="badge badge-primary badge-pill">14</span>
+		  </li>
+		  <li class="list-group-item d-flex justify-content-between align-items-center">
+		    A second list item
+		    <span class="badge badge-danger badge-pill">2</span>
+		  </li>
+		  <li class="list-group-item d-flex justify-content-between align-items-center">
+		    A third list item
+		    <span class="badge badge-success badge-pill">1</span>
+		  </li>
+		</ul>
+		
+		<br>
+				
+	</div>
+	
+    <!-- Optional JavaScript -->
+    <script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.bundle.min.js" type="text/javascript"></script>
+  </body>
+</html>

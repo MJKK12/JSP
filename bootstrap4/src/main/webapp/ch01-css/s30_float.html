@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>float</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+  </head>
+  <body>
+	<div class="container">
+		<h2>float</h2>
+		<p>.float-right 클래스를 사용하여 요소를 오른쪽으로 또는 .float-left를 사용하여 왼쪽으로 요소를 띄우고 .clearfix 클래스를 사용하여 요소를 지우십시오.</p>
+		
+		<div style="height: 100px; display: flex;" class="bg-secondary text-white">
+			<span style="margin: auto;">Header</span>
+		</div>
+		
+		<div>
+			<div style="width:30%; height: 400px; display: flex;" class="float-left bg-dark text-white">
+				<span style="margin: auto 0;">Float left</span>
+			</div>
+			
+			<div style="width:30%; height: 400px; display: flex;" class="float-right bg-light text-dark">
+				<span style="margin: auto 0 auto auto;">Float right</span>
+			</div>
+		</div>
+			
+		<!-- .clearfix 클래스가 잘 안먹어서 직접 style 에 clear: both; 주었음. -->	
+		<div style="height: 100px; clear: both; display: flex;" class="bg-secondary text-white">
+			    <span style="margin: auto;">Footer</span>
+		</div>
+		
+	</div>
+	
+    <!-- Optional JavaScript -->
+    <script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    
+  </body>
+</html>

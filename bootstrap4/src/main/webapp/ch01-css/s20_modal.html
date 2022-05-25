@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>modal</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+  </head>
+  <body>
+	<div class="container">
+		<h4>Live demo(basic modal)</h4>
+		
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+		  Open demo modal
+		</button>
+		
+		<!-- Modal -->
+		<!-- Modal 구성 요소는 현재 페이지 상단에 표시되는 대화 상자/팝업 창입니다. -->
+		<div class="modal fade" id="exampleModal">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      
+		      <!-- Modal header -->
+		      <div class="modal-header">
+		        <h5 class="modal-title">Modal title</h5>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+		      
+		      <!-- Modal body -->
+		      <div class="modal-body">
+		        Modal body....
+		      </div>
+		      
+		      <!-- Modal footer -->
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<br><br>
+		
+		<h4>Static backdrop</h4>
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+		  Open static backdrop modal
+		</button>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="staticBackdrop" data-backdrop="static">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      
+		      <!-- Modal header -->
+		      <div class="modal-header">
+		        <h5 class="modal-title">Modal title</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button> 
+		      </div>
+		      
+		      <!-- Modal body -->
+		      <div class="modal-body">
+		        Modal body....
+		      </div>
+		      
+		      <!-- Modal footer -->
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Understood</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		
+		
+		<!-- Button trigger modal -->
+		<br><br>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal_1">
+		  로그인(모달창 닫으면 폼에 입력한값 그대로 보여짐)
+		</button>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="loginModal_1" data-backdrop="static">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      
+		      <!-- Modal header -->
+		      <div class="modal-header">
+		        <h5 class="modal-title">로그인1</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button> 
+		      </div>
+		      
+		      <!-- Modal body -->
+		      <div class="modal-body">
+		        <ul style="list-style: none; padding: 0;">
+		        	<li>
+		        		<label for="userid" style="display: inline-block; width: 100px;">아이디</label><input type="text" name="userid" id="userid" />
+		        	</li>
+		        	<li>
+		        		<label for="passwd" style="display: inline-block; width: 100px;">비밀번호</label><input type="password" name="passwd" id="passwd" />
+		        	</li>
+		        </ul>
+		      </div>
+		      
+		      <!-- Modal footer -->
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Understood</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		
+		
+		<!-- Button trigger modal -->
+		<br><br>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal_2">
+		  로그인(모달창 닫으면 폼에 입력한값 초기화됨)
+		</button>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="loginModal_2" data-backdrop="static">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      
+		      <!-- Modal header -->
+		      <div class="modal-header">
+		        <h5 class="modal-title">로그인2</h5>
+		        <button type="button" class="close my_close" data-dismiss="modal" aria-label="Close">&times;</button> 
+		      </div>
+		      
+		      <!-- Modal body -->
+		      <div class="modal-body">
+		        <form class="my_form">
+			        <ul style="list-style: none; padding: 0;">
+			        	<li>
+			        		<label for="userid" style="display: inline-block; width: 100px;">아이디</label><input type="text" name="userid" id="userid" />
+			        	</li>
+			        	<li>
+			        		<label for="passwd" style="display: inline-block; width: 100px;">비밀번호</label><input type="password" name="passwd" id="passwd" />
+			        	</li>
+			        </ul>
+		        </form>
+		      </div>
+		      
+		      <!-- Modal footer -->
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-danger my_close" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Understood</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		
+		
+		<!-- Button trigger modal -->
+		<br><br>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#idFind_Modal">
+		  아이디찾기(모달창 닫으면 폼에 입력한값 초기화됨)
+		</button>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="idFind_Modal" data-backdrop="static">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      
+		      <!-- Modal header -->
+		      <div class="modal-header">
+		        <h5 class="modal-title">아이디찾기</h5>
+		        <button type="button" class="close my_close" data-dismiss="modal" aria-label="Close">&times;</button> 
+		      </div>
+		      
+		      <!-- Modal body -->
+		      <div class="modal-body">
+		        <form class="my_form">
+			        <ul style="list-style: none; padding: 0;">
+			        	<li>
+			        		<label for="name" style="display: inline-block; width: 100px;">성명</label><input type="text" name="name" id="name" />
+			        	</li>
+			        	<li>
+			        		<label for="email" style="display: inline-block; width: 100px;">이메일</label><input type="email" name="email" id="email" />   
+			        	</li>
+			        </ul>
+		        </form>
+		      </div>
+		      
+		      <!-- Modal footer -->
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-danger my_close" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Understood</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<br><br>
+		
+		<h4>Modal Size</h4>
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal_small">
+		  Open Small Modal
+		</button>
+		
+		<!-- Modal -->
+		<!-- Modal 구성 요소는 현재 페이지 상단에 표시되는 대화 상자/팝업 창입니다. -->
+		<div class="modal fade" id="exampleModal_small">
+		  <div class="modal-dialog modal-sm">
+		  <!-- .modal-dialog 클래스를 사용하여 <div> 요소에 크기 클래스를 추가합니다. -->
+		    <div class="modal-content">
+		      
+		      <!-- Modal header -->
+		      <div class="modal-header">
+		        <h5 class="modal-title">Modal title</h5>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+		      
+		      <!-- Modal body -->
+		      <div class="modal-body">
+		        Modal body....
+		      </div>
+		      
+		      <!-- Modal footer -->
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		
+		
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal_large">
+		  Open Large Modal
+		</button>
+		
+		<!-- Modal -->
+		<!-- Modal 구성 요소는 현재 페이지 상단에 표시되는 대화 상자/팝업 창입니다. -->
+		<div class="modal fade" id="exampleModal_large">
+		  <div class="modal-dialog modal-lg">
+		  <!-- .modal-dialog 클래스를 사용하여 <div> 요소에 크기 클래스를 추가합니다. -->
+		    <div class="modal-content">
+		      
+		      <!-- Modal header -->
+		      <div class="modal-header">
+		        <h5 class="modal-title">Modal title</h5>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+		      
+		      <!-- Modal body -->
+		      <div class="modal-body">
+		        Modal body....
+		      </div>
+		      
+		      <!-- Modal footer -->
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		
+		
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal_extralarge"> 
+		  Open Extra Large Modal
+		</button>
+		
+		<!-- Modal -->
+		<!-- Modal 구성 요소는 현재 페이지 상단에 표시되는 대화 상자/팝업 창입니다. -->
+		<div class="modal fade" id="exampleModal_extralarge">
+		  <div class="modal-dialog modal-xl">
+		  <!-- .modal-dialog 클래스를 사용하여 <div> 요소에 크기 클래스를 추가합니다. -->
+		    <div class="modal-content">
+		      
+		      <!-- Modal header -->
+		      <div class="modal-header">
+		        <h5 class="modal-title">Modal title</h5>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+		      
+		      <!-- Modal body -->
+		      <div class="modal-body">
+		        Modal body....
+		      </div>
+		      
+		      <!-- Modal footer -->
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+			
+		<br><br>
+		
+		<h4>Centered Modal</h4>
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal_centered">
+		  Open Centered Modal
+		</button>
+		
+		<!-- Modal -->
+		<!-- Modal 구성 요소는 현재 페이지 상단에 표시되는 대화 상자/팝업 창입니다. -->
+		<div class="modal fade" id="exampleModal_centered">
+		  <div class="modal-dialog modal-dialog-centered">
+		  <!-- .modal-dialog-centered 클래스를 사용하여 페이지 내에서 모달을 세로 및 가로 중앙에 배치합니다. -->
+		    <div class="modal-content">
+		      
+		      <!-- Modal header -->
+		      <div class="modal-header">
+		        <h5 class="modal-title">Modal title</h5>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+		      
+		      <!-- Modal body -->
+		      <div class="modal-body">
+		        Modal body....
+		      </div>
+		      
+		      <!-- Modal footer -->
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<br><br>
+		
+		<h4>Scrolling Modal</h4>
+		모달 내부에 내용물이 많으면 웹페이지에 스크롤바가 추가됩니다.
+		<br>
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal_scrolling_1">
+		  Open Scrolling Modal-1
+		</button>
+		
+		<!-- Modal -->
+		<!-- Modal 구성 요소는 현재 페이지 상단에 표시되는 대화 상자/팝업 창입니다. -->
+		<div class="modal fade" id="exampleModal_scrolling_1">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      
+		      <!-- Modal header -->
+		      <div class="modal-header">
+		        <h5 class="modal-title">Modal title</h5>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+		      
+		      <!-- Modal body -->
+		      <div class="modal-body">
+		        <h3>Some text to enable scrolling..</h3>
+                <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		      </div>
+		      
+		      <!-- Modal footer -->
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<br><br>
+		
+		모달 내부에 내용물이 많으면 웹페이지에 스크롤바를 추가하지 않고 페이지 자체가 아닌 모달 내부에서만 스크롤할 수 있습니다.
+		<br>		
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal_scrolling_2">
+		  Open Scrolling Modal-2
+		</button>
+		
+		<!-- Modal -->
+		<!-- Modal 구성 요소는 현재 페이지 상단에 표시되는 대화 상자/팝업 창입니다. -->
+		<div class="modal fade" id="exampleModal_scrolling_2">
+		  <div class="modal-dialog modal-dialog-scrollable">
+		  <!-- .modal-dialog-scrollable을 .modal-dialog에 추가하여 페이지 자체가 아닌 모달 내부에서만 스크롤할 수 있습니다. -->
+		    <div class="modal-content">
+		      
+		      <!-- Modal header -->
+		      <div class="modal-header">
+		        <h5 class="modal-title">Modal title</h5>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+		      
+		      <!-- Modal body -->
+		      <div class="modal-body">
+		        <h3>Some text to enable scrolling..</h3>
+                <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		      </div>
+		      
+		      <!-- Modal footer -->
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<br><br>
+			
+	</div>
+    <!-- Optional JavaScript -->
+    <script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+	    // 모달 창에서 입력된 값 초기화 시키기 //
+	    $("button.my_close").on("click", function(){
+	  	  const modal_frmArr = document.querySelectorAll("form.my_form");
+	  	  for(let i=0; i<modal_frmArr.length; i++) {
+	  		  modal_frmArr[i].reset();
+	  	  }
+	    });
+    </script>
+  </body>
+</html>

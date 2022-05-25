@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Shining Beauty</title>
+	
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+
+	<!-- Font Awesome 5 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">	
+    
+    <!-- 직접 만든 CSS -->
+	<link rel="stylesheet" href="./css/mycss.css">
+</head>
+<body>
+	<!-- 상단 고정 네비게이션 시작 -->
+	<nav class="navbar navbar-expand-lg bg-light navbar-light fixed-top">
+		<!-- 표준 탐색 모음은 .navbar 클래스를 사용하여 생성되고 반응형 축소 클래스(.navbar-expand-xl|lg|md|sm)가 뒤따릅니다. -->   
+       	<!-- Large(lg) ==> 992px 이상  1200px미만. navbar-expand-lg 은 width 가 991px 되어지는 순간 nav 이 축소되어진다. -->
+
+	  	<!-- Brand/logo --> <!-- Font Awesome 5 Icons -->
+	  	<a class="navbar-brand" href="#"><i class="fas fa-seedling fa-2x"></i></a> <!-- 아이콘은 windows 로 하겠다. -->
+
+		<!-- 디바이스 크기가 휴대폰 크기로 됐을 경우에는 아코디언 같은 Navigation Bar 만들기 -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto"> <!-- .mr-auto 는 css 의  margin-right: auto; 임. 즉, 가로축 미사용 공간 너비를 우축 바깥 여백에 할당한다는 것임. -->
+            <li class="nav-item active">
+              <a class="nav-link h5" href="#">쇼핑하기</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link h5" href="#">선물하기</a>
+            </li>
+          </ul>
+          
+		<!-- logo -->
+			<div class="headerCenter" style="font-family:sans-serif; font-size: 18pt; text-align: center;">Shining Beauty</div>
+		<!-- logo 끝 -->
+
+		<!-- 장바구니 cart -->
+			<div class="cart-icon"><a class="navbar-brand" href="#"><i class="fas fa-shopping-cart fa-2x"></i></a></div>
+		<!-- 장바구니 cart 끝 -->
+
+        </div>		
+	</nav>
+		<!-- 상단 고정 네비게이션 끝 -->
+		
+		<!-- container-fluid 시작 -->
+		<div class="container-fluid" style="margin-top: 30px;">
+      
+      		<!-- Carousel 시작 -->
+			<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+			  <ol class="carousel-indicators">
+			    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			  </ol>
+			  <div class="carousel-inner">
+			    <div class="carousel-item active">
+			      <img src="./images/rose1.jpg" class="d-block w-100" alt="..."> <!-- d-block 은 display: block; 이고  w-100 은 width 의 크기는 <div class="carousel-item active">의 width 100% 로 잡으라는 것이다. -->
+			      <div class="carousel-caption d-none d-md-block"> <!-- d-none 은 display : none; 이므로 화면에 보이지 않다가, d-md-block 이므로 d-md-block 은 width 가 768px이상인 것에서만 display: block; 으로 보여라는 말이다.  --> 
+				    <h5>Rose</h5>
+				    <p>Celebrating the rose</p>
+				  </div>
+			    </div>
+			    <div class="carousel-item">
+			      <img src="./images/shop2.jpg" class="d-block w-100" alt="...">
+			      <div class="carousel-caption d-none d-md-block">
+				    <h5>BestSeller</h5>
+				    <p>Shining Beauty 에서 인기 있는 상품들을 만나 보세요.</p>
+				  </div>		      
+			    </div>
+			  </div>
+			  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Previous</span>
+			  </a>
+			  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Next</span>
+			  </a>
+			</div>
+	     	<!-- Carousel 끝 -->
+	           
+     	<!-- 중앙 컨텐츠 시작 -->
+		<div class="row" style="margin-top:10px; margin-bottom: 30px;">
+			<div class="col-sm-6 col-lg-3 mb-3">	<!-- sm:모바일 용 -->
+				<div class="card"> 
+					<img src="./images/handcream.jpg" class="card-img-top" alt="핸드크림" />
+					<div class="card-body">
+					  <h5 class="card-title">시실리안 선라이즈 핸드크림</h5>
+					  <p class="card-text">좋은 향과 함께, 매일 매일 손을 부드럽고 윤기 있게 가꿔 주는 럭셔리한 컨디셔닝 크림.</p>
+						<a href=# title="더 알아보기"> 
+						<span>더 알아보기</span> 
+						</a> 
+					</div>	
+				</div>
+			</div>
+			
+			<div class="col-sm-6 col-lg-3 mb-3">	
+				<div class="card"> 
+					<img src="./images/handsoap1.jpg" class="card-img-top" alt="핸드솝" />
+					<div class="card-body">
+					  <h5 class="card-title">아라베스크 우드 핸드솝</h5>
+					  <p class="card-text">탁월한 세정력과 매혹적인 향기의 데일리 핸드솝</p>
+						<a href=# title="더 알아보기"> 
+						<span>더 알아보기</span> 
+						</a> 
+					</div>	
+				</div>
+			</div>			
+			
+			<div class="col-sm-6 col-lg-3 mb-3">	
+				<div class="card"> 
+					<img src="./images/handsoap2.jpg" class="card-img-top" alt="핸드솝2" />
+					<div class="card-body">
+					  <h5 class="card-title">플뢰르 드 미모사 핸드솝</h5>
+					  <p class="card-text">탁월한 세정력으로 손을 깨끗하게 가꿔주는 데일리 핸드솝</p>
+					  	<a href=# title="더 알아보기"> 
+						<span>더 알아보기</span> 
+						</a> 
+					</div>	
+				</div>
+			</div>
+			
+			<div class="col-sm-6 col-lg-3 mb-3">	
+				<div class="card"> 
+					<img src="./images/perfume.jpg" class="card-img-top" alt="향수" />
+					<div class="card-body">
+					  <h5 class="card-title">마이애미 뮤즈 오 드 뚜왈렛</h5>
+					  <p class="card-text">롱래스팅 오 드 뚜왈렛 스프레이. 하루 종일 감미롭고 프레시한 향이 지속됩니다.</p>
+						<a href=# title="더 알아보기"> 
+						<span>더 알아보기</span> 
+						</a> 
+					</div>	
+				</div>
+			</div>
+		
+      	</div>	
+      	<!-- 중앙 컨텐츠 끝 -->
+
+		<div class="border-line"></div>
+				
+		<br>
+		
+		<!-- SNS 링크 -->
+		<div class="follow-us">		
+			<a><span class="a-icon-social-facebook"></span><i class="fab fa-facebook"></i></a>	
+			<a><span class="a-icon-social-youtube"></span><i class="fab fa-youtube"></i></a>
+			<a><span class="a-icon-social-facebook"><i class="fab fa-instagram"></i></span></a>	
+		</div>
+		<div>
+			<p class="a-paragraph" style="text-align: center; font-style: oblique; font-size: 15pt;">
+			뉴스레터를 구독하시고
+			<br>
+			10% 할인 받으세요!
+			</p>
+		</div>
+		
+		<hr>
+
+		<!-- 푸터 시작 -->
+		<div id="footer">
+			<p class="text-center">&copy; Shining Beauty. All rights reserved.</p>
+		</div>
+		<!-- 푸터 끝 -->
+
+	</div>
+
+		<!-- container-fluid 끝 -->
+
+
+    <!-- Optional JavaScript -->
+    <script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.bundle.min.js" type="text/javascript"></script>
+
+</body>
+</html>

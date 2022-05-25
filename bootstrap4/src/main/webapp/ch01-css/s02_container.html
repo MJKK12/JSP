@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Container</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+	
+	<style type="text/css">
+	
+	 div{
+			border: 1px solid #CCCCCC;
+			background: #EEEEEE;
+	 }
+	
+	</style>
+	
+  </head>
+  
+  <!-- 
+    <body style="padding: 10px 0;" class="border border-danger"> 
+  -->
+  <body>
+    <!-- 
+         .container 는 좌우에 바깥 여백이 있는 것임 
+         .container-fluid 는 좌우에 바깥 여백이 없는 것임
+     
+         >> 디바이스(기기) width 의 크기에 따른 width의 breakpoints(중단점) <<
+         
+         			                Extra small(xs)      Small(sm)                  Medium(md)              Large(lg)                  Extra large(xl)   
+         			                576px미만             576px이상  768px미만         768px이상  992px미만      992px 이상  1200px미만       1200px 이상 
+      
+      .container        width 	    100%                 540px                      720px                   960px                      1140px   
+      .container-fluid  width       100%                 100%                       100%                    100%                       100%           
+                 
+     -->
+    <div class="container">
+	  <!-- Content here -->
+	 	<h1>My First Bootstrap Page 1</h1>
+  		<p>This is some text.</p>
+	</div>
+	
+	<br>
+	
+	<!-- viewport를 꽉 채운 container -->
+	<div class="container-fluid">
+	    <h1>My First Bootstrap Page 2</h1>
+  		<p>This is some text.</p>
+	</div>
+	
+	<br>
+	
+	<!-- >>> 여백주기 (margin 과 padding) <<<
+	
+	기본적으로, .container 와 .container-fluid 는 상단 및 하단에는 패딩이 0 이고, 우측 및 좌측에는 패딩이 15px 로 되어있다.
+	     
+	     ※ 표기방법 ※
+	     xs 에서 xl까지 모든 중단점에 적용되는 간격 유틸리티에는 별도의 중단점 약어가 없습니다. 
+	     이는 이러한 클래스가 min-width : 0 이상에서 적용되므로 미디어 쿼리에 의해 바인딩되지 않기 때문입니다. 
+	     그러나 나머지 중단점에는 중단점 약어가 포함됩니다.
+	     
+	     xs 인 경우에는              {property}{sides}-{size} 
+	     sm, md, lg, xl 인 경우에는  {property}{sides}-{breakpoint}-{size} 
+	
+         ▷ property 는 margin 이라면 m, padding 이라면 p
+         
+         ▷ sides 는 top 이라면 t, 
+           bottom 이라면 b, 
+           left 이라면 l, 
+           right 이라면 r, 
+           left 및 right 이라면 x, 
+           top 및 bottom 이라면 y, 
+           left 및 right 및 top 및 bottom 이라면 공백     
+ 
+         ▷ breakpoint 는 반응형 웹페이지로 만들려고 할 때 사용하는 것으로서 sm, md, lg, xl 이 들어옴.
+     
+         >>>> !!!!!! ====== 아주 중요  아주 중요 아주 중요 아주 중요 ====== !!!!!! <<<<
+              breakpoint는 항상 해당 breakpoint 이상에 작용한다는 것을 꼭 기억할 것 !!!! 
+              예1> mb-3    은 xs 이상 부터 margin-bottom 은 1rem 이다. 즉, 모든 디바이스에서 margin-bottom 은 1rem 이라는 것이다. 
+              예2> mb-md-3 은 md 이상 부터 margin-bottom 은 1rem 이다. 즉, width 의 크기가 768px이상 에서는 margin-bottom 은 1rem 이라는 것이다.               
+                 
+	       ▷ size 는  0 부터 5 까지 만 가능함.
+	       0 -  margin 또는 padding 을 0 으로 함
+           1 -  margin 또는 padding 을 0.25rem 으로 함 	(만약 font크기가 16px 이라면 4px  즉, font size 의 0.25배)
+		   2 -  margin 또는 padding 을 0.5rem 으로 함   	(만약 font크기가 16px 이라면 8px  즉, font size 의 0.5배)
+		   3 -  margin 또는 padding 을 1rem 으로 함       	(만약 font크기가 16px 이라면 16px 즉, font size 와 같음)
+		   4 -  margin 또는 padding 을 1.5rem 으로 함   	(만약 font크기가 16px 이라면 24px 즉, font size 의 1.5배)
+		   5 -  margin 또는 padding 을 3rem 으로 함       	(만약 font크기가 16px 이라면 48px 즉, font size 의 3배)
+		   auto - margin 을  auto 로 설정함.
+		   
+	       ※ 주의 : auto는 margin만 auto 가 된다. padding은 auto가 되지 않는다고 한다. (기본 css문법에서도 그렇다.)
+                   padding은 auto쓰고 싶으면 그냥 0으로 두고 margin만 건드리는 것을 추천한다.
+
+		   
+		   size 를 음수로도 할 수 있음. 숫자 앞에 n을 붙이면 됨. 
+		    n1 - margin 을  -0.25rem 으로 함  	(만약 font크기가 16px 이라면 -4px)
+			n2 - margin 을  -0.5rem 으로 함    	(만약 font크기가 16px 이라면 -8px)
+			n3 - margin 을  -1rem 으로 함        	(만약 font크기가 16px 이라면 -16px)
+			n4 - margin 을  -1.5rem 으로 함    	(만약 font크기가 16px 이라면 -24px)
+			n5 - margin 을  -3rem 으로 함        	(만약 font크기가 16px 이라면 -48px)
+			
+			
+		    class="ml-auto" 는  css 의  margin-left: auto; 임
+			class="mr-auto" 는  css 의  margin-right: auto; 임
+			class="mt-auto" 는  css 의  margin-top: auto; 임
+			class="mb-auto" 는  css 의  margin-bottom: auto; 임
+			class="mx-auto" 는  css 의  margin-left: auto; margin-right: auto; 임
+			class="my-auto" 는  css 의  margin-top: auto; margin-bottom: auto; 임
+			
+			left 와 right 에서  auto 의 뜻은 사용한 레이아웃 모드에 따라 가로축 미사용 공간 너비를 바깥 여백에 할당한다는 의미임.
+			margin-left 와  margin-right의 값이 모두 auto라면 너비를 양 여백에 동일하게 배정합니다. 
+			
+			margin 0 auto; 에서 0 이 의미하는 것은 위쪽과, 아래쪽의 여백을 0으로 준것입니다. 
+			auto는 좌우의 여백을 똑같이 배분한 것입니다. 그래서 브라우저 화면 가운데에 위치하게 됩니다.	
+	-->
+	<div class="container pt-3">
+	  <h1>My First Bootstrap Page 3</h1>
+	  <p>This container has a top padding of 16 pixels (.pt-3).</p>	<!-- padding(p) 적용 -->
+	  <p>Try to remove the .pt-3 class to see the difference.</p>
+	</div>
+	
+	<br>
+	
+	<div class="container pt-5">
+	  <h1>My First Bootstrap Page 4</h1>
+	  <p>This container has a top padding of 48 pixels (.pt-5).</p>
+	  <p>Try to remove the .pt-5 class to see the difference.</p>
+	</div>
+	
+	
+	<!-- Container 에 Border 와 Color 주기 -->
+	
+	<div class="container p-3 my-3 border"> <!-- padding 3(상하좌우),margin(m),top&bottom(y), border -->
+	  <h1>My First Bootstrap Page 5</h1>
+	  <p>This container has a border and some extra padding and margins.</p>
+	</div>
+	
+	<div class="container p-3 my-3 bg-dark text-white">	<!-- bg:background-color -->
+	  <h1>My First Bootstrap Page 6</h1>
+	  <p>This container has a dark background color and a white text, and some extra padding and margins.</p>
+	</div>
+	
+	<div class="container p-3 my-3 bg-danger text-white">
+	  <h1>My First Bootstrap Page 7</h1>
+	  <p>This container has a red background color and a white text, and some extra padding and margins.</p>
+	</div>
+	
+	<div class="container p-3 my-3 bg-primary text-white">
+	  <h1>My First Bootstrap Page 8</h1>
+	  <p>This container has a blue background color and a white text, and some extra padding and margins.</p>
+	</div>
+	
+	<div class="container">
+	  <h1>수평기준 가운데로 배치하기</h1>
+	  <p>.mx-auto 클래스를 사용하여 요소를 중앙에 배치합니다.</p>
+	  <div class="mx-auto bg-warning" style="width:250px">
+	  	Horizontal Centering
+	  </div>
+	</div>
+	<br><br><br>
+
+    <!-- Optional JavaScript -->
+    <script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.bundle.min.js" type="text/javascript"></script>
+  </body>
+</html>

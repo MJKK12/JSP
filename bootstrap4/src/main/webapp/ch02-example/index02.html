@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>부트스트랩 시작페이지 예제-1</title>
+	
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+
+	<!-- Font Awesome 5 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+	<!-- 상단 고정 네비게이션 시작 -->
+	<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+		<!-- 표준 탐색 모음은 .navbar 클래스를 사용하여 생성되고 반응형 축소 클래스(.navbar-expand-xl|lg|md|sm)가 뒤따릅니다. -->   
+       	<!-- Large(lg) ==> 992px 이상  1200px미만. navbar-expand-lg 은 width 가 991px 되어지는 순간 nav 이 축소되어진다. -->
+		  
+	  	<!-- Brand/logo --> <!-- Font Awesome 5 Icons -->
+	  	<a class="navbar-brand" href="#"><i class="fab fa-windows fa-2x"></i></a> <!-- 아이콘은 windows 로 하겠다. -->
+
+		<!-- 디바이스 크기가 휴대폰 크기로 됐을 경우에는 아코디언 같은 Navigation Bar 만들기 -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto"> <!-- .mr-auto 는 css 의  margin-right: auto; 임. 즉, 가로축 미사용 공간 너비를 우축 바깥 여백에 할당한다는 것임. -->
+            <li class="nav-item active">
+              <a class="nav-link h5" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link h5" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle h5" href="#" id="navbarDropdown" data-toggle="dropdown">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0"> <!-- .form-inline 이것은 너비가 최소 576px인 뷰포트 내의 양식에만 적용됩니다. 576px보다 작은 화면에서는 세로방향으로 쌓입니다. -->
+            <div class="form-group" style="margin-right: 10px;">
+              <input class="form-control" type="text" placeholder="Email">
+            </div>
+            <div class="form-group" style="margin-right: 10px;">
+              <input class="form-control" type="password" placeholder="Password">
+            </div>
+            <button class="btn btn-success" type="submit">Sign in</button>
+          </form>
+        </div>		
+	</nav>
+		<!-- 상단 고정 네비게이션 끝 -->
+		
+		<!-- container-fluid 시작 -->
+		<div class="container-fluid" style="margin-top: 50px;">
+		
+			<!-- 점보트론 시작 -->
+			<div class="jumbotron">
+			   <h1>Hello, world!</h1>
+			   <p>This is an example to show the potential of an offcanvas
+			      layout pattern in Bootstrap. Try some responsive-range viewport
+			      sizes to see it in action.</p>
+			   <p><a class="btn btn-primary btn-lg">Learn more &raquo;</a></p>   
+			</div>
+	     	<!-- 점보트론 끝 -->
+      
+     	<!-- 중앙 컨텐츠 시작 -->
+		<div class="row" style="margin-top:20px; margin-bottom: 30px;">
+			<div class="col-sm-6 col-lg-3 mb-3">	<!-- sm:모바일 용 -->
+				<div class="card"> <!-- 18rem 은 font size의 18배 크기임. 즉, 상대적 크기임. 만약에 width: 280px; 으로 하면 px 이므로 고정 크기임. -->
+					<img src="../images/Koala.jpg" class="card-img-top" alt="코알라" />
+					<div class="card-body">
+					  <h5 class="card-title">Card title</h5>
+					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					  <a href="#" class="btn btn-primary">See Detail</a>
+					</div>	
+				</div>
+			</div>
+			
+			<div class="col-sm-6 col-lg-3 mb-3">	
+				<div class="card"> <!-- 18rem 은 font size의 18배 크기임. 즉, 상대적 크기임. 만약에 width: 280px; 으로 하면 px 이므로 고정 크기임. -->
+					<img src="../images/Koala.jpg" class="card-img-top" alt="코알라" />
+					<div class="card-body">
+					  <h5 class="card-title">Card title</h5>
+					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					  <a href="#" class="btn btn-primary">See Detail</a>
+					</div>	
+				</div>
+			</div>			
+			
+			<div class="col-sm-6 col-lg-3 mb-3">	
+				<div class="card"> <!-- 18rem 은 font size의 18배 크기임. 즉, 상대적 크기임. 만약에 width: 280px; 으로 하면 px 이므로 고정 크기임. -->
+					<img src="../images/Koala.jpg" class="card-img-top" alt="코알라" />
+					<div class="card-body">
+					  <h5 class="card-title">Card title</h5>
+					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					  <a href="#" class="btn btn-primary">See Detail</a>
+					</div>	
+				</div>
+			</div>
+			
+			<div class="col-sm-6 col-lg-3 mb-3">	
+				<div class="card"> <!-- 18rem 은 font size의 18배 크기임. 즉, 상대적 크기임. 만약에 width: 280px; 으로 하면 px 이므로 고정 크기임. -->
+					<img src="../images/Koala.jpg" class="card-img-top" alt="코알라" />
+					<div class="card-body">
+					  <h5 class="card-title">Card title</h5>
+					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					  <a href="#" class="btn btn-primary">See Detail</a>
+					</div>	
+				</div>
+			</div>
+			
+			<div class="col-sm-6 col-lg-3 mb-3">	
+				<div class="card border-secondary"> <!-- 18rem 은 font size의 18배 크기임. 즉, 상대적 크기임. 만약에 width: 280px; 으로 하면 px 이므로 고정 크기임. -->
+					<div class="card-header">Header</div>					
+					<div class="card-body">
+					  <h5 class="card-title">Secondary card title</h5>
+					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					</div>	
+				</div>
+			</div>
+			
+			<div class="col-sm-6 col-lg-3 mb-3">	
+				<div class="card border-secondary"> <!-- 18rem 은 font size의 18배 크기임. 즉, 상대적 크기임. 만약에 width: 280px; 으로 하면 px 이므로 고정 크기임. -->
+					<div class="card-header">Header</div>					
+					<div class="card-body">
+					  <h5 class="card-title">Secondary card title</h5>
+					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					</div>	
+				</div>
+			</div>
+			
+			<div class="col-sm-6 col-lg-3 mb-3">	
+				<div class="card border-secondary"> <!-- 18rem 은 font size의 18배 크기임. 즉, 상대적 크기임. 만약에 width: 280px; 으로 하면 px 이므로 고정 크기임. -->
+					<div class="card-header">Header</div>					
+					<div class="card-body">
+					  <h5 class="card-title">Secondary card title</h5>
+					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					</div>	
+				</div>
+			</div>
+			
+			<div class="col-sm-6 col-lg-3 mb-3">	
+				<div class="card border-secondary"> <!-- 18rem 은 font size의 18배 크기임. 즉, 상대적 크기임. 만약에 width: 280px; 으로 하면 px 이므로 고정 크기임. -->
+					<div class="card-header">Header</div>					
+					<div class="card-body">
+					  <h5 class="card-title">Secondary card title</h5>
+					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					</div>	
+				</div>
+			</div>
+		</div>
+      	<!-- 중앙 컨텐츠 끝 -->
+
+		<hr>
+		
+		<!-- 푸터 시작 -->
+		<div id="footer">
+			<p class="text-center">&copy; Company 2022</p>
+		</div>
+		<!-- 푸터 끝 -->
+
+	</div>
+
+		<!-- container-fluid 끝 -->
+
+
+    <!-- Optional JavaScript -->
+    <script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.bundle.min.js" type="text/javascript"></script>
+
+</body>
+</html>
