@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+div#container {
+   width: 98%;
+   margin: 0 auto;
+   /* border: 1px solid red; */
+}
+
+div#header {
+   background-color: #908886;
+   height: 100px;
+   padding: 2%;
+   /* border: 1px solid blue; */
+}
+
+div#content {
+   float: left;
+   width: 70%;
+   background-color: #F5F5F5;
+   min-height: 600px;
+   padding: 2%;
+   /* border: 1px solid green; */
+}
+
+div#sideinfo {
+   float: right;
+   width: 21.5%;
+   background-color: #DCDAD9;
+   min-height: 600px;
+   padding: 2%;
+   /* border: 1px solid blue; */
+}
+
+div#footer {
+   clear: both;
+   height: 100px;
+   padding: 2%;
+   background-color: #555;
+   /* border: 1px solid orange; */
+}
+
+div#header > ul {
+	/* border:solid 1px red; */
+	list-style-type: none;
+	color: #e6e600;
+	font-size: 20pt;
+	font-weight: bold;
+	
+	position: relative;	/*현재위치에서 내려가자.*/
+	top: 35px;			/*현재위치에서 내려가자.*/
+}
+
+div#header > ul > li {
+	/* border: solid 1px blue; */
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.changeMenuColor {
+	background-color: navy;
+	color: white;
+	cursor: pointer; 
+}
+
+div#content > div.personInfo {
+	/* border: solid 1px red; */
+	display: inline-block;
+	margin-right: 30px;
+}
+
+div#content > div.personInfo > ul.personInfoUL {
+	/* border: solid 1px blue; */
+	list-style-type: none;
+	padding: 0px; 
+}
+
+div#content > div.personInfo > ul.personInfoUL > li {
+	line-height: 200%;
+}
+
+div#content > div.personInfo > ul.personInfoUL > li.personName {
+	font-size: 16pt;
+	font-weight: bold;
+}
+
+ul.personInfoUL > li.moreProfile {
+	font-size: 14pt;
+	background-color: navy;
+	color: white;
+	cursor: pointer;
+	text-align: center;
+}
+
+
+

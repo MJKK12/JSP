@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+div#container {
+   width: 98%;
+   margin: 0 auto;
+   /* border: 1px solid red; */
+}
+
+div#header {
+   background-color: #908886;
+   height: 100px;
+   padding: 2%;
+   /* border: 1px solid blue; */
+}
+
+div#content {
+   float: left;
+   width: 70%;
+   background-color: #F5F5F5;
+   min-height: 600px;
+   padding: 2%;
+   /* border: 1px solid green; */
+}
+
+div#sideinfo {
+   float: right;
+   width: 21.5%;
+   background-color: #DCDAD9;
+   min-height: 600px;
+   padding: 2%;
+   /* border: 1px solid blue; */
+}
+
+div#footer {
+   clear: both;
+   height: 100px;
+   padding: 2%;
+   background-color: #555;
+   /* border: 1px solid orange; */
+}
+
+div#header > ul {
+	/* border:solid 1px red; */
+	list-style-type: none;
+	color: #e6e600;
+	font-size: 20pt;
+	font-weight: bold;
+	
+	position: relative;	/*현재위치에서 내려가자.*/
+	top: 35px;			/*현재위치에서 내려가자.*/
+}
+
+div#header > ul > li {
+	/* border: solid 1px blue; */
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.changeMenuColor {
+	background-color: navy;
+	color: white;
+	cursor: pointer; 
+}
+
+/* ~~~~~~~~~~ CSS transform 을 사용하여 3D 효과를 주는 flip-card 를 만들어 보기 시작 ~~~~~~~~~~~~~ */
+.flip-card {
+   /* background-color: yellow; */
+     background-color: transparent; /* 투명 */
+     width: 228px;
+     height: 178px;
+   /* perspective: 100px; */  /* perspective는 3D 환경을 만들때 사용하는 것으로서 원근감을 주는 것이다. 
+                                 이 값이 작으면 작을 수록 보고있는 사람의 위치를 더 가까이에서 보는 것으로 처리하므로 엘리먼트(요소)가 커 보이게 된다. */ 
+     perspective: 1000px;    /*  이 값이 크면 클수록 보고있는 사람의 위치를 더 멀리 떨어져서 보는 것으로 처리하므로 엘리먼트(요소)가 작게 보이게 된다. */ 
+}
+
+.flip-card-inner {
+     position: relative;
+     width: 100%;
+     height: 100%;
+     text-align: center;
+  /* transition: transform 2.6s; */ /* 요소(엘리먼트)를 transform(변형) 시키는데 걸리는 시간(단위는 초) 2.6초 */
+     transition: transform 0.6s;    /* 요소(엘리먼트)를 transform(변형) 시키는데 걸리는 시간(단위는 초) 0.6초 */
+     transform-style: preserve-3d;  /* 요소(엘리먼트)의 자식요소들(엘리먼트들)을 3D 공간에 배치 시킨다. */
+  /* box-shadow: 0 4px 8px 0 rgba(0,0,0,1.0); */ /* rgba(빨강, 초록, 파랑, 투명도) */
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+   	 transform: rotateX(540deg);   /* 	transform 은 요소(엘리먼트)를 변형시키는 것이다.
+                                      	요소를 회전(rotate), 확대 또는 축소(scale), 기울이기(skew), 이동(translate) 효과를 부여할 수 있다. 
+                                      	이를 통해 CSS 시각적 서식 모델의 좌표 공간을 변경한다.
+                                      	transform 이 지원되는 웹브라우저는 IE는 버전 10 이상부터 지원한다.
+                                        
+                                        rotateX는 x축을 기준으로 요소(엘리먼트)를 회전시키는 것이다. 
+                                        1회전이 360deg 이므로 540deg 는 1바퀴 반을 회전시키는 것이다.*/
+                                        
+      transform: rotateY(180deg);    /* rotateY는 y축을 기준으로 회전한다. 180deg 반바퀴를 도는 것이다.*/
+}
+
+.flip-card-front, .flip-card-back {
+  /* position: static; */
+  /* position: relative;*/
+     position: absolute;  /* .flip-card-front 엘리먼트(앞면)와  .flip-card-back 엘리먼트(뒷면)가 서로 겹쳐야 하므로 
+                              position 을 반드시 absolute; 로  주어야 한다. */
+     width: 100%;
+     height: 100%;
+  /* backface-visibility: visible; */  /* backface-visibility 을 생략하더라도 기본값은 visible 이다. */
+     backface-visibility: hidden;      /* 3D Transform에서 요소의 뒷면을 숨기는 역할을 한다.
+                                          이것을 hidden 처리하지 않으면 앞면/뒷면이 함께 보이기 때문에 이상하게 나오게 된다. */
+}
+
+.flip-card-front {
+     background-color: #bbb;
+     color: black;
+     z-index: 2; /* position 속성을 이용하다 보면 엘리먼트(요소)를 겹치게 놓게될 수 있다. 
+                    이때 엘리먼트(요소)들의 수직 위치(쌓이는 순서)를 z-index 속성으로 정한다. 
+                    값은 정수이며, 숫자가 클 수록 위로 올라오고, 숫자가 작을 수록 아래로 내려간다. */
+}
+
+.flip-card-back {
+  /* background-color: #2980b9; 파랑 */
+     background-color: #ff8080; /* 빨강 */
+     color: white;
+  /* transform: rotateX(540deg); */   /* transform 은 IE는 버전 10 이상부터 지원한다.
+                                         rotateX는 x축을 기준으로 요소(엘리먼트)를 회전시킨다. 
+                                         1회전이 360deg 이므로 540deg 는 1바퀴 반을 회전시키는 것이다.*/
+     transform: rotateY(180deg);      /* rotateY는 y축을 기준으로 요소(엘리먼트)를 회전시킨다. 
+                                         180deg 반바퀴를 회전시키는 것이다.*/
+     z-index: 1; /* position 속성을 이용하다 보면 엘리먼트(요소)를 겹치게 놓게될 수 있다. 
+                    이때 엘리먼트(요소)들의 수직 위치(쌓이는 순서)를 z-index 속성으로 정한다. 
+                    값은 정수이며, 숫자가 클 수록 위로 올라오고, 숫자가 작을 수록 아래로 내려간다. */
+}
+/* ~~~~~~~~~~ CSS transform 을 사용하여 3D 효과를 주는 flip-card 를 만들어 보기 끝 ~~~~~~~~~~~~~ */

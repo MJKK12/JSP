@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>each()를 활용하여 tab 메뉴를 만들어봅니다.</title>
+
+<style type="text/css">
+
+	body {
+		font-family: Arial;
+	}
+		
+	div#container {
+	     width: 80%;
+	     margin: 0 auto;
+	     padding: 20px;
+	}
+		  
+	div#tab {
+	     border: solid 1px #ccc;
+	     background-color: #f1f1f1;  
+	     overflow: hidden;
+	}
+		  
+	div#tab > button {
+	     width: 100px;
+	  	 border: none; 
+	     outline: none; 
+	     cursor: pointer;
+	     padding: 14px 16px; 
+	     font-size: 17px;
+	  	 float: left;  /* 버튼과 버튼사이의 여백없이 계속해서 붙여가면서 하려고 하는 것임 */
+	}
+		  
+	div.content {
+		display: none; 
+		border: solid 1px gray;
+		padding: 6px 12px;
+		border-top: none;
+	}
+	
+	.active {
+		background-color: navy;
+		color: white;
+		transition: 1s;
+	}
+
+</style>
+
+<script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function (){
+		
+		const arr_capital = [{city:"런던",
+						     content:"런던 (영어: London)은 잉글랜드와 영국의 수도이다."},
+						  	 {city:"파리",
+						   	 content:"파리(Paris)는 프랑스의 수도이다."},
+						  	 {city:"앙카라",
+						   	 content:"앙카라는 터키의 수도이다."},
+						  	]
+		
+		let html = `<p>탭 메뉴를 선택해 보세요</p>
+					<div id="tab">`;
+		
+		arr_capital.forEach((item) => {
+			html += `<button class="tablinks">${item.city}</button>`;
+		});
+		
+			html += `</div>`;
+		
+			arr_capital.forEach((item)=>{
+				html += `<div class="content">
+						       <h3>${item.city}</h3>
+						       <p>${item.content}</p>
+					     </div>`;	  
+		  });	
+		
+		$("div#container").html(html);
+
+		
+		// >>>  === 클릭한 탭(버튼)만 보이도록 하는 두번째 방법 === <<<
+		
+		$("button.tablinks").click((event)=>{
+			
+			const $target = $(event.target);	// 클릭한 버튼
+			const i = $("button.tablinks").index($target);	// 클릭한 버튼의 index 가 얼마인지?			
+		//	console.log("확인용 i: " + i);	// 확인용 i: 0 확인용 i: 1 확인용 i: 2
+		/*	
+			$("div#content").each(function(index, elt){});
+		//	또는	
+			$("div.content").each((index, item)=>{});			
+		/*
+	        each 에서 첫번째 파라미터인 index 는 복수개의 선택자에 반복하면서 부여되어지는 index 번호이다.
+	        each 에서 두번째 파라미터인 item 은 해당 엘리먼트를 가리키는 것이다.
+     	*/
+     	
+			$("div.content").each((index, item)=>{
+				// 클릭한 i 가 반복하면서 index 와 같다면
+				if(i == index) {
+					$(item).css('display','block');		// div 이다.
+				}
+				else {
+				//	$(item).css('display','none');		// '' 또는 'none' = 보이지 말아라 = 원상복구	
+				//	또는
+					$(item).css('display','');			// ''은 CSS 에서 $(item)에 적용된 값(즉, 'none')을 따라간다는 말이다. (맨 초기값)
+				}
+			});
+			
+			$("button.tablinks").each((index, item) => {
+				if(i == index) {
+					$(item).addClass("active");			// div 이다.
+				}
+				else {
+					$(item).removeClass("active");	// ''은 CSS 에서 $(item)에 적용된 값(즉, 'none')을 따라간다는 말이다. (맨 초기값)
+				}				
+			});
+			
+		});// end of $("button.tablinks").click((event)=>{}-------------
+		
+		$("button.tablinks").eq(0).trigger("click");	// 새로고침 시, default로 런던이 바로 나오게끔 한다.
+		
+	});
+
+</script>
+
+</head>
+<body>
+<div id="container">
+
+   </div>
+</body>
+</html>

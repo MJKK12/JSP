@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>인물 사진 보이기/감추기( mouseover, mouseout, 선택자.index )</title>
+
+<style type="text/css">
+
+div#container {
+      /* border: solid 1px gray; */
+      width: 80%;
+      margin: 0 auto;
+   }
+   
+   span.buttons {
+      display: inline-block;
+      width: 100px;
+      border: solid 2px orange;
+      margin: 20px;
+      padding: 5px;
+      background-color: yellow;
+      color: #ff0000;
+      font-size: 15pt;
+      cursor: pointer;
+   }
+
+   div#comment {
+      /* border: solid 1px gray; */
+      width: 250px;
+      margin-top: 10px;
+   }
+
+   div#face > img {
+      width: 119px;
+      height: 149px;
+      border-radius: 50%;
+   }
+
+</style>
+
+<script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function (){
+		
+		const arrPerson = [{name:"김태희", filename:"kimth.jpg", address:"서울 강동구", email:"kimth@gmail.com"}  
+					      ,{name:"아이유", filename:"iyou.jpg", address:"서울 강서구", email:"iyou@gmail.com"}
+					      ,{name:"박보영", filename:"parkby.jpg", address:"서울 강남구", email:"parkby@gmail.com"}];
+		
+		let html = ``;
+		
+		arrPerson.forEach((item, index) => {
+			html += `<span class='buttons'>${item.name}</span>`;
+		});
+		
+		$("div#firstdiv").html(html);
+		
+		$("span.buttons").mouseover(()=>{		// 마우스가 올라가면 함수~~ 를 해라.
+		// 선택자.mouseover(function(){}); 은 선택자에서 마우스 포인터가 올라가기만 하면 발생되는 이벤트이다.
+			
+			const $target = $(event.target);			
+		//	console.log($target.text()+"에 마우스가 올라갔습니다!");	// target에 있는 item.name 을 불러온다(text)
+			
+		//	console.log( $("span.buttons").length );	// 3 // length : 선택자에 해당되는 element(NodeList) 가 몇개인가?			
+		//	$("span.buttons") 을 배열처럼 사용 가능하다. (배열은 아니지만 배열처럼 사용 가능.)
+		
+		//	console.log( $target.index() );		// 김태희 0, 아이유 1, 박보영 2
+		// $target.index() 은 $("span.buttons") 중에서 현재 마우스가 올라간 곳의 배열요소의 인덱스값이라고 보면 된다.
+			
+		//	console.log(arrPerson[$target.index()].filename);	// kimth.jpg iyou.jpg parkby.jpg
+
+			const i = $target.index();
+		
+			const filename = arrPerson[i].filename;
+			$("div#face").html("<img src='images/"+filename+"'/>");
+			
+		/*
+			html = "<ol>"+
+						"<li>성명 :&nbsp; "+arrPerson[i].name+" </li>"+
+						"<li>주소 :&nbsp; "+arrPerson[i].address+" </li>"+
+						"<li>이메일 :&nbsp; "+arrPerson[i].email+" </li>"+
+				   "</ol>";			   
+		*/
+		// 또는 `` ${} 를 사용.
+			html = `<ol>
+						<li>성명 :&nbsp; ${arrPerson[i].name} </li>
+						<li>주소 :&nbsp; ${arrPerson[i].address} </li>
+						<li>이메일 :&nbsp; ${arrPerson[i].email} </li>
+				    </ol>`;
+				   
+			$("div#comment").html(html);	   // div 태그의 comment 부분에 넣어라.		
+		
+			$target.css({'background-color':'navy', 'color':'white'});		// $target: 마우스가 올라간 곳
+			
+			$("div#seconddiv").show();	// 마우스가 올라가면 보여라.
+ 		}); // end of $("span.buttons").mouseover(()=>{})-----------------------------
+		
+ 				
+ 		$("span.buttons").mouseout(()=>{
+			// 선택자.mouseout(function(){}); 은 선택자에서 마우스 포인터가 올라갔다가 떼는 경우에 발생되는 이벤트이다.
+ 			const $target = $(event.target);	// 마우스가 올라갔다가 떼는 target
+ 			$target.css({'background-color':'', 'color':''});	// css 에서 buttons 의 초기치는 yellow 였다. ('' : 원상복구)
+ 			
+ 			$("div#seconddiv").hide();		// 마우스를 떼면서 이미지, 정보 모두 hide
+ 		});	// end of $("span.buttons").mouseout(()=>{});---------------------------------	
+ 				
+	});
+</script>
+
+</head>
+<body>
+<div id="container" align="center">
+      <div id="firstdiv"></div>
+      
+      <div id="seconddiv">
+         <div id="face"></div>
+         <div id="comment" align="left"></div>
+      </div>
+   </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>val(), show(), hide() 에 대해서 알아봅니다.</title>
+
+<style type="text/css">
+
+	div.answerCheck {
+		margin: 10px;
+	}
+	
+</style>
+
+<script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+		
+		$("button#btnOK").bind("click", function(){
+		
+			const userAnswer = $("input#answer").val().trim();
+			
+			if(userAnswer == 17) {	// 정답이라면 // == : 값만 같으면 된다 (타입까지 같을 필요 X)
+				$("div.no").hide();
+				$("div.ok").html("<img src='images/ok.png' />");
+				$("div.ok").show();	// 정답이면 보여줘라.
+			}
+			else {
+				$("div.ok").hide();	// 틀렸으면 숨겨라.
+				$("div.no").html("<img src='images/no.png' />");			
+				$("div.no").show();	
+			}
+			
+		});
+		
+		$("button#btnRestart").bind("click", function(){
+			
+			$("input#answer").val("");
+			$("div.answerCheck").hide();		// 답이 맞든지 틀리든지 O,X 사진은 지워야 한다. hide를 하게되면 다음번 값을 입력할때도 안보이게 됨.
+		});
+
+	});
+</script>
+
+</head>
+<body>
+
+	문제 : 2+5*3=<input type="text" id="answer" />
+   <br><br>
+   <button type="button" id="btnOK">정답확인</button>   
+   <button type="button" id="btnRestart">다시시작</button>
+
+   <div class="answerCheck ok"></div>
+   <div class="answerCheck no"></div>
+
+</body>
+</html>

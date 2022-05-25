@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+   맨처음에는 버튼3개(김태희, 아이유, 박보영)는 희미하게 보이고,
+   사진은 아예 안보인다.
+   
+   특정 버튼에 마우스가 올라가면 그 버튼만 원래광도로 띄면서 내용은 클릭하세요로 변경된다.
+   그리고 동시에 버튼아래에 그 사람의 사진만 희미하게 보인다.
+   
+   특정버튼을 클릭하면 그 사람의 큰사진이 원래광도로 띈다.
+   그리고 동시에 그 사람의 사진아래에 프로필 약력이 보이도록 한다. 
+-->
+<style type="text/css">
+
+	div#container {
+		width: 80%;
+		margin: 0 auto;
+	}
+	
+	span.buttons {
+		display: inline-block;
+		width: 100px;
+		border: solid 2px orange;
+		background-color: red;
+		color: yellow;
+		font-size: 13pt;
+		margin: 20px;
+		padding: 5px;
+		cursor: pointer;
+		opacity: 1.0;	/*원상복구 = 1.0*/
+		/*
+         'opacity' 는 광도(빛)값을 나타내어주는 것이다.
+         'opacity' 의 값의 범위는 0.0 ~ 1.0 까지이다.
+          0.0 은 완전투명(안보임)이고, 1.0 은 원본의 광도값이다.
+      	*/
+	}
+	
+	ul {
+	/* 	border: solid 1px gray; */
+		width: 25%;
+		font-size: 14pt;
+		list-style-type: none;
+		text-align: left;
+		padding-left: 70px;
+	}
+	
+	li > label {
+		display: inline-block;
+		width: 80px;			/* inline 은 width 가 적용되지 않기 때문에, inline-block 을 해준 뒤 width 를 적용한다. */
+	}
+
+</style>
+
+<script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function (){
+		
+		const arrPerson = [{name:"김태희", filename:"kimth.jpg", 	filename2:"kimthLarge.jpg",  address:"서울 강동구", email:"kimth@gmail.com"}
+					      ,{name:"아이유", filename:"iyou.jpg", 	filename2:"iyouLarge.jpg", 	 address:"서울 강서구", email:"iyou@gmail.com"}
+					      ,{name:"박보영", filename:"parkby.jpg", filename2:"parkbyLarge.jpg", address:"서울 강남구", email:"parkby@gmail.com"}];
+		
+		html = ``;
+		
+		arrPerson.forEach((item)=>{
+			html += `<span class="buttons">${item.name}</span>`;
+		});
+		
+		$("div#firstdiv").html(html);
+		
+		$("span.buttons").css('opacity','0.2');	// buttons 에 전부다 희미하게 주겠다. 
+		
+		/*
+	        'opacity' 는 광도(빛)값을 나타내어주는 것이다.
+	        'opacity' 의 값의 범위는 0.0 ~ 1.0 까지이다.
+	         0.0 은 완전투명(안보임)이고, 1.0 은 원본의 광도값이다.
+     	*/
+		// 마우스가 올라갔을때 & 올라가지 않았을때 두 가지 경우의 수 (hover 함수)	
+     	$("span.buttons").hover(function (){
+	     		const $target = $(event.target);						
+		    	$target.css({'opacity' :'', 'background-color':'navy', 'color':'white', 'border-radius':'40%'}).text("클릭하세요!"); 		// 마우스가 hover 되면 (mouseover) 원상복구 ('', 여기서는 초기값 1.0) 해라.
+	     		
+		    	const i = $("span.buttons").index($target);	// 마우스가 빠져나간곳 : $target, ↓ 마우스가 빠져나가면 원상복구!
+	     		$("div#face").html("<img src='images/"+arrPerson[i].filename+"' />").css('opacity','0.4');	
+     		} 
+		    ,function (){
+	     		const $target = $(event.target);						
+		    	const i = $("span.buttons").index($target);	// 마우스가 빠져나간곳 : $target, ↓ 마우스가 빠져나가면 원상복구!
+	     		$target.css({'opacity' :'0.2', 'background-color':'', 'color':'', 'border-radius':''}).text(`${arrPerson[i].name}`);	// 마우스 hover 가 out (mouseour) 되면 광도를 0.2로 맞춰라.
+	     	//	$("div#face").html("");
+	     	//	또는
+	     		$("div#face").empty();		
+			}	    
+     	);
+	
+     	$("span.buttons").click(()=>{
+			
+     		const $target = $(event.target);
+     		const i = $("span.buttons").index($target);
+     		
+     		$target.css('border-radius','').text(`${arrPerson[i].name}`);
+     	// 	로고를 클릭했을 때 큰 이미지가 나오게끔 한다.
+			
+     		html = `<img src='images/${arrPerson[i].filename2}' style='border-radius:20%' />
+     				<ul>
+						<li><label>성명 : </label>${arrPerson[i].name}</li>
+						<li><label>주소 : </label>${arrPerson[i].address}</li>
+						<li><label>이메일 : </label>${arrPerson[i].email}</li>
+					</ul>`;
+     		
+     		$("div#face").html(html).css('opacity','1.0');
+     	
+     	});	
+		
+	});
+
+</script>
+
+</head>
+<body>
+<div id="container" align="center">
+      <div id="firstdiv"></div>
+      <div id="face" style="margin-top: 50px;"></div>
+   </div>
+</body>
+</html>

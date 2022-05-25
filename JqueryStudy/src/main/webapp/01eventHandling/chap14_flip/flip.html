@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS transform 을 사용하여 3D 효과를 주는 flip-card 를 만들어 봅니다.</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function (){
+		
+		const personArr = new Array();	// 또는 const personArr = [];
+		
+		personArr.push({name:"김태희"
+			            ,age:25
+			            ,school:"우수대학교"
+			            ,smImage:"kimth.jpg"
+			            ,lgImage:"kimthLarge.jpg"
+			           });
+
+		personArr.push({name:"아이유"
+			            ,age:28
+			            ,school:"영재대학교"
+			            ,smImage:"iyou.jpg"
+			            ,lgImage:"iyouLarge.jpg"
+			           });
+
+		personArr.push({name:"박보영"
+			            ,age:30
+			            ,school:"일류대학교"
+			            ,smImage:"parkby.jpg"
+			            ,lgImage:"parkbyLarge.jpg"
+			           });
+		
+		let html = `<ul>`;
+		
+		for(let person of personArr) {
+			html += `<li class="friendname">${person.name}</li>`;
+		}
+		
+		html += `</ul>`;
+		
+		$("div#header").html(html);
+		
+		$("div#header > ul > li.friendname").bind("mouseover", ()=>{  // 김태희, 아이유, 박보영 부분을 잡은 것. (여기서 li 는 friendname 으로 class 를 잡아놨다.(li.클래스명))
+			const $target = $(event.target);
+			$target.addClass("changeMenuColor");
+		});	
+		
+		$("div#header > ul > li.friendname").bind("mouseout", ()=>{  // 김태희, 아이유, 박보영 부분을 잡은 것. (여기서 li 는 friendname 으로 class 를 잡아놨다.(li.클래스명))
+			const $target = $(event.target);
+			$target.removeClass("changeMenuColor");
+		});	
+		
+		
+		////////////// == flipCard 넣어주기 시작 == //////////////
+		for(let person of personArr) {
+			html = `<div class="flip-card" style="display: inline-block; margin-right: 30px;">
+	                	<div class="flip-card-inner">
+	                		<div class="flip-card-front">
+	                   		  ${''/* <h1>앞면</h1> 이것이 주석을 다는 꼼수방법임 */}
+	                   		  <img src="images/${person.lgImage}" style="width:228px;height:178px;">
+	                		</div>
+	               			<div class="flip-card-back">
+	                   			<h1>${person.name}</h1> 
+			                    <p>${person.age}세</p> 
+			                    <p>${person.school}</p>
+                   			</div>
+             			</div>
+         			 </div>`;
+         			 
+         	$("div#content").append(html);	// for 문 안에서 김, 아, 박을 넣어주는 것임.		 
+        }// end of for-----------------------------------------------		
+		
+		////////////// == flipCard 넣어주기 끝 == //////////////		
+		
+	});
+
+</script>
+
+</head>
+<body>
+<div id="container">      
+      <div id="header"></div>
+      
+      <div id="content"></div>
+      
+      <div id="sideinfo">
+        SIDEINFO
+      </div>
+      
+      <div id="footer">
+        FOOTER
+      </div>      
+   </div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>인물사진 보이기/감추기 (css, addClass, removeClass) 및 $(document).on() 에 대해서 알아봅니다.</title>
+
+<style type="text/css">
+
+div#container {
+      /* border: solid 1px gray; */
+      width: 80%;
+      margin: 0 auto;
+   }
+   
+   span.buttons {
+      display: inline-block;
+      width: 100px;
+      border: solid 2px orange;
+      margin: 20px;
+      padding: 5px;
+ /*   background-color: yellow;
+      color: #ff0000; */
+      font-size: 15pt;
+      cursor: pointer;
+   }
+
+   div#comment {
+      /* border: solid 1px gray; */
+      width: 250px;
+      margin-top: 10px;
+   }
+
+   .image_custom {
+      width: 119px;
+      height: 149px;
+      border-radius: 50%;
+   }
+
+	.btn_custom {
+		background-color: navy;
+		color: white;
+	}
+	
+</style>
+
+<script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function (){
+		
+		const arrPerson = [{name:"김태희", filename:"kimth.jpg", address:"서울 강동구", email:"kimth@gmail.com"}  
+					      ,{name:"아이유", filename:"iyou.jpg", address:"서울 강서구", email:"iyou@gmail.com"}
+					      ,{name:"박보영", filename:"parkby.jpg", address:"서울 강남구", email:"parkby@gmail.com"}];
+
+		let html = ``;
+		
+		arrPerson.forEach((item, index) => {
+			html += `<span class='buttons'>${item.name}</span>`;
+		});
+		
+		$("div#firstdiv").html(html);
+		
+		////////////////////////////////////////////////////////////////////////////////
+		// hover 의 첫번째 func 은 mouseover, 두번째 func 는 mouseout
+		$("span.buttons").hover(function(){		// $("span.buttons") : 내용물이 복수개
+			const $target = $(event.target);	// $target : 마우스가 올라간 곳
+			
+			$("div#face").html(`<img src='images/${arrPerson[$target.index()].filename}' />`);
+    		$target.addClass("btn_custom");		// image_custom 는 CSS 에서 정의된 클래스이다.
+
+		},
+		function(){
+			const $target = $(event.target);
+			$target.removeClass("btn_custom");
+		});	// end of $("span.buttons").hover(function(){}--------------------------------
+		
+	  // *** !!!!! 중요 !!!!! ***//
+      /*
+            선택자를 잡을때 선택자가 <body>태그에 직접 기술한 것이라면 선택자를 제대로 잡을수가 있으나
+            스크립트내에서 기술한 것이라면 선택자를 못 잡아올수 있다.
+            이러한 경우는 아래와 해야만 된다.
+        	$(document).on("이벤트종류", "선택자", function(){});  으로 한다.
+       */		
+		/*	
+		    즉, 아래와 같이 하면 오류!
+			$("div#face > img").click(function(){
+				alert("사진을 클릭하셨습니다!")
+			});	
+		*/
+		/*	
+    	$(document).on("click", "div#face > img", function(){
+    		alert("사진을 클릭하셨습니다!")
+    	});
+		*/
+    	$(document).on("mouseover", "div#face > img", function(){		// 사진에 마우스가 올라가면(mouseover)
+    	/*
+	    	const $target = $(event.target);	//	$(this) 와 같다. 실제로 마우스가 올라간 곳    
+	    	$target.css({'width':'119px', 'height':'149px', 'border-radius':'50%'});							//  	
+    	*/	
+	    	//또는
+	    //	$(this).css({'width':'119px', 'height':'149px', 'border-radius':'50%'});
+	    	
+    	//	굳이 위의 두 방법으로 할 필요없이 아래처럼 image_custom 을 넣어준다.
+    		$(this).addClass("image_custom");	// image_custom 는 CSS 에서 정의된 클래스이다. 마우스가 올라가면 효과를 넣고,
+    	});
+		
+    	$(document).on("mouseout", "div#face > img", function(){	// 사진에 마우스가 떼지면(mouseout) 원상복구!
+        	/*
+    	    	const $target = $(event.target);	//	$(this) 와 같다. 실제로 마우스가 올라간 곳    
+    	    	$target.css({'width':'119px', 'height':'149px', 'border-radius':'0%'});							//  	
+        	*/	
+    	    //  또는
+    	    //	$(this).css({'width':'119px', 'height':'149px', 'border-radius':'0%'});
+    	    	
+        	//	또는 굳이 위의 두 방법으로 할 필요없이 아래처럼 image_custom 을 넣어준다.
+        	$(this).removeClass("image_custom");	// image_custom 는 CSS 에서 정의된 클래스이다. 마우스가 떼지면 효과를 없애라.
+        });
+		
+	});
+
+</script>
+
+</head>
+<body>
+
+<div id="container" align="center">
+      <div id="firstdiv"></div>
+      
+      <div id="seconddiv">
+         <div id="face"></div>
+         <div id="comment" align="left"></div>
+      </div>
+   </div>
+   
+</body>
+</html>

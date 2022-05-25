@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>아코디언 만들기 3</title>
+
+<style type="text/css">
+
+	div#container {
+		width: 80%;
+		margin: 0 auto;
+		padding: 20px;
+	}
+	
+	button.accordion {
+	  background-color: #eee;
+      color: #444;
+      cursor: pointer;
+      padding: 18px;
+      width: 50%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+      transition: 1s;
+      /* transition은 속성을 서서히 변화시키는 속성이다. 
+         3s는 transition 실행시간으로써 반드시 지정해주어야 한다.
+         지정해주지 않으면 기본값인 0s 가 적용되어 아무런 효과가 나타나지 않는다.
+         보통 transition은 태그(요소)에 마우스 오버했을때 변화가 나타난다. 
+         글꼴 크기가 12pt 이었다가 마우스 오버할 경우 20pt로 커지든지 , 
+         너비가 100px 이었다가 마우스 오버할 경우 200px로 늘어난다든지 할때
+         변화되는 과정을 부드럽게 표시할때 사용하는 것이다. 
+         IE버전 10 이상부터 사용이 가능하다. */
+      
+	}
+	
+	button.accordion:hover {	 /* 버튼에 마우스가 올라가면 */
+		background-color: #aaa;
+	/* 	width: 100%;
+		font-size: 20px; */
+	}
+
+	div.panel {
+ 		width: 46%;
+ 		padding: 0 2%;
+ 		overflow: hidden; 
+ 		background-color: #b3ffb3;
+ 	}
+ 	
+</style>
+
+<script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function (){
+		
+		const arr_data = [{subject:"Java",
+						  contents:"자바는 자바로 기술된 프로그램 개발 및 실행을 할 수 있는 소프트웨어 모임의 총칭이다. 자바 프로그램은 운영체제나 하드웨어에 의존하지 않는 바이트 코드인 추상적인 코드로 구현된다."},
+						  {subject:"Oracle DataBase",
+						  contents:"오라클 데이터베이스는 미국 오라클사의 관계형 데이터베이스 관리 시스템의 이름이다. 현재 유닉스 환경에서 가장 널리 사용되는 RDBMS이다. 검색이나 업데이트용 언어로는 국제표준화기구의 표준 구조화 조회 언어와 PL/SQL을 지원한다.</p>"},
+						  {subject:"HTML",
+						  contents:"HTML은 하이퍼텍스트 마크업 언어(HyperText Markup Language)라는 의미의 웹 페이지를 위한 마크업 언어다."},
+						  {subject:"CSS",
+						  contents:"CSS는 Casting Style Sheets의 약자로 html 요소들이 각종 디자인, 레이아웃 등 사용자에게 어떻게 보여지는지 정의하는 스타일 시트 언어입니다."},
+						  {subject:"JavaScript",
+						  contents:"자바스크립트는 1995년에 넷스케이프(Netscape)의 브렌던 아이크(Brendan Eich)에 의해 만들어졌습니다."},
+						  {subject:"jQuery",
+						  contents:"jQuery는 HTML의 클라이언트 사이드 조작을 단순화 하도록 설계된 크로스 플랫폼의 자바스크립트 라이브러리다. 존 레식이 2006년 뉴욕 시 바캠프에서 공식적으로 소개하였다. jQuery는 오늘날 가장 인기있는 자바스크립트 라이브러리 중 하나이다.</p>"}	
+						 ];
+		
+		let html = ``;
+		
+		arr_data.forEach((item) => {
+			html += `<button class="accordion">${item.subject}</button>
+					 <div class="panel">
+					 	<p>${item.contents}</p>
+					 </div>`;
+		});
+		
+		$("div#container").html(html);
+		
+	//	$("div.panel").hide();
+	//	또는
+	//	$("div.panel").css({'display':'none'});	// 안보이도록 한다.
+	//	css 에 줄 내용이 1개만 있다면, 아래와 같이 하는 것도 가능하다.
+		$("div.panel").css('display','none');	// css 안의 내용이 단수개일 때 현재와 같이 한다. (복수개는 불가능)
+		
+		$("button.accordion").click((event)=>{	// eq() 등을 대비해서 (event) 를 넣는다.
+			
+			const $panel = $(event.target).next();
+		//	$(event.target).next(); 는 타겟 다음에 나오는 형제 엘리먼트(요소)를 가리키는 것이다.
+		// 	즉, 여기서는 <div class="panel"> 를 가리키는 것이다.
+		//	console.log("확인용 : " + $panel.html());			
+		
+		// const $panel = $(event.target).prev();
+		// $(event.target).prev(); 는 타겟 바로 앞에 나오는 엘리먼트(요소)를 가리키는 것이다.
+		// 즉, 여기서는 <div class="panel"> 를 가리키는 것이다.
+		// console.log("확인용 : " + $panel.html());
+			
+		//	console.log( $panel.css('display') );		// "none" "block"
+		// 	$panel 엘리먼트에 CSS display 의 속성값을 읽어온다.
+		
+			if( $panel.css('display') == "none" ) {
+			//	$panel 엘리먼트의 display 속성값이 "none" 이라면, (보이지 않는다면)		
+				
+				$("div.panel").css('display','none');	// 전부 보이지 않도록 한다.
+			
+			//	$panel.css('display', 'block');
+			//	또는
+				$panel.css('display', '');
+			}
+			else {
+				//	$panel 엘리먼트의 display 속성값이 "none" 이 아니라면, (보여지고 있다면)		
+				$panel.css('display', 'none');
+			}
+		
+		//	$panel.css('display','');	// '': 원상복구
+		
+		});
+		
+		
+	});
+
+</script>
+
+</head>
+<body>
+<div id="container">
+ 
+    </div>
+</body>
+</html>

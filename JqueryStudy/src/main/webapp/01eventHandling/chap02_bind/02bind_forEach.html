@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>어느 버튼이 클릭되었는지 확인하기 -1(bind)</title>
+<!-- 
+   웹페이지에 버튼이 여러개 있고 각각의 버튼은 서로 다른일을 한다.
+   버튼에 대한 이벤트를 올바르게 처리하려면 어떤 버튼을 클릭했는지 알아야 한다.
+ -->
+ <style type="text/css">
+ 
+ span.buttons {
+      display: inline-block;
+      border: solid 2px orange;
+      width: 100px;
+      margin: 20px;
+      padding: 5px;
+      background-color: yellow;
+      color: #ff0000;
+      font-size: 15pt;
+      cursor: pointer;
+   }
+   
+ span#resultBold {
+		font-weight: bold;
+	}  
+   
+ span#resultitalic {
+   		font-style: italic;
+   	}
+   
+ </style>
+ 
+<script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+
+		$("span.bold").bind("click", function() {	// span 태그인데 class 가 bold, .bind() 안에는 event 를 넣는다.
+			$("div#result").html("<span id='resultBold'>"+$(this).text()+" 버튼을 클릭하셨습니다!!*</span>" )	// div 사이에 문구를 넣고자 함. 여기서는 $()이 "span.bold"에 있는 글자(text)만 읽어와라!
+		});
+		
+		$("span.italic").click(function name() {
+			$("div#result").html("<span id='resultitalic'>"+$(this).text() +" 버튼을 클릭하셨습니다~*</span>" );
+		});
+
+		$("span.clear").click('click', function() {
+			$("div#result").html("");
+		});
+		
+	});
+</script>
+ 
+</head>
+<body>
+
+<div id="firstDiv">
+      <span class="buttons bold">굵게</span>
+      <span class="buttons italic">기울임꼴</span>
+      <span class="buttons clear">지우기</span>
+   </div>
+   <div id="result"></div>
+
+</body>
+</html>

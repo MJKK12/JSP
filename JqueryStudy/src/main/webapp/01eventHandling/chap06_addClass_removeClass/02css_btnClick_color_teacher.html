@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>버튼을 클릭하면 색상 및 글자가 나오는 것</title>
+
+<style type="text/css">
+	div#container {
+		/* border: solid 1px gray; */
+		width: 90%;
+		margin: 0 auto;
+		padding: 2%;
+	}
+
+	span {
+		font-size: 20pt; 
+		background-color: navy; 
+		color: white; 
+		margin-right: 60px;
+	}
+
+	button {
+		margin-right: 20px;
+		width: 100px;
+		height: 50px;
+		font-size: 20pt;
+	}
+
+	div.answer {
+		display: inline-block;
+	}
+
+</style>
+
+<script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script> 
+<script type="text/javascript">
+  $(document).ready(function(){
+	  
+	  const arrBtn = [ {color:"red",    hangul:"빨강"}
+				      ,{color:"orange", hangul:"주황"}
+				      ,{color:"yellow", hangul:"노랑"}
+				      ,{color:"green",  hangul:"초록"}
+				      ,{color:"blue",   hangul:"파랑"}
+				      ,{color:"navy",   hangul:"남색"}
+				      ,{color:"purple", hangul:"보라"}
+				    ];
+	  
+	  let html = `<span>버튼을 눌러보세요</span>`;
+		
+	  arrBtn.forEach((item) => {
+		  html += `<button type='button'>${item.color}</button>`;
+	  });
+		
+	  $("div#btnsDiv").html(html);
+	  
+	  $("div#btnsDiv > button[type='button']").click(()=>{
+		  const $target = $(event.target);
+		  $("div#colorDiv").css({'width':'200px','height':'200px','background-color':$target.text()});
+		  $("div#hangulDiv").html(arrBtn[$target.index()-1].hangul).css({'color':$target.text(),'font-size':'60pt'}); 
+		  // !!! $target.index()-1 가 헷갈리므로 내일 수업시간에 index 를 알아오는 또 다른 방법을 또 알아보겠습니다. !!! // 
+	  });
+	  
+  });
+</script>
+
+</head>
+<body>
+
+    <div id="container">
+		<div id="btnsDiv"></div>
+	    <div id="colorDiv" class="answer"></div>
+	    <div id="hangulDiv" class="answer"></div>
+	</div>
+
+</body>
+</html>
