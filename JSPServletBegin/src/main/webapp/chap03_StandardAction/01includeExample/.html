@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>부트스트랩 페이지 링크 예제</title>
+	
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+
+	<!-- Font Awesome 5 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+	<!-- 직접 만든 CSS -->
+	<link rel="stylesheet" href="./css/mycss.css">
+</head>
+<body>
+	<div class="container pt-2">
+	
+	<!-- 상단 네비게이션 시작 -->
+	<nav class="navbar navbar-expand-lg bg-light navbar-light">
+		<!-- 표준 탐색 모음은 .navbar 클래스를 사용하여 생성되고 반응형 축소 클래스(.navbar-expand-xl|lg|md|sm)가 뒤따릅니다. -->   
+        <!-- Large(lg) ==> 992px 이상  1200px미만. navbar-expand-lg 은 width 가 991px 되어지는 순간 nav 이 축소되어진다. -->	  
+	  	
+	  	<!-- Brand/logo --> <!-- Font Awesome 5 Icons -->
+	  	<a class="navbar-brand" href="#"><i class="fab fa-windows fa-2x"></i></a> <!-- 아이콘은 windows 로 하겠다. -->
+
+		<!-- 디바이스 크기가 휴대폰 크기로 됐을 경우에는 아코디언 같은 Navigation Bar 만들기 -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto"> <!-- .mr-auto 는 css 의  margin-right: auto; 임. 즉, 가로축 미사용 공간 너비를 우축 바깥 여백에 할당한다는 것임. -->
+            <li class="nav-item">
+              <a class="nav-link menufont-size" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+           	  <a class="nav-link menufont-size" href="board.html">게시판</a>
+           	</li>
+           	<li class="nav-item">
+              <a class="nav-link menufont-size" href="login.html">로그인</a>
+           	</li>
+           	<li class="nav-item">
+           	  <a class="nav-link menufont-size" href="register.html">회원가입</a>
+           	</li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle menufont-size" href="#" id="navbarDropdown" data-toggle="dropdown">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>		
+	</nav>
+	<!-- 상단 네비게이션 끝 -->
+		
+
+     	<!-- 상단 컨텐츠 시작 -->
+		<div class="row custom-topcontents">
+			<div class="col-md-3">	<!-- 1/4 (12분할 기준) -->
+			<h2>Board</h2>
+	         <p>회원 또는 비회원 게시물을 확인할 수 있고 질문과 답변 코너를 이용한 다양한 질문에 대한 관리자의 상세
+               답변을 확인할 수 있습니다.</p>
+			</div>
+			
+			<div class="col-md-9">	<!-- 3/4 (12분할 기준) -->
+   				<img src="./images/Penguins.jpg" class="img-fluid" alt="반응형 이미지">
+			</div>
+		</div>
+      	<!-- 상단 컨텐츠 끝 -->
+
+
+      	<!-- 중앙 컨텐츠 시작 -->
+		<div class="row" style=" margin: 20px 0 50px 0;">
+			<div class="col-md-3">
+				<ul class="nav flex-column">
+		          <li class="nav-item">
+		            <a class="nav-link" href="#">회원전용</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="#">비회원전용</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="#">질문과 답변</a>
+		          </li>
+		        </ul>
+			</div>
+			<div class="col-md-9">
+				<div class="table-responsive">
+				<!-- .table-responsive 반응형 테이블(테이블의 원래 크기를 보존해주기 위한 것으로써, 디바이스의 width가 작아지면 테이블 하단에 스크롤이 생김) -->
+					  <table class="table table-striped" >
+					  <thead>
+					    <tr>
+					      <th>#</th>
+					      <th>First Name</th>
+					      <th>Last Name</th>
+					      <th>Username</th>    		      
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <th>1</th>
+					      <td>Mark</td>
+					      <td>Otto</td>
+					      <td>@mdo</td>
+					    </tr>
+					    <tr>
+					      <th>2</th>
+					      <td>Jacob</td>
+					      <td>Thornton</td>
+					      <td>@fat</td>
+					    </tr>
+					    <tr>
+					      <th>3</th>
+					      <td>Larry</td>
+					      <td>the Bird</td>
+					      <td>@twitter</td>
+					    </tr>		    
+					    <tr>
+					      <th>4</th>
+					      <td>Mark</td>
+					      <td>Otto</td>
+					      <td>@mdo</td>
+					    </tr>
+					    <tr>
+					      <th>5</th>
+					      <td>Jacob</td>
+					      <td>Thornton</td>
+					      <td>@fat</td>
+					    </tr>
+					    <tr>
+					      <th>6</th>
+					      <td>Larry</td>
+					      <td>the Bird</td>
+					      <td>@twitter</td>
+					    <tr>
+					      <th>7</th>
+					      <td>Mark</td>
+					      <td>Otto</td>
+					      <td>@mdo</td>
+					    </tr>
+					    <tr>
+					      <th>8</th>
+					      <td>Jacob</td>
+					      <td>Thornton</td>
+					      <td>@fat</td>
+					    </tr>
+					    <tr>
+					      <th>9</th>
+					      <td>Larry</td>
+					      <td>the Bird</td>
+					      <td>@twitter</td>
+					    </tr>		    					    
+					  </tbody>
+					</table>
+				</div>
+				
+				<!-- 페이지네이션 가운데 정렬 -->
+				<nav>
+				  <ul class="pagination justify-content-center">
+				    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+				    <li class="page-item"><a class="page-link" href="#">1</a></li>
+				    <li class="page-item"><a class="page-link" href="#">2</a></li>
+				    <li class="page-item"><a class="page-link" href="#">3</a></li>
+				    <li class="page-item"><a class="page-link" href="#">Next</a>
+				  </ul>
+				</nav>
+				
+			</div>
+		</div>		
+      	<!-- 중앙 컨텐츠 끝 -->
+
+		<hr>
+		
+		<!-- 푸터 시작 -->
+		<div id="footer">
+			<p class="text-center">&copy; Company 2022</p>
+		</div>
+		<!-- 푸터 끝 -->
+
+	</div>
+
+    <!-- Optional JavaScript -->
+    <script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.bundle.min.js" type="text/javascript"></script>
+
+</body>
+</html>

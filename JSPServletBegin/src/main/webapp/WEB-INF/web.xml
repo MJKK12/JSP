@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>JSPServletBegin</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>01_getMethod</servlet-name>
+  	<servlet-class>chap02.GetMethod_01</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>01_getMethod</servlet-name>
+  	<url-pattern>/01_getMethod.do</url-pattern>
+  </servlet-mapping>
+   
+  <!-- === 중요 ===
+    확장자가 .xml 또는 .java 인 파일에서 URL경로를 나타낼때 맨 앞에 / 가 오면
+    그 앞에는  http://ip주소:포트번호/컨텍스트패스명 이 자동으로 붙게 된다.
+    우리의 컨텍스트 패스명은  /JSPServletBegin 이다.      
+    즉, 우리는  http://localhost:9090/JSPServletBegin/01_getMethod.do 으로 된다. 
+  -->
+  
+  <servlet>
+  	<servlet-name>02_postMethod</servlet-name>
+  	<servlet-class>chap02.PostMethod_02</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>02_postMethod</servlet-name>
+  	<url-pattern>/02_postMethod.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>04_getPostMethod</servlet-name>
+  	<servlet-class>chap02.GetPostMethod_04</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>04_getPostMethod</servlet-name>
+  	<url-pattern>/04_getPostMethod.do</url-pattern>
+  </servlet-mapping>
+    
+  <!-- ========= MyDBCP Setting Start  ===========  -->
+  <resource-ref>
+ 	<description>Oracle Datasource example</description>
+ 	<res-ref-name>jdbc/myoracle</res-ref-name>
+ 	<res-type>javax.sql.DataSource</res-type>
+ 	<res-auth>Container</res-auth>
+  </resource-ref>
+  <!-- ========= MyDBCP Setting End  ===========  -->  
+    
+</web-app>
