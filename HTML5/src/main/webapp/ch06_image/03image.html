@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이미지를 테이블 속에 넣어주면서 이미지를 둥글게 보여지도록 한다.</title>
+
+<style type="text/css">
+
+	div#container {
+	/*	border:solid 1px gray;*/
+		width: 80%;
+		margin: 50px auto;
+	}
+	
+	div#container > table {
+		border: solid 0px orange;
+		width: 50%;
+		margin: 0 auto;
+		border-collapse: collapse;		
+	}
+	
+	div#container > table th {	/*table 의 자식은 thead 와 tbody. th, td는 손자쯤 되므로 > 를 쓰지 않고 띄어쓰기만 한다.*/
+		border: solid 1px orange;
+		height: 40px;
+		font-size: 14pt;
+	}
+
+	div#container > table td {
+		border: solid 0px orange;
+		height: 200px;
+		text-align: center;
+	}	
+
+	div#container > table td > img {	/*table td 안에 있는 img 태그*/
+	/*	border : solid 1px blue;*/
+
+		border-radius: 50%;			/*절반씩 깎음*/
+	/* border-radius 는 테두리를 둥글게 만드는 속성입니다. */   
+	
+	/* border-radius: top-left-x top-right-x bottom-right-x bottom-left-x / top-left-y top-right-y bottom-right-y bottom-left-y */
+	/* border-radius: 20px 20px 20px 20px / 20px 20px 20px 20px */
+	/* 또는 아래처럼 하면 같은 것이다. */
+	/* border-radius: 20px; */	
+	
+		opacity: 0.5;	/* 광도 0.0 ~ 1.0 숫자가 적을수록 희미해진다. 0.0 은 투명, 1.0 은 원래 광도이다. */
+	}
+	
+	div#container > table td > img:hover {
+		opacity: 1.0;
+	}
+		
+</style>
+
+</head>
+<body>
+
+	<div id="container">
+		<table>
+			<thead>
+				<tr>
+					<th>아이유</th>	
+					<th>김태희</th>	
+					<th>박보영</th>	
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><img src="images/iyou.jpg"/></td>
+					<td><img src="images/kimth.jpg"/></td>
+					<td><img src="images/parkby.jpg"/></td>
+				</tr>
+			</tbody>
+		</table>	
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form 에 대해서 알아봅니다. -2</title>
+
+<style type="text/css">
+
+	body {
+		border: solid 0px gray;
+		margin: 0;
+		padding: 0;
+		font-family: Arial, "MS Trebuchet", sans-serif;	
+		word-break: break-all; 	/* 공백없이 영어로만 되어질 경우 해당구역을 빠져나가므로 이것을 막기위해서 사용한다. */
+	}
+
+	div#container {
+		border: solid 0px gray;
+		width: 80%;
+		margin: 0 auto; /* 균등분할 */
+	}
+
+	form {
+		margin-top: 100px; 
+	}
+
+	legend {
+		font-size: 20pt;
+	}
+
+	label.title {
+		display : inline-block;	/*옆으로 가되 block 을 주어야 width 가 적용된다.*/
+		width: 150px;
+		color: navy;
+		font-weight: bold;
+	}
+
+	ul {
+		/*border : solid 1px red;*/
+		list-style-type: none;
+		padding-left: 0;
+	}
+	
+	li {
+		line-height: 40px; /* 줄간격 */
+	}
+	
+	input.myinput {	/*input 태그인데 class 가 myinput 인 것*/
+		height: 20px;
+	}
+	
+	/* input[type="radio"]{	/*input 태그인데 type 이 radio 인 것*/
+	/*		margin-right: 50px;	
+	} */
+
+	/*라디오 요소에 체크를 했을 경우 라디오 요소의 테두리를 오렌지색으로 주겠다.*/
+	input[type="radio"]:checked	{		/*radio 에서 checked 된 곳에 orange색 box-shadow 로 덮어씌운다.*/
+		box-shadow: 0 0 0 3px orange;
+	}
+
+	/*체크박스 요소에 체크를 했을 경우 체크박스 요소의 테두리를 빨간색으로 주겠다.*/	
+	input[type="checkbox"]:checked	{	/*checkbox 에서 checked 된 곳에 red색 box-shadow 로 덮어씌운다.*/
+		box-shadow: 0 0 0 3px red;
+	}
+
+	label[for="female"] { 		/*label 태그인데 속성값이 female 인 것 */
+		padding-left: 50px;
+	}
+	
+	select {	/*select 태그에 있는 것들 모두에 적용.*/
+		width: 150px;
+	}
+	
+	 select.myselect {	/*최종학력, 선호프로그램 부분만 변경하고자 myselect class로 묶어서 가져옴.*/
+	 	height: 25px;
+	 }
+	
+		
+	
+	input.btn {			/*input 인데 class 가 btn 인 것 (btn class 로 공통으로 묶임.)*/
+		width: 100px;
+		height: 50px;
+		margin: 20px 0 0 40px;
+		font-size: 14pt;
+		cursor: pointer;
+		color:  #fff;
+		border: none;
+		
+		border-radius: 5%;	/*사각형을 깎아서 둥근 사각형으로 만들어 주는 것.*/
+	}
+	
+	input[type="submit"] {	/*input 태그인데 속성이 submit 타입이다.*/
+		background-color: #668cff;
+	}
+	
+	input[type="reset"] {	/*input 태그인데 속성이 reset 타입이다.*/
+		background-color: #9999ff;
+	}	
+
+
+</style>
+
+</head>
+<body>
+	<div id="container">
+		
+		<form action="register.do">	<!-- 정보를 DB 로 보낼 때 form 태그를 사용한다. -->
+			<!-- fieldset 태그는 form 을 그룹핑(묶어주는 것) 하는 역할이다. -->
+			<fieldset>
+			
+				<!-- legend 태그는 fieldset 에 대한 제목을 지정한 것이다. -->
+				<legend>회원가입 정보</legend>	
+				
+				<ul>	
+
+					<li>
+						<label for="userid" class="title">아이디</label>
+						<input type="text" id="userid" class="myinput" size="20" maxlength="20" autofocus required/>
+					</li>
+					
+					<li>
+						<label for="passwd1" class="title">암호</label>
+						<input type="password" id="passwd1" class="myinput" size="20" maxlength="20" required/>
+					</li>
+					
+					<li>
+						<label for="passwd2" class="title">암호확인</label>
+						<input type="password" id="passwd2" class="myinput" size="20" maxlength="20" required/>					
+					</li>
+					
+					<li>
+						<label for="name" class="title">성명</label>
+						<input type="text" id="name" class="myinput" size="20" maxlength="20" required/>					
+					</li>
+					
+					<li>
+						<label for="email" class="title">이메일</label>
+						<input type="email" id="email" class="myinput" size="20" maxlength="40" required placeholder="예:hongkd@gmail.com"/>						
+					</li>
+					
+					<li>
+						<label class="title">성별</label>
+						<label for="male">남자</label><input type="radio" name="gender" id="male"/> 
+						<label for="female">여자</label><input type="radio" name="gender" id="female" checked/>		
+						<!-- radio 는 선택이 1개밖에 되지 않는다. -->				
+					</li>
+					
+					<li>
+						<label class="title">취미</label>
+						<label for="hobby1">게임</label><input type="checkbox" name="hobby" id="hobby1" checked/> 
+						<label for="hobby2">영화감상</label><input type="checkbox" name="hobby" id="hobby2"/> 
+						<label for="hobby3">글쓰기</label><input type="checkbox" name="hobby" id="hobby3" checked/> 
+						<label for="hobby4">음악감상</label><input type="checkbox" name="hobby" id="hobby4"/>	
+						<!-- checkbox 는 복수개 선택이 가능하다. -->					
+					</li>
+					
+					<li>
+						<label class="title">최종학력</label>
+						<select class="myselect">
+							<option>고졸</option>
+							<option>초대졸</option>
+							<option selected>대졸</option>
+							<option>대학원졸</option>
+						</select>
+					</li>
+					
+					<li>
+						<label class="title">선호음식</label>
+						<select size="3" multiple>	<!-- 몇개를 보일래? (size 개수 만큼) -->
+							<option>짜장면</option>
+							<option>파스타</option>
+							<option>팟타이</option>
+							<option>떡볶이</option>
+							<option>치킨</option>
+							<option>피자</option>
+						</select>					
+					</li>
+					
+					<li>
+						<label class="title">선호프로그램</label>
+						<select class="myselect">
+							<optgroup label="DataBase">
+								<option>ORACLE</option>
+								<option>Mysql</option>
+								<option>MSSQL</option>
+							</optgroup>
+							
+							<optgroup label="Language">
+								<option>C/C++</option>
+								<option>PYTHON</option>
+								<option>JAVA</option>
+								<option>Spring</option>	
+							</optgroup>
+						</select>							
+					</li>
+					
+					<li>
+						<label for="browsername" class="title">웹브라우저</label>
+						<input list="browserType" id="browsername" size="20" maxlength="20" required/>
+						<datalist id="browserType">
+							<option value="Chrome"/>
+							<option value="Internet Explorer"/>
+							<option value="Firexox"/>
+							<option value="Opera"/>
+							<option value="Safari"/>
+						</datalist>							
+					</li>
+					
+					<li>
+						<label for="addfile" class="title">파일첨부</label>
+						<input type="file" id="addfile"/>										
+					</li>
+					
+					<li>
+						<label for="registerComment" class="title">가입인사말</label>
+						<textarea rows="5" cols="20" id="registerComment" placeholder="하고 싶은 말 쓰세요"></textarea>		
+						<!-- 가입인사말 칸을 5 줄에 20 칸 주겠다. -->						
+					</li>
+						
+					<li>
+						<input type="submit" value="확인" class="btn" />		<!-- submit 은 DB 로 전송 --> 
+						<input type="reset" value="취소" class="btn" />		<!-- type 이 reset 이면 초기화. -->
+					</li>					
+							
+				</ul>
+				
+			</fieldset>		
+		</form>
+
+	</div>
+
+</body>
+</html>

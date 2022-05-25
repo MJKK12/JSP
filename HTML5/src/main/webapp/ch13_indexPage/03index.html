@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>메인페이지 만들기 -3</title>
+
+<style type="text/css">
+	
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: Arial, "MS Trebuchet", sans-serif;
+		
+		word-break: break-all;			/* 공백없이 영어로만 되어질 경우 해당구역을 빠져나가므로 이것을 막기위해서 사용한다. */		
+	}
+
+	div#container {
+	/*	border: solid 1px gray;*/
+		
+		margin: 0 auto;
+		padding: 2% 9% 0 10%;
+	}
+	
+	header#login {
+	/*	border: solid 1px purple;*/
+		
+		width: 99%;			/*부모인 div id="container"를 따라가지 않기 위해 width 를 따로 준다*/	
+		min-height: 120px;
+		background-color: #fff;
+		margin-bottom: 25px;
+	}
+	
+	table#loginTbl {
+	/*  border: solid 1px red;	 */
+		border-collapse: collapse;
+		margin: 10px auto;		/* 상하 10px , 좌우는 중간정렬 */
+	}
+
+	table#loginTbl > tbody > tr:last-child > td {	/* 아래 body 부분에는 tbody 를 쓰지 않았더라도, 여기서는 tbody 를 써주어야 한다. */
+		text-align: center;	
+		padding-top: 10px;
+	} 
+	
+	table#loginTbl > tbody > tr {
+		line-height: 25px;			/* tr의 모든 line 의 height 를 100px 준다. */
+	}
+
+	table#loginTbl label {	/* table#loginTbl 속에 있는 label */
+		color: white;
+	}
+
+	input[id="userid"], input[id="password"] {	/*input 태그인데 속성값이 [].*/
+		line-height: 20px;
+	}
+		
+	header#login > div#logo {
+	/*	border: solid 1px green; */
+		height: 110px;
+		float: left;
+	}
+	
+	header#login > nav {
+	/*	border: solid 1px blue; */
+		clear: both;
+	}
+
+	header#login > nav > ul {	
+		list-style-type: none;
+		padding : 0;
+	}
+
+	header#login > nav > ul > li {		
+	/*	border: solid 1px gray;	 */	
+		display:inline-block;
+		width:150px;
+		text-align:center;		
+	}
+		
+	header#login > nav > ul > li > a {	
+		text-decoration:none;
+		color: navy;
+		font-size: 15pt;
+		font-weight: bold;		
+	}
+
+	header#login > nav > ul > li > a:hover {	
+		background-color: navy;
+		color: white;
+	}
+		
+	div#logo > img {
+		width: 200px;
+	}
+	
+	div#contents {
+	/*	border: solid 1px pink;*/
+		width: 99%;				/* header#login 과 width 를 똑같이 맞춘다. */
+		margin: 10px 0 20px 0;
+	}
+	
+	div#contents > aside, div#contents > section {
+		min-height: 500px;			/*처음이 최소 500px 로 시작*/
+	}	
+	
+	div#contents > section {
+	/*	border: solid 1px purple;*/
+				
+		float: right;
+		width: 73.5%;				/* 소수점도 입력 가능하다. */
+		background-color: #333;
+		color: #ffffe6;
+	}
+	
+	div#contents > section > div#div_section {
+		max-height: 500px;			/*500px 되기 전까지는 내용물 만큼만 차게됨. section 안에는 max, 바깥엔 min-height 를 줌. */		
+		overflow: auto;
+	}
+	
+	div#contents > section > div#div_section > article {
+		padding: 20px 20px 0 20px;
+	}
+	
+	div#contents > aside {
+	/*	border: solid 1px blue;*/
+		float: left;			/*float 을 주면 width 는 내용물만큼 잡히는 것이다.*/
+		width: 23%;
+		background-color: #999;
+	}
+
+	div#contents a {	/* div#contents의 자식이 아닌 손자이므로 띄어쓰기 a를 써줌. (div#contents > aside > nav > ul > li > a 써도 된다.)*/
+		text-decoration: none;
+		color: white;
+	}
+
+	div#imsi {			/* footer 에서 저작권 창과 aside & section 부분 사이에 공백을 주고자함. */
+		clear: both;
+	}
+
+	footer {
+	/*	border: solid 1px orange;*/
+		
+		clear: both;
+		width: 99%;		/* header#login 과 width 를 똑같이 맞춘다. */
+		background-color: #ccc;
+		text-align: center;
+		padding: 15px 0;
+		margin-top: 20px;
+	}
+
+	button.mybtn {		
+		text-decoration: none;	
+		border: none; 
+		background-color: #ffcccc;
+		color: black;
+		
+		display : inline-block;
+		width: 100px;
+		font-size: 13pt;
+		font-weight:bold;
+		height: 50px;
+		border-radius: 50%;
+	}
+	
+	button[type="submit"] { /*button 타입인데 type 이 submit*/
+		margin: 0 10px;
+	}
+
+</style>
+
+</head>
+<body>
+
+	<div id="container">
+		<header id="login">						
+			<div id="logo">
+				<img src="images/logo.png" />	<!-- form 태그는 아래로 떨어지는 block 방식이므로 올바르게 잡자. -->
+			</div>
+						
+
+				<nav>
+					<ul>
+						<li><a href="#">카페</a></li>
+						<li><a href="#">메일</a></li>
+						<li><a href="#">뉴스</a></li>
+						<li><a href="#">지도</a></li>
+						<li><a href="#">증권</a></li>
+						<li><a href="#">블로그</a></li>
+					</ul>
+				</nav>			
+		</header>
+		
+		
+		<div id="contents">
+			<aside>
+				<form action="login.do">	<!-- header 의 자식 : <form> -->					
+					<table id="loginTbl">
+						<tr>
+							<td><label for="userid">아이디</label></td>
+							<td><input type="text" id="userid" placeholder="아이디" autofocus autocomplete="off" /></td>
+						</tr>
+							
+						<tr>
+							<td><label for="password">비밀번호</label></td>
+							<td><input type="password" id="password" placeholder="비밀번호" /></td>
+						</tr>
+						
+						<tr>	<!-- 무조건 form 태그 안에 들어와야 login.do 가 먹힌다.(로그인/취소버튼) -->
+							<td colspan="2">
+								<button class="mybtn" type="button" onclick="javascript:location.href='04registerForm_me.html'">회원가입</button>
+								<button class="mybtn" type="submit">로그인</button>
+								<button class="mybtn" type="reset">취소</button>
+							</td>						
+						</tr>										
+					</table>
+				</form>				
+			</aside>
+			
+			<section>
+				<div id="div_section">
+					<article>
+						<header>기사1 제목입력</header>
+						<p>&quot;부동산 거래 동맥경화 우려..금리인하 검토시기 왔다&quot;</p>	<!-- 기사내용 -->
+					</article>
+					
+					<article>
+						<header>기사2 제목입력</header>
+						<p>&quot;예매창 지붕 뚫었다&quot;.. '어벤져스:엔드게임' 4DX, 예매 오픈 후 순삭 '매진'[공식입장]</p>				
+					</article>		
+					 			
+					<article>
+						<header>기사3 제목입력</header>
+						<p>&quot;예매창 지붕 뚫었다&quot;.. '어벤져스:엔드게임' 4DX, 예매 오픈 후 순삭 '매진'[공식입장]</p>				
+					</article>	
+					
+					<article>
+						<header>기사4 제목입력</header>
+						<p>&quot;예매창 지붕 뚫었다&quot;.. '어벤져스:엔드게임' 4DX, 예매 오픈 후 순삭 '매진'[공식입장]</p>				
+					</article>		
+									
+					<article>
+						<header>기사5 제목입력</header>
+						<p>&quot;예매창 지붕 뚫었다&quot;.. '어벤져스:엔드게임' 4DX, 예매 오픈 후 순삭 '매진'[공식입장]</p>				
+					</article>
+					
+					<article>
+						<header>기사6 제목입력</header>
+						<p>&quot;예매창 지붕 뚫었다&quot;.. '어벤져스:엔드게임' 4DX, 예매 오픈 후 순삭 '매진'[공식입장]</p>				
+					</article>		
+									
+					<article>
+						<header>기사7 제목입력</header>
+						<p>&quot;예매창 지붕 뚫었다&quot;.. '어벤져스:엔드게임' 4DX, 예매 오픈 후 순삭 '매진'[공식입장]</p>				
+					</article>	
+					
+					<article>
+						<header>기사8 제목입력</header>
+						<p>&quot;예매창 지붕 뚫었다&quot;.. '어벤져스:엔드게임' 4DX, 예매 오픈 후 순삭 '매진'[공식입장]</p>				
+					</article>		
+									
+					<article>
+						<header>기사9 제목입력</header>
+						<p>&quot;예매창 지붕 뚫었다&quot;.. '어벤져스:엔드게임' 4DX, 예매 오픈 후 순삭 '매진'[공식입장]</p>				
+					</article>
+					
+					<article>
+						<header>기사10 제목입력</header>
+						<p>&quot;예매창 지붕 뚫었다&quot;.. '어벤져스:엔드게임' 4DX, 예매 오픈 후 순삭 '매진'[공식입장]</p>				
+					</article>		
+									
+					<article>
+						<header>기사11 제목입력</header>
+						<p>&quot;예매창 지붕 뚫었다&quot;.. '어벤져스:엔드게임' 4DX, 예매 오픈 후 순삭 '매진'[공식입장]</p>				
+					</article>		
+																			
+				</div>								
+			</section>
+		</div>
+		
+		<div id="imsi"></div>
+		
+		<footer>
+			<p style="width: 60%; border: solid 0px red; margin: 0 auto;">
+				<marquee>
+				Copyright &copy; Kakao Corp. All rights reserved.
+				</marquee >			
+			</p>
+		</footer>
+		
+	</div>
+</body>
+</html>

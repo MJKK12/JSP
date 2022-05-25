@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+body {
+	font-family: Arial, "MS Trebuchet", sans-serif;
+	
+	border: solid 1px gray;
+
+	/* === 여백 설정 === */
+	/* == margin 은 바깥여백이다. == */
+	
+	/* margin: 100px 100px 50px 20px; 		/* 상 우 하 좌 시계방향 */
+	/* margin: 50px; 				  		/* 상 우 하 좌 모두 바깥 여백을 50px; 을 준 것이다. */
+	/* margin: 100px 50px; 			  		/* 상 하는 바깥여백을 100px;, 우 좌는 바깥 여백을 50px; 을 준 것이다. */
+
+	margin: 0; 				  	  	  		/* 상 우 하 좌 모두 바깥 여백을 0px; 을 준 것이다. 즉, 바깥 여백을 없는 것으로 하겠다. */
+
+
+	/* == padding 은 안쪽여백이다. == */
+	/* padding: 100px 100px 50px 20px; 		/* 상 우 하 좌 시계방향 */
+	/* padding: 50px; 				 	 	/* 상 우 하 좌 모두 안쪽 여백을 50px; 을 준 것이다. */
+	/* padding: 100px 50px; 			  	/* 상 하는 안쪽 여백을 100px;, 우 좌는 안쪽 여백을 50px; 을 준 것이다. */
+	
+	padding: 0; 				  	  	  	/* 상 우 하 좌 모두 안쪽 여백을 0px; 을 준 것이다. 즉, 안쪽 여백을 없는 것으로 하겠다. */
+		   
+}
+
+div#container {
+	border: solid 0px navy;
+	width: 80%;	
+	margin: 20px auto; /*폭 80%에 좌우는 똑같이 균등분할 해라.*/
+}
+
+div#header {
+	border: solid 0px red;
+	height: 100px;
+	background-color: #ccc;		/* #ccc; 는 #cccccc; 이다. (원래는 16진수로 써주어야한다.) */
+	margin-top: 50px;			/* margin: 50px 0 0 0; 와 같은 것이다. 상 우 하 좌 시계방향 */
+	 							/*___% : container 안에서 _% 라는 뜻.*/
+}
+
+div#side {
+	border: solid 0px green;
+	/* display: inline-block;
+	height: 400px; */
+	width: 30%;
+	background-color: #888;
+}
+
+div#contents {
+	border: solid 0px blue;	/*px 까지 width 에 영향을 미치므로 side 의 30% 와 width 의 70%여도 100% 넘어가는 것으로 인식하므로 width 에 68.8% 를 쓴다.*/
+	/* display: inline-block;
+	height: 400px; */	
+	width: 69.3%;
+	background-color: #eee;
+}
+
+div#footer {
+	border: solid 0px red;
+	height: 80px;
+	background-color: #ddd;
+}
+
+/* 겹치는 부분(display, height)을 class 처리해서 묶은 후 일괄처리. */
+.customDisplay {
+	display: inline-block;
+	height: 400px;
+}
+
+
+
+

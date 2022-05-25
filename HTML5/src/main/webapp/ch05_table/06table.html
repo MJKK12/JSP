@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>테이블 만들기 6[ colspan, rowspan, :first-child, :last-child, :nth-child(숫자), ~, + ]</title>
+
+<style type="text/css">
+
+	div#container {
+	/*	border : solid 1px gray;*/
+		width: 40%;
+		margin: 50px auto;
+	}
+	
+	div#container > table {
+		width: 100%;	/*갇혀진 div에 100%(범위 내에서 끝까지)를 줌.*/
+	}
+	
+	table, th, td {
+		border: solid 1px orange;
+		border-collapse: collapse;	/*border 사이의 경계를 없애라.*/
+	}
+	
+	th {	/*th에 주면 td 도 따라간다.*/
+		height: 30px;
+		background-color: #ccc;
+	}
+	
+	td {
+		height: 25px;
+	}
+	
+	td.mycenter {
+		text-align: center;
+	}
+	
+	td.myright {
+		text-align: right;
+	}
+	
+	th#titleFirst ~ th {
+		background-color: yellow;		
+		height: 50px;
+	}
+	/*
+		th#titleFirst **다음에 오는** 모든 형제태그(형제엘리먼트, 형제노드) 중에 모든 th 태그가 선택대상이다.
+		
+		선택자1(th#titleFirst) ~ 선택자2(th) 는	(여기서 selector 는 선택자.)
+        선택자1 다음에 오는 모든 형제태그(노드)중에 선택자2 만을 모두 말하는 것이다.
+	*/
+	
+	th#titleFirst ~ th:hover {	/*hover : 마우스가 올라가면 ~~ 변경.*/
+		color: red;		
+	}	
+	/*
+      th#titleFirst 다음에 오는 모든 형제태그(노드) 중에 th 모두가 선택대상에 
+      마우스 커서가 올라가면 글자색을 빨간색으로 해준다.
+    */
+    
+	tr#mytr > td:first-child {	/*tr 태그의 자식인 td 의 첫번째 자식(컬럼)*/
+		text-align: left;
+		color: blue;		
+	}    
+	
+	tr#mytr > td:last-child {	/*tr 태그의 자식인 td 의 막내 자식(컬럼)*/
+		text-align: right;
+		color: red;		
+	}    
+    
+    #container > table > tbody > tr:nth-child(3) > td:first-child ~ td {	/*첫째 다음에 나오는 모든 형제 td*/
+    	background-color: cyan;
+    }
+    
+    #container > table > tbody > tr:last-child > td:first-child > span:nth-child(2) {	
+    	color: red;
+    	font-weight: bold;
+    }    
+    
+    #container > table > tbody > tr:first-child > th:nth-child(2) + th {
+    	background-color: white;
+    	font-weight: normal;
+    }
+    /* 
+    	+ 는 바로 밑 동생. 
+    	선택자1 + 선택자2
+    	
+    	선택자1 --> #container > table > tbody > tr:first-child > th:nth-child(2)
+    	선택자2 --> th
+		
+		선택자1 + 선택자2 는 선택자 1 다음에 나오는 모든 형제태그(형제엘리먼트, 형제노드) 중 첫번째 형제태그를 말한다.
+		쉽게 말하면 바로 밑 동생을 뜻한다.
+    */    
+    
+</style>
+
+</head>
+<body>
+	<div id="container">
+		<table>
+				<tr>
+					<th width="30%" rowspan="3" id="titleFirst">봄맞이 바겐세일</th> <!-- rowspan 은 행병합인데 rowspan="3" 은 3개행을 하나로 병합한다는 뜻이다. 조심할 것은 밑에 <tr> 태그가 바로 나와야 한다. -->
+					<th width="30%">제품이름과 설명</th>
+					<th width="20%">개당 가격</th>
+					<th width="20%">박스당 개수</th>
+				</tr>
+		
+				<tr id="mytr">	<!-- td 는 tr의 자식 -->
+					<td class="mycenter">블라우스 - 붉은색 실크</td>	  <!-- 첫번째 자식(td:first-child) -->
+					<td class="myright">20,000원</td>  			  <!-- 두번째 자식 -->
+					<td class="mycenter">150</td> 				  <!-- 막내 자식(td:last-child) -->
+				</tr>
+				
+				<tr>
+					<td class="mycenter">바지 - 검은색 원단</td>
+					<td class="myright">4,000원</td>
+					<td class="mycenter">300</td>
+				</tr>
+				
+				<tr>	<!-- tr ▶ td ▶ span 순서 -->
+					<td class="mycenter" colspan="2">
+						<span>총액</span>
+						<span>및</span>
+						<span>총박스</span>
+						<span>개수</span>
+					</td> <!-- colspan 은 열병합인데 colspan="2" 은 2개열을 하나로 병합한다. -->
+					<td class="myright">24,000원</td>
+					<td class="mycenter">450</td>
+				</tr>
+					
+		</table>
+	</div>
+</body>
+</html>

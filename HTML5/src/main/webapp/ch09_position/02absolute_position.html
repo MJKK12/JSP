@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>position 사용하기(absolute position)</title>
+
+<style type="text/css">
+   
+   body{
+      border: solid 1px gray;
+      width: 80%;
+      margin: 0 auto;
+   }
+   
+   div#container {
+      border: solid 1px red;
+      width: 80%;		/* body 80% 의 80% */
+      margin: 0 auto;
+   }
+   
+   div#parent, div#other {
+      border: solid 2px green;
+      margin: 10px;
+   }
+   
+   div#parent {
+      width: 50%;
+      background-color: #ffcccc;
+   }
+   
+   div.me {	/* position : static 일 경우 width는 부모의 80% , position : absolute 일 경우 부모자식 관계를 끊음(그냥 해당 웹화면의 80% 임.)*/
+	  position: absolute; 
+      top: 200px;
+      left: 200px;
+      background-color: yellow;
+   /* width: 80%; 	/* position: absolute; 이므로  width 를 주면 부모의 크기를 따라가는 것이 아니라 웹브라우저 크기의 80% 만큼 잡힌다.*/
+   					/* position: absolute; 이고 width를 정해주지 않으면 width는 내용물의 크기 만큼 잡힌다. */
+   }
+   
+/*
+    엘리먼트에 CSS 속성으로 position을 지정하면 여러가지 방법으로 위치를 지정할 수 있다.
+	
+	- 절대위치(absolute positioning)
+      position: absolute
+
+      문서를 기준(웹브라우저 주소창 아래의 top 0px, left 0px 을 기준)으로 위치가 정해지기 때문에 부모 엘리먼트의 위치와는 무관하다.
+        
+      position: absolute 로 했을 때 me의 offset(top, right, bottom, left)은 문서를 기준으로 주어진 offset 값이 적용되어지고,
+      parent와의 관계는 완전히 사라지기 때문에 class가 me인 엘리먼트가 parent 엘리먼트 안에 포함되어 있을 경우라도
+      *me의 크기(width)는 parent 크기(width)에 전혀 영향을 받지 않는다.*
+
+*/   
+
+</style>
+
+</head>
+<body>
+   <div id="container">
+      
+      <div id="parent">
+         parent(부모)<br/>
+         parent(부모)<br/>
+         parent(부모)<br/>
+         <div class="me">
+           첫번째 me(나)는 position: absolute;으로 했으므로 웹브라우저의 맨 상단 좌측으로부터 출발하여 top: 200px; left: 200px; 으로 위치값이 변하며 크기(width)를 따로 지정하지 않았으므로 width 의 크기는 내용물의 크기만큼 잡힌다.<br/> 
+           첫번째 me(나)는 position: absolute;으로 했으므로 웹브라우저의 맨 상단 좌측으로부터 출발하여 top: 200px; left: 200px; 으로 위치값이 변하며 크기(width)를 따로 지정하지 않았으므로 width 의 크기는 내용물의 크기만큼 잡힌다.<br/> 
+           첫번째 me(나)는 position: absolute;으로 했으므로 웹브라우저의 맨 상단 좌측으로부터 출발하여 top: 200px; left: 200px; 으로 위치값이 변하며 크기(width)를 따로 지정하지 않았으므로 width 의 크기는 내용물의 크기만큼 잡힌다.<br/> 
+       </div>
+      </div>
+      
+      <div class="me">
+           두번째 me(나)는 position: absolute;으로 했으므로 웹브라우저의 맨 상단 좌측으로부터 출발하여 top: 200px; left: 200px; 으로 위치값이 변하며 크기(width)를 따로 지정하지 않았으므로 width 의 크기는 내용물의 크기만큼 잡힌다.<br/> 
+           두번째 me(나)는 position: absolute;으로 했으므로 웹브라우저의 맨 상단 좌측으로부터 출발하여 top: 200px; left: 200px; 으로 위치값이 변하며 크기(width)를 따로 지정하지 않았으므로 width 의 크기는 내용물의 크기만큼 잡힌다.<br/> 
+      </div>
+      
+      <div id="other">
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+         other(기타 다른 것들)<br/>
+      </div>
+   </div>
+</body>
+</html>

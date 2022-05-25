@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이미지 더 알아보기</title>
+
+<style type="text/css">
+
+	div#container {	/*div 인데 id가 container*/
+		border: solid 0px gray;	
+		width: 80%;
+		margin: 0 auto;	/*상 하 없고 나머지 균등분할*/
+	}
+	
+	div#container > div {
+	/*	border: solid 1px red; */	
+		padding: 30px 0;		/*상 하*/
+	}
+	
+	div.mydiv1 {	/*div 인데 class 가 mydiv1 인 것.*/
+		float: left;
+		color: blue;
+		font-weight: bold;
+		margin: 0 0 0 50px;
+	}
+	
+	div#container > div:last-child {
+		clear: both;	/* 밑으로 떨어진다. */
+	}
+
+
+</style>
+
+</head>
+<body>
+	
+	<div id="container">
+		<h1 align="center">멋진 숲속의 아침을 감상하세요</h1>	<!-- 이미지는 default 로 inline 방식.(가로로 정렬됨)-->
+		<img alt="" src="images/숲속의 아침.jpg" width="300px;" height="200px">
+		<img alt="" src="images/숲속의 아침.jpg" width="300px;" height="200px">
+		<br/>
+		숲속의 아침1
+		
+		<div>	
+			<img src="images/숲속의 아침.jpg" width="300px;" height="200px">
+			<br/>
+			숲속의 아침2
+		</div>
+		
+		<div>	
+			<img alt="" src="images/숲속의 아침.jpg" width="300px;" height="200px">
+			<br/>
+			숲속의 아침3
+		</div>
+		
+		<div class="mydiv1">	
+			<img alt="" src="images/숲속의 아침.jpg" width="300px;" height="200px">
+			<br/>
+			숲속의 아침4
+		</div>	
+		
+		<div class="mydiv1">	
+			<img alt="" src="images/숲속의 아침.jpg" width="300px;" height="200px">
+			<br/>
+			숲속의 아침5
+		</div>	
+		
+		<div>
+			<img alt="" src="images/숲속의 아침.jpg" width="300px;" height="200px">
+			<br/>
+			숲속의 아침6			
+		</div>
+		
+	</div>			
+</body>
+</html>

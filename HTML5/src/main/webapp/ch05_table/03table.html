@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>테이블 만들기 3[정렬]</title>
+
+<style type="text/css">
+
+	div#container {
+	/*	border : solid 1px gray;*/
+		width: 40%;
+		margin: 50px auto;
+	}
+	
+	div#container > table {
+		width: 100%;	/*갇혀진 div에 100%(범위 내에서 끝까지)를 줌.*/
+	}
+	
+	table, th, td {
+		border: solid 1px orange;
+		border-collapse: collapse;	/*border 사이의 경계를 없애라.*/
+	}
+	
+	th {	/*th에 주면 td 도 따라간다.*/
+		height: 30px;
+		background-color: #ccc;
+	}
+	
+	td {
+		height: 25px;
+	}
+	
+	td.mycenter {
+		text-align: center; /* text-align 은 정렬의 기준을 가로를 기준으로 한다. 즉, 왼쪽(left) 오른쪽(right) 가운데(center) 정렬이다. */
+	}
+	
+	td.myright {
+		text-align: right;
+	}
+	
+	tr#jumper {
+		height: 100px;
+	}
+	
+	td.mybottom {
+		vertical-align:bottom; /* vertical-align 은 정렬의 기준을 세로를 기준으로 한다. 즉, 위쪽(top) 가운데(middle) 아래쪽(bottom) 정렬이다. */
+	}
+	
+	td.mymiddle {
+		vertical-align:middle;
+	}
+	
+	td.mytop {
+		vertical-align:top;
+	}
+	
+</style>
+
+</head>
+<body>
+	<div id="container">
+		<table>
+			<thead>	<!-- table head -->
+				<tr>
+					<th width="50%">제품이름과 설명</th>
+					<th width="25%">개당 가격</th>
+					<th width="25%">박스당 개수</th>
+				</tr>
+			</thead>
+		
+			<tbody> <!-- table body -->
+				<tr>
+					<td class="mycenter">블라우스 - 붉은색 실크</td>
+					<td class="myright">20,000원</td>
+					<td class="mycenter">150</td>
+				</tr>
+				
+				<tr>
+					<td class="mycenter">바지 - 검은색 원단</td>
+					<td class="myright">4,000원</td>
+					<td class="mycenter">300</td>
+				</tr>		
+						
+				<tr id="jumper">	<!-- 복수개의 class 사용 가능. -->
+					<td class="mycenter mybottom">점퍼</td>		<!-- 가로기준으로 center 이면서 세로기준 bottom -->
+					<td class="myright mymiddle">5,000원</td>	<!-- 가로기준으로 right 이면서 세로기준 middle -->
+					<td class="mycenter mytop">500</td>			<!-- 가로기준으로 center 이면서 세로기준 top -->
+				</tr>		
+				
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+/* 여백 및 기본적인 폰트를 설정한다. */
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, "MS Trebuchet", sans-serif;
+	
+	word-break: break-all;			/* 공백없이 영어로만 되어질 경우 해당구역을 빠져나가므로 이것을 막기위해서 사용한다. */
+}
+
+div#wrap{
+	width: 70%;				/* width 쓸 때, 크기(px) 보다는 % 가 더 낫다.(반응형 웹사이트시 참고) */
+	margin: 0 auto;			/*상하는 여백 없고, 좌우는 균등분할 ==> 가운데 정렬됨.*/
+}
+
+header#page_header ul , footer#page_footer ul {	/*똑같은 것을 적용시키고 싶으면 , 로 이어라.*/
+	list-style-type: none;	/* 기호를 안보이게 함 */
+	padding: 0;				/* 안쪽여백 없어짐 */
+}
+
+/*<header id="page_header"> 에 있는 모든 li*/
+header#page_header li {
+	display: inline-block; 	/* display 방식을 변경함 */
+	border: solid 1px gray;
+	width: 100px;
+	background-color: #ffcccc;
+	color : navy;
+	font-weight: bold;
+	text-align: center;
+	font-size: 14pt;
+	padding: 10px 20px;
+	margin-right: 30px;	
+}
+
+div#div_first > ul > li {	/*사이드바의 줄간격을 띄우기 위함*/
+	line-height: 40px;
+}
+
+div#div_second > ul > li {
+	line-height: 30px;
+}
+
+div#div_second > ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+section#posts {
+	border: solid 0px red;
+	float: left;	/* 가로방향으로 표시하는데 출발점은 왼쪽에서 출발한다. */
+	width: 72%;		
+	height: 1000px;
+}
+
+section#posts > article > aside {  /*aside 태그가 많을 경우에는 정확하게 언급하기 위해 section 밑 자식인 article 밑의 aside 를 정확하게 알려줘야한다.*/
+	border: solid 0px green;
+	float: right; 				   /*가로방향으로 표시하는데 출발점은 오른쪽에서 출발. 이부분을 안잡아주면 끝까지 가기 때문에 설정한다.*/
+	width: 35%;
+	
+	font-size : 20px;
+	font-weight : bolder;
+	color: #b30059;
+	line-height: 40px;		/* 줄간격 */
+	margin-left: 25px;  	/* 왼쪽에 margin 을 준다. */
+}
+
+section#sidebar {
+/*	border: solid 0px blue;*/
+	border-left : solid 1px gray;
+	float: right;	/* 가로방향으로 표시하는데 출발점은 오른쪽에서 출발한다. */	
+	width: 24%;		
+	height: 1000px;	
+	padding-left: 1%;
+}
+
+footer#page_footer {
+	border: solid 0px green;
+	clear: both;				/* clear : float 을 해제해서 페이지 하단에 안착시킨다.*/
+	text-align: center;
+	
+}
+
+
+a {	
+	text-decoration: none;	/*a 태그에 있는 밑줄 제거하기 → none 처리*/
+}
+
+a:link {			/*a 태그에 방문하기 전의 링크*/
+	color: navy;	
+}
+
+a:visited {			/*a 태그에 방문 후의 링크*/
+	color: navy;	
+}
+
+header#page_header a:hover {	/*id=page_header 에는 a 태그가 하나이므로 저렇게 쓴다. id=page_header 속에 있는 모든 a 태그! (자식이 아님) */
+	background-color: navy;		/* header#page_header 안에 있는 모든 a 태그에 마우스 포인터를 올려 놓았을 때 */
+	color: #ffcccc;
+	font-weight: lighter;
+}
+
+footer#page_footer ul > li {
+	border: solid 0px gray;
+	display: inline-block;
+	width: 100px;
+	margin-right: 30px;
+}
+
+p {	/* 모든 p 태그에 margin-bottom 을 주겠다. */
+	margin-bottom: 50px;
+}
+
+
+
+
+
+

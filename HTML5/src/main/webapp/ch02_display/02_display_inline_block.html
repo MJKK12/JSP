@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>display 에 대해서 알아본다. CSS 를 임베디드로 나타내어 본다.</title>
+
+<style type="text/css">
+
+	div#div1 {
+		border: solid 1px red; 
+		width: 100px; 
+		height: 300px;
+	}
+
+/*	div 태그인데 아이디가 div2 인 것.
+	div#div2 {
+		border: solid 1px blue; 
+		width: 50%; 
+		height: 500px;	
+	}
+*/
+
+/*아래는 아이디가 div2 인게 한개이므로 div 빼고 사용함.*/
+	#div2 {
+		border: solid 1px blue; 
+		width: 50%; 
+		height: 500px;	
+	}
+	
+	.food {
+		color:#00ff00;	 			/* 글자색 */
+		font-size: 20pt;			/* 글자크기 */
+		background-color:#ffff99; 	/* 배경색 */
+	}
+
+	/*
+	
+		=== CSS 우선순위 ===
+		
+		아이디(#) > 클래스(.) > 태그
+			
+	*/
+
+	#myid{
+		font-weight: bold;	/* 글자굵게 */
+		color: red;			/* 글자색 */
+	}
+	
+	.myclass {
+		background-color: #ccffe6;	/* 배경색  연한초록색 */
+		color: blue;				/* 글자색 */
+		font-size: 24pt;			/* 글자크기 */
+		background-color: #ffffcc;	/* 배경색 연한노랑색 (위의것에서 덮어씀) */
+	}
+	/*
+      === CSS 우선순위 ===
+      동일한 태그 또는 동일한 클래스 또는 동일한 아이디에서는 
+      맨 마지막에 기술된 css 내용이 더 우선한다.(즉, 덮어씌운다.)
+    */
+
+</style>
+
+</head>
+<body>
+
+	<h1> ▷ block 방식 - 세로로 보여지는 방식 </h1>
+
+	<h1>h1은 display의 기본값은 block 방식이다. </h1>
+	<h2>h2은 display의 기본값은 block 방식이다. </h2>
+	<h3>h3은 display의 기본값은 block 방식이다. </h3>
+	<h4>h4은 display의 기본값은 block 방식이다. </h4>
+	<h5>h5은 display의 기본값은 block 방식이다. </h5>
+	<h6>h6은 display의 기본값은 block 방식이다. </h6>
+
+	<div>div는 display가 block 방식이다. </div>
+	<div>div는 display가 block 방식이다. </div>
+
+	<hr> <!-- 수평선 -->
+	<hr style="height: 20px; background-color: gold; border: none;"> 
+	
+	<h1> ▷ inline 방식 - 가로로 보여지는 방식 </h1>
+	<div>
+		inline 방식의 태그는 &lt;a&gt; , &lt;l&gt; , &lt;span&gt; 가 있다.
+		<!-- 
+		
+			&lt;	부등호(<) : less than
+			&gt;	부등호(>) : greater than
+			&nbsp;	공백 1칸	: space (" " 공백(스페이스) 1개를 의미한다.)
+			&amp;	앰퍼샌드(&) 기호 (Ampersand, 그리고)
+			&quot;	쌍따옴표(")
+			&#039;	홑따옴표(')
+			&#035;	샾(#)
+		-->
+		<br> <!-- <br> 이 줄바꿈 이다. -->
+		JSP&Servlet , JSP&amp;Servlet , "ORACLE" , &quot;ORACLE&quot; , He's , He&#039;s , #HTML, &#035;HTML
+		 
+	</div>
+	
+	<a href="http://www.naver.com">네이버</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="http://www.daum.net">다음</a> 
+	<a href="http://www.nate.com">네이트</a>
+
+	<br> 
+
+	<label>레이블1 label 태그는 display가 inline 방식이다.</label> 
+	<label>레이블2 label 태그는 display가 inline 방식이다.</label> 
+	<label>레이블3 label 태그는 display가 inline 방식이다.</label> 
+
+	<br> 
+	
+	<span>스팬1 span 태그는 display가 inline 방식이다. </span>
+	<span>스팬2 span 태그는 display가 inline 방식이다. </span>
+	<span>스팬3 span 태그는 display가 inline 방식이다. </span>
+	
+	<hr> 
+	
+	<div id="div1">DIV 1 블럭요소(block element)은 width 및 height 가 적용된다.</div>
+	<div id="div2">DIV 2 블럭요소(block element)은 width 및 height 가 적용된다.</div>
+	
+	<br><br> 
+		
+	<span style=" border: solid 1px red; width: 150px; height: 150px;">span1 인라인요소(inline element)는 width 및 height 가 적용이 안된다. </span>
+	<span style=" border: solid 1px red; width: 200px; height: 150px;">span2 인라인요소(inline element)는 width 및 height 가 적용이 안된다. </span>
+	<span style=" border: solid 1px red; width: 250px; height: 150px;">span3 인라인요소(inline element)는 width 및 height 가 적용이 안된다. </span>
+	<!-- 인라인요소(inline element)의 width 크기는 내용물 길이 만큼이다. -->
+	
+	<br><br> 
+
+	<span style=" display:inline; border: solid 1px red; width: 150px; height: 150px;" class="food">짜장면1</span>
+	<span style=" display:inline; border: solid 1px red; width: 200px; height: 150px;" class="food">탕수육1</span>
+	<span style=" display:inline; border: solid 1px red; width: 250px; height: 150px;" class="food">팔보채1</span>
+	<!-- display : inline; 은 가로형태로 보여주는 것이고, 또한 width 및 height 가 적용이 안된다. -->
+	
+	<br><br> 
+
+	<span style="display:block; border: solid 1px blue;" class="food">짜장면2</span>
+	<span style="display:block; border: solid 1px blue; width: 200px; height: 150px;" class="food">탕수육2</span>
+	<span style="display:block; border: solid 1px blue; width: 250px; height: 150px;" class="food">팔보채2</span>	
+	<!-- inline element인 span 태그를 block 방식으로 변경함. 세로형태로 보여주는 것이다. 
+	block 방식의 width 크기를 설정해주지 않으면 기본 width 크기는 화면 전체로 잡힌다.  -->
+	<!-- 태그 대신에 element 를 쓸 수 있다. (태그=element) -->
+	
+	<br><br> 
+
+	<span style="display:inline-block; border: solid 1px green; width: 150px; height: 150px;" class="food">짜장면3</span>
+	<span style="display:inline-block; border: solid 1px green; width: 200px; height: 150px;" class="food">탕수육3</span>
+	<span style="display:inline-block; border: solid 1px green; width: 250px; height: 150px;" class="food">팔보채3</span>	
+	<!-- inline element인 span 태그를 inline-block 방식으로 변경함. 가로형태로 보여주면서, width 및 height 를 부여할 수 있게 한다. -->
+	
+	<br><br>
+	
+	<div id="myid" class="myclass">CSS 우선순위에 대해서 알아봅니다.</div>
+	
+	
+</body>
+</html>

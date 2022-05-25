@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+
+<style type="text/css">
+
+	body {
+	    margin: 0;
+		padding: 0;
+		font-family: Arial, "MS Trebuchet", sans-serif;
+		word-break: break-all;  /* 공백없이 영어로만 되어질 경우 해당구역을 빠져나가므로 이것을 막기위해서 사용한다. */
+	}
+
+	div#container {
+	 /* border: solid 1px gray; */
+		
+		margin: 0 auto;
+		padding: 2% 9% 3% 10%;
+	}
+	
+	header#login {
+	 /* border: solid 1px orange; */ 
+		
+		width: 99%;
+		min-height: 120px;  
+		background-color: #fff;
+		margin-bottom: 30px;
+	}
+	
+	header#login > div#logo {   
+	/*  border: solid 1px green; */  
+		height: 110px;
+		float: left;   
+	}  
+	
+	header#login > nav {
+	/* 	border: solid 1px blue; */
+		clear: both;   
+	} 
+	
+	header#login > nav > ul {
+	    list-style-type: none;
+	    padding: 0;
+	}
+	
+	header#login > nav > ul > li {
+	    display: inline-block; 
+	/*  border: solid 1px gray; */ 
+	    width: 150px;
+	    text-align: center;
+	} 
+	
+	header#login > nav > ul > li > a {
+		text-decoration: none;
+		color: navy;
+		font-size: 16pt; 
+		font-weight: bold; 
+	}
+	
+	header#login > nav > ul > li > a:hover {
+	    background-color: navy;
+	    color: white; 
+	}
+	
+	div#logo > img {
+		width: 200px;
+	}
+	
+	div#contents {
+	/* 	border: solid 1px green; */
+		width: 99%;
+		margin: 10px 0 20px 0; 
+	}
+	
+	form {
+		margin-top: 50px;
+	}
+	
+	legend {
+		font-size: 20pt;
+	}
+	
+	label.title {
+		display: inline-block;
+		width: 150px;
+		color: navy;
+		font-weight: bold; 
+	}
+	
+	ul {
+	 /* border: solid 1px red; */
+		list-style-type: none;
+		padding-left: 0;
+	}
+	
+	li {
+		line-height: 40px;
+	}
+
+    input.myinput {
+    	height: 20px; 
+    }
+
+
+  /* 
+    input[type="radio"] {
+    	margin-right: 50px; 
+    } 
+  */
+
+    /* 라디오 요소에 체크를 했을 경우 라디오 요소의 테두리를 오렌지색으로 주겠다.  */
+    input[type="radio"]:checked { 
+    	box-shadow: 0 0 0 3px orange;
+    }
+    
+    
+    /* 체크박스 요소에 체크를 했을 경우 체크박스 요소의 테두리를 분홍색으로 주겠다.  */
+    input[type="checkbox"]:checked {
+    	box-shadow: 0 0 0 3px pink;
+    }
+    
+
+    label[for="female"] {
+    	padding-left: 50px; 
+    }
+    
+     
+    select {
+    	width: 150px;
+    }  
+    
+    select.myselect {
+    	height: 25px;
+    }
+
+    button.btn {
+    	width: 100px;
+    	height: 40px;
+    	margin: 20px 0 0 40px; 
+    	font-size: 14pt;
+    	cursor: pointer;
+    	color: #fff;
+    	border: none;
+    	
+    	border-radius: 10%;  /* 사각형을 깍어서 둥근사각형으로 만들어 주는 것  */
+    }
+    
+    button[type="submit"] {
+    	background-color: #001a66;
+    }
+    
+    button[type="reset"] {
+    	background-color: #990000; 
+    } 
+    
+    button[type="button"] {
+    	background-color: #004d00;
+    }
+        
+    footer {
+    /* 	border: solid 1px yellow; */
+    	
+    	clear: both;
+    	width: 99%;
+    	background-color: #ccc;
+    	text-align: center;
+    	padding: 30px 0;
+    	margin-top: 5px;
+    }
+
+</style>
+
+</head>
+<body>
+	<div id="container">
+	    
+	    <header id="login">
+			<div id="logo">
+				<img src="images/logo.png" />
+			</div>
+			
+			<nav>
+	            <ul>
+	            	<li><a href="#">카페</a></li>
+	            	<li><a href="#">메일</a></li>
+	            	<li><a href="#">뉴스</a></li>
+	            	<li><a href="#">지도</a></li>
+	            	<li><a href="#">증권</a></li>
+	            	<li><a href="#">블로그</a></li>
+	            </ul>
+		    </nav>
+		</header>  
+		
+	    <div id="contents">
+		    <form action="register.do">
+		   		<!-- fieldset 태그는 폼을 그룹핑(묶어주는 것)하는 역할 -->
+		   		<fieldset>
+		   		
+		   		    <!-- legend 태그는 fieldset 에 대한 제목을 지정하는 것이다. -->
+		   			<legend>회원가입정보</legend>
+		   			
+		   			<ul>
+		   				<li>
+		   				    <label for="userid" class="title">아이디</label>
+		   				    <input type="text" id="userid" class="myinput" size="20" maxlength="20" autofocus required />
+		   				</li>
+		   				
+		   				<li>
+		   				    <label for="passwd1" class="title">암호</label>
+		   				    <input type="password" id="passwd1" class="myinput" size="20" maxlength="20" required />
+		   				</li>
+		   				
+		   				<li>
+		   				    <label for="passwd2" class="title">암호확인</label>
+		   				    <input type="password" id="passwd2" class="myinput" size="20" maxlength="20" required />
+		   				</li>
+		   				
+		   				<li>
+		   				    <label for="name" class="title">성명</label>
+		   				    <input type="text" id="name" class="myinput" size="20" maxlength="20" required />
+		   				</li>
+		   				
+		   				<li>
+		   				    <label for="email" class="title">이메일</label>
+		   				    <input type="email" id="email" class="myinput" size="20" maxlength="40" required placeholder="예: hongkd@gmail.com" /> 
+		   				</li>
+		   				
+		   				<li>
+		   				    <label class="title">성별</label>
+		   				    <label for="male">남자</label><input type="radio" name="gender" id="male" /> 
+		   				    <label for="female">여자</label><input type="radio" name="gender" id="female" checked /> 
+		   				</li>
+		   				
+		   				<li>
+		   				    <label class="title">취미</label>
+		   				    <label for="hobby1">게임</label><input type="checkbox" name="hobby" id="hobby1" checked /> 
+		   				    <label for="hobby2">영화감상</label><input type="checkbox" name="hobby" id="hobby2" /> 
+		   				    <label for="hobby3">글쓰기</label><input type="checkbox" name="hobby" id="hobby3" checked />
+		   				    <label for="hobby4">음악감상</label><input type="checkbox" name="hobby" id="hobby4" />
+		   				</li>
+		   				
+		   				<li>
+		   				    <label class="title">최종학력</label>
+		   				    <select class="myselect">
+		   				        <option>고졸</option>
+		   				        <option>초대졸</option>
+		   				        <option selected>대졸</option>
+		   				        <option>대학원졸</option>
+		   				    </select>
+		   				</li>
+		   				
+		   				<li>
+		   				    <label class="title">선호음식</label>
+		   				    <select size="3" multiple>
+		   				        <option>짜장면</option>
+		   				        <option>파스타</option>
+		   				        <option>파타이</option>
+		   				        <option>부대찌게</option>
+		   				        <option>떡볶이</option>
+		   				        <option>치킨</option>
+		   				    </select>
+		   				</li>
+		   				
+		   				<li>
+		   				    <label class="title">선호프로그램</label>
+		   				    <select class="myselect">
+		   				        <optgroup label="데이터베이스">
+			   				        <option>Oracle</option>
+			   				        <option>MSSQL</option>
+			   				        <option>MySql</option>
+		   				        </optgroup>
+		   				        
+		   				        <optgroup label="개발언어">
+			   				        <option>Java</option>
+			   				        <option>JSP</option>
+			   				        <option>Spring</option>
+			   				        <option>C/C++</option>
+		   				        </optgroup>
+		   				    </select>
+		   				</li>
+		   				
+		   				<li>
+		   				    <label for="browsername" class="title">웹브라우저</label>
+		   				    <input list="browserType" id="browsername" />
+		   				    <datalist id="browserType">
+		   				          <option value="Chrome" />
+		   				          <option value="Internet Explore" />
+		   				          <option value="Firefox" />
+		   				          <option value="Opera" />
+		   				          <option value="Safari" />
+		   				    </datalist>
+		   				</li>
+		   				
+		   				<li>
+		   				    <label for="addFile" class="title">파일첨부</label>
+		   				    <input type="file" id="addFile" /> 
+		   				</li>
+		   				
+		   				<li>
+		   				    <label for="registerComment" class="title">가입인사말</label>
+		   				    <textarea rows="5" cols="30" id="registerComment"></textarea> 
+		   				</li>
+		   				
+		   				<li>
+		   				    <button type="submit" class="btn">확인</button>
+		   				    <button type="reset"  class="btn">취소</button>
+		   				    <button type="button" class="btn" onclick="javascript:location.href='03index.html'">홈으로</button> 
+		   				</li>
+		   			</ul>
+		   			
+		   		</fieldset>
+		   </form>
+	    </div>
+		
+		<footer>
+		    <p style="width: 60%; border: solid 0px red; margin: 0 auto;">
+				<marquee>
+					Copyright &copy; Kakao Corp. All rights reserved.
+				</marquee>
+			</p>
+		</footer>
+	</div>	
+</body>
+</html>

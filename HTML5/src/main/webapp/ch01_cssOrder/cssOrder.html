@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css(Cascading Style Sheets)의 우선순위에 대해서 알아본다.</title>
+
+<link rel="stylesheet" href="./css/mycss.css">	<!-- ./ 는 생략가능하며 cssOrder.html 파일이 있는 현재 경로를 말한다. -->	
+
+
+<style type="text/css">
+	
+	/* 
+	== CSS(Cascading Style Sheets) 우선순위 == (중첩됐을 때 우선순위)
+	
+	①!important(css 강제 적용) > ②해당 태그에 직접 준 것(인라인방식) > ③HTML 파일 내에서 준 style 태그(임베디드방식) > ④외부에 있는 .css 파일을 로드한 것(예: <link rel="stylesheet" href="./css/mycss.css"> )
+	
+	*/
+	 
+	 
+	 div {
+		border: solid 2px green;  			/* 테두리 : 실선 두께(3px) 초록색 */
+		background-color: #ff6666 !important;	/* 배경색 : 다홍색(강제로 최우선한다.!important) */ /*원래는 color 가 중복되었으므로 아래 div1 에는 적용이 안됨.*/
+		
+		color: blue;				 			/* 글자색 (여기서는 div1,div2 가 color 적용이 중복되지 않으므로 둘 다 적용된다.) */
+	}
+
+</style>
+
+</head>
+<body>
+
+<!-- HTML의 주석문 -->
+
+<div style="border: solid 1px blue; background-color: #ffcccc; color: yellow;">나는 DIV1</div>
+<div>나는 DIV2</div>
+
+</body>
+</html>
